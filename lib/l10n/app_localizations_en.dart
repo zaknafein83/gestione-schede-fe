@@ -1,0 +1,1611 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for English (`en`).
+class AppL10nEn extends AppL10n {
+  AppL10nEn([String locale = 'en']) : super(locale);
+
+  @override
+  String get appTitle => 'DnD Sheets';
+
+  @override
+  String get navHome => 'Home';
+
+  @override
+  String get navCharacters => 'Your characters';
+
+  @override
+  String get navProfile => 'Profile';
+
+  @override
+  String get navSharedSheet => 'Shared character';
+
+  @override
+  String get navCharacterEditor => 'Character sheet';
+
+  @override
+  String get actionSave => 'Save';
+
+  @override
+  String get actionCancel => 'Cancel';
+
+  @override
+  String get actionDelete => 'Delete';
+
+  @override
+  String get actionDuplicate => 'Duplicate';
+
+  @override
+  String get actionRename => 'Rename';
+
+  @override
+  String get actionExport => 'Export';
+
+  @override
+  String get actionImport => 'Import';
+
+  @override
+  String get actionShare => 'Share';
+
+  @override
+  String get actionLogout => 'Sign out';
+
+  @override
+  String get actionClose => 'Close';
+
+  @override
+  String get actionRetry => 'Retry';
+
+  @override
+  String get actionBack => 'Back';
+
+  @override
+  String get actionConfirm => 'Confirm';
+
+  @override
+  String get actionRemove => 'Remove';
+
+  @override
+  String get actionEdit => 'Edit';
+
+  @override
+  String get actionAdd => 'Add';
+
+  @override
+  String get actionReload => 'Reload';
+
+  @override
+  String get actionGoHome => 'Go to home';
+
+  @override
+  String get actionBackHome => 'Back to home';
+
+  @override
+  String commonErrorPrefix(Object message) {
+    return 'Error: $message';
+  }
+
+  @override
+  String commonNetworkError(Object message) {
+    return 'Network error: $message';
+  }
+
+  @override
+  String get commonRequired => 'Required';
+
+  @override
+  String commonMaxChars(Object n) {
+    return 'Max $n characters';
+  }
+
+  @override
+  String commonMinChars(Object n) {
+    return 'At least $n characters';
+  }
+
+  @override
+  String get commonNotAuthenticated => 'You are not signed in.';
+
+  @override
+  String get appearance => 'Appearance';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get languageSectionTitle => 'App language';
+
+  @override
+  String get languageSectionHint =>
+      'Switch the interface between Italian and English. \"System\" follows your device settings.';
+
+  @override
+  String get languageIt => 'Italiano';
+
+  @override
+  String get languageEn => 'English';
+
+  @override
+  String get languageSystem => 'System';
+
+  @override
+  String get authLoginTitle => 'Sign in';
+
+  @override
+  String get authRegisterTitle => 'Sign up';
+
+  @override
+  String get authEmailLabel => 'Email';
+
+  @override
+  String get authPasswordLabel => 'Password';
+
+  @override
+  String get authUsernameLabel => 'Username';
+
+  @override
+  String get authDisplayNameLabel => 'Display name';
+
+  @override
+  String get authNeedAccount => 'Don\'t have an account?';
+
+  @override
+  String get authHaveAccount => 'Already have an account?';
+
+  @override
+  String get authBtnLogin => 'Sign in';
+
+  @override
+  String get authBtnRegister => 'Create account';
+
+  @override
+  String get authCheckEmailTitle => 'Check your email';
+
+  @override
+  String authCheckEmailBody(Object email) {
+    return 'We sent a verification link to $email.';
+  }
+
+  @override
+  String get landingWelcome => 'Welcome';
+
+  @override
+  String get landingTagline => 'Manage your D&D 5e character sheets.';
+
+  @override
+  String get landingCreateAccount => 'Create an account';
+
+  @override
+  String get landingSignIn => 'Sign in';
+
+  @override
+  String get loginAccessTitle => 'Sign in';
+
+  @override
+  String get loginEmailRequired => 'Enter your email';
+
+  @override
+  String get loginEmailInvalid => 'Invalid email';
+
+  @override
+  String get loginPasswordRequired => 'Enter your password';
+
+  @override
+  String get loginGoRegister => 'Don\'t have an account? Sign up';
+
+  @override
+  String get loginForgotPassword => 'Forgot password?';
+
+  @override
+  String get loginNetworkError => 'Network error';
+
+  @override
+  String get forgotPasswordTitle => 'Forgot password';
+
+  @override
+  String get forgotPasswordIntro =>
+      'Enter your email: if the account exists and is verified, we will send you a link to set a new password.';
+
+  @override
+  String get forgotPasswordSubmit => 'Send reset link';
+
+  @override
+  String get forgotPasswordBackToLogin => 'Back to sign in';
+
+  @override
+  String get forgotPasswordSentTitle => 'Check your email';
+
+  @override
+  String get forgotPasswordSentBodyStart => 'If an account exists for ';
+
+  @override
+  String get forgotPasswordSentBodyEnd =>
+      ', you will soon receive a link to reset your password. The link is valid for 1 hour.';
+
+  @override
+  String get resetPasswordTitle => 'Reset password';
+
+  @override
+  String get resetPasswordIntro =>
+      'Choose a new password. All devices where you are currently signed in will be signed out.';
+
+  @override
+  String get resetPasswordSubmit => 'Set new password';
+
+  @override
+  String get resetPasswordDoneTitle => 'Password updated!';
+
+  @override
+  String get resetPasswordDoneBody =>
+      'Your password has been reset. You can now sign in with the new one.';
+
+  @override
+  String get resetPasswordMissingToken =>
+      'Invalid link: missing token. Please request a new reset link.';
+
+  @override
+  String get resetPasswordRequestNew => 'Request new link';
+
+  @override
+  String get registerTitle => 'Create an account';
+
+  @override
+  String get registerEmailRequired => 'Enter your email';
+
+  @override
+  String get registerEmailInvalid => 'Invalid email';
+
+  @override
+  String get registerPasswordRequired => 'Enter a password';
+
+  @override
+  String get registerPasswordMin => 'At least 10 characters';
+
+  @override
+  String get registerPasswordMax => 'Max 100 characters';
+
+  @override
+  String get registerPasswordUpper =>
+      'At least one uppercase letter is required';
+
+  @override
+  String get registerPasswordDigit => 'At least one digit is required';
+
+  @override
+  String get registerPasswordsMismatch => 'Passwords do not match';
+
+  @override
+  String get registerUsernameRequired => 'Enter a username';
+
+  @override
+  String get registerUsernameMin => 'At least 3 characters';
+
+  @override
+  String get registerUsernameMax => 'Max 30 characters';
+
+  @override
+  String get registerUsernameChars => 'Letters, digits and underscore only';
+
+  @override
+  String get registerUsernameHelper =>
+      'Letters, digits and underscore only (3-30)';
+
+  @override
+  String get registerDisplayRequired => 'Enter a display name';
+
+  @override
+  String get registerDisplayMax => 'Max 60 characters';
+
+  @override
+  String get registerPasswordHelper =>
+      'At least 10 characters, 1 uppercase, 1 digit';
+
+  @override
+  String get registerPasswordShow => 'Show password';
+
+  @override
+  String get registerPasswordHide => 'Hide password';
+
+  @override
+  String get registerConfirmLabel => 'Confirm password';
+
+  @override
+  String get checkEmailTitle => 'Check your email';
+
+  @override
+  String get checkEmailHeader => 'We sent you an email';
+
+  @override
+  String get checkEmailBodyStart =>
+      'To activate your account, open the link we sent to ';
+
+  @override
+  String get checkEmailBodyEnd => '. The link is valid for 24 hours.';
+
+  @override
+  String get verifyEmailTitle => 'Email verification';
+
+  @override
+  String get verifyEmailWaiting => 'Verifying your email address…';
+
+  @override
+  String get verifyEmailFailed => 'Verification failed';
+
+  @override
+  String verifyEmailUnexpected(Object error) {
+    return 'Unexpected error: $error';
+  }
+
+  @override
+  String get verifyEmailOk => 'Email verified!';
+
+  @override
+  String get verifyEmailOkBody =>
+      'Your account is now active. You can sign in from the home page.';
+
+  @override
+  String homeGreeting(Object name) {
+    return 'Hi, $name!';
+  }
+
+  @override
+  String get profileTitle => 'Your profile';
+
+  @override
+  String get profileAvatarChange => 'Change avatar';
+
+  @override
+  String get profileAvatarRemove => 'Remove';
+
+  @override
+  String get profileEmailHelper => 'Email cannot be changed';
+
+  @override
+  String get profileUsernameHelper => 'Username cannot be changed';
+
+  @override
+  String get profileBioLabel => 'Bio';
+
+  @override
+  String get profileSaveBtn => 'Save profile';
+
+  @override
+  String get profileChangePassword => 'Change password';
+
+  @override
+  String get profileUpdated => 'Profile updated';
+
+  @override
+  String get profileAvatarUpdated => 'Avatar updated';
+
+  @override
+  String get profilePasswordChangedLogout =>
+      'Password changed. Please sign in again.';
+
+  @override
+  String get changePwdTitle => 'Change password';
+
+  @override
+  String get changePwdCurrentLabel => 'Current password';
+
+  @override
+  String get changePwdNewLabel => 'New password';
+
+  @override
+  String get changePwdNewHelper =>
+      'At least 10 characters, 1 uppercase, 1 digit';
+
+  @override
+  String get changePwdConfirmLabel => 'Confirm new password';
+
+  @override
+  String get changePwdRequired => 'Required';
+
+  @override
+  String get changePwdNewRequired => 'Enter a new password';
+
+  @override
+  String get changePwdMustDiffer => 'Must be different from the current one';
+
+  @override
+  String get changePwdSubmit => 'Change';
+
+  @override
+  String get changePwdLogoutWarning =>
+      'After changing the password you will be signed out and need to sign in again.';
+
+  @override
+  String get dangerZoneTitle => 'Danger zone';
+
+  @override
+  String get deleteAccountHint =>
+      'Deletion is permanent: profile, all characters, share links, and roll history are removed.';
+
+  @override
+  String get deleteAccountButton => 'Delete my account';
+
+  @override
+  String get deleteAccountTitle => 'Delete account?';
+
+  @override
+  String get deleteAccountWarning => 'This action is IRREVERSIBLE.';
+
+  @override
+  String get deleteAccountBullets =>
+      'We will delete: your profile (email, username, avatar), all character sheets with their portraits, all share links (anyone with the link will no longer see anything), the dice roll history. Username and email will become available again for new registrations.';
+
+  @override
+  String deleteAccountTypeUsername(Object username) {
+    return 'Type your username ($username) to confirm';
+  }
+
+  @override
+  String get deleteAccountUsernameMismatch => 'Username does not match';
+
+  @override
+  String get deleteAccountPasswordLabel => 'Current password';
+
+  @override
+  String get deleteAccountConfirmBtn => 'Permanently delete';
+
+  @override
+  String get deleteAccountDoneSnack => 'Account deleted. Goodbye.';
+
+  @override
+  String get charactersEmpty => 'No characters yet.';
+
+  @override
+  String get charactersEmptyHint => 'Tap \"+ New character\" to create one.';
+
+  @override
+  String get charactersNewBtn => 'New character';
+
+  @override
+  String get charactersNoName => '(unnamed)';
+
+  @override
+  String get charactersImportTooltip => 'Import…';
+
+  @override
+  String get charactersImportJson => 'Import native JSON';
+
+  @override
+  String get charactersImportFoundry => 'Import FoundryVTT (dnd5e)';
+
+  @override
+  String get charactersActionsTooltip => 'Actions';
+
+  @override
+  String get charactersActionRename => 'Rename';
+
+  @override
+  String get charactersActionDuplicate => 'Duplicate';
+
+  @override
+  String get charactersActionExportJson => 'Export JSON';
+
+  @override
+  String get charactersActionExportFoundry => 'Export Foundry';
+
+  @override
+  String get charactersActionExportPdf => 'Export PDF';
+
+  @override
+  String get charactersActionDelete => 'Delete';
+
+  @override
+  String get charactersRenameDialogTitle => 'Rename character';
+
+  @override
+  String get charactersRenameLabel => 'New name';
+
+  @override
+  String get charactersDeleteDialogTitle => 'Delete this character?';
+
+  @override
+  String charactersDeleteDialogBody(Object name) {
+    return 'This action cannot be undone.\nCharacter: $name';
+  }
+
+  @override
+  String charactersLevelLabel(Object n) {
+    return 'Level $n';
+  }
+
+  @override
+  String get charactersSnackRenamed => 'Character renamed';
+
+  @override
+  String get charactersSnackDuplicated => 'Character duplicated';
+
+  @override
+  String get charactersSnackDeleted => 'Character deleted';
+
+  @override
+  String charactersSnackExported(Object filename) {
+    return 'Exported: $filename';
+  }
+
+  @override
+  String charactersSnackExportedFoundry(Object filename) {
+    return 'Exported for Foundry (best-effort): $filename';
+  }
+
+  @override
+  String charactersSnackExportedPdf(Object filename) {
+    return 'Exported PDF: $filename';
+  }
+
+  @override
+  String get charactersSnackImportedJson => 'Character imported';
+
+  @override
+  String get charactersSnackImportedFoundry =>
+      'Character imported from Foundry (best-effort, please review)';
+
+  @override
+  String charactersErrorCreate(Object message) {
+    return 'Create failed: $message';
+  }
+
+  @override
+  String charactersErrorImport(Object message) {
+    return 'Import failed: $message';
+  }
+
+  @override
+  String charactersErrorJsonInvalid(Object message) {
+    return 'Invalid JSON: $message';
+  }
+
+  @override
+  String get charactersErrorJsonNotObject =>
+      'File does not contain a JSON object';
+
+  @override
+  String get editorTabAnagrafica => 'Profile';
+
+  @override
+  String get editorTabStats => 'Stats';
+
+  @override
+  String get editorTabAbilities => 'Abilities';
+
+  @override
+  String get editorTabCombat => 'Combat';
+
+  @override
+  String get editorTabSpells => 'Spells';
+
+  @override
+  String get editorTabEquip => 'Equipment';
+
+  @override
+  String get editorTabTraits => 'Traits';
+
+  @override
+  String get editorTabNotes => 'Notes';
+
+  @override
+  String get autosaveIdle => 'Changes are saved automatically';
+
+  @override
+  String get autosaveSaving => 'Saving…';
+
+  @override
+  String autosaveSavedAt(Object time) {
+    return 'Saved at $time';
+  }
+
+  @override
+  String autosaveError(Object message) {
+    return 'Error: $message';
+  }
+
+  @override
+  String get adminTitle => 'Admin panel';
+
+  @override
+  String get adminSearchHint => 'Search by email, username or display name';
+
+  @override
+  String get adminColEmail => 'Email';
+
+  @override
+  String get adminColUsername => 'Username';
+
+  @override
+  String get adminColDisplay => 'Name';
+
+  @override
+  String get adminColTier => 'Plan';
+
+  @override
+  String get adminColRoles => 'Roles';
+
+  @override
+  String get adminColCreated => 'Joined';
+
+  @override
+  String get adminColActions => 'Actions';
+
+  @override
+  String get adminTierFree => 'Free';
+
+  @override
+  String get adminTierPremium => 'Premium';
+
+  @override
+  String get adminRoleAdmin => 'ADMIN';
+
+  @override
+  String get adminActionGrant => 'Grant Premium';
+
+  @override
+  String get adminActionRevoke => 'Revoke Premium';
+
+  @override
+  String get adminActionDelete => 'Delete account';
+
+  @override
+  String get adminDeleteConfirmTitle => 'Confirm deletion';
+
+  @override
+  String adminDeleteConfirmBody(Object email) {
+    return 'This will permanently delete the account $email with all its data. Continue?';
+  }
+
+  @override
+  String get adminDeleteConfirmYes => 'Yes, delete';
+
+  @override
+  String get adminDeleteConfirmNo => 'Cancel';
+
+  @override
+  String adminSnackGranted(Object email) {
+    return 'Premium granted to $email';
+  }
+
+  @override
+  String adminSnackRevoked(Object email) {
+    return 'Premium revoked from $email';
+  }
+
+  @override
+  String adminSnackDeleted(Object email) {
+    return 'Account $email deleted';
+  }
+
+  @override
+  String adminError(Object message) {
+    return 'Error: $message';
+  }
+
+  @override
+  String adminPaginationOf(Object from, Object to, Object total) {
+    return '$from–$to of $total';
+  }
+
+  @override
+  String get adminEmptyList => 'No users found';
+
+  @override
+  String get adminMenuLink => 'Admin panel';
+
+  @override
+  String get paywallTitle => 'Free plan limit reached';
+
+  @override
+  String get paywallBody =>
+      'You\'ve reached the maximum number of sheets on the free plan. Premium removes the limit and the ads on the mobile app forever.';
+
+  @override
+  String get paywallPriceHint =>
+      'Premium €4.99 one-time — coming soon on mobile and web.';
+
+  @override
+  String get paywallOk => 'Got it';
+
+  @override
+  String get aboutSectionTitle => 'About';
+
+  @override
+  String get aboutPlanFree => 'Current plan: Free (up to 2 sheets)';
+
+  @override
+  String get aboutPlanPremium => 'Current plan: Premium';
+
+  @override
+  String get aboutPremiumComing =>
+      'Premium €4.99 one-time will be available soon: removes the sheet limit and the ads on the mobile app.';
+
+  @override
+  String get aboutSrdCredit =>
+      'Spell data is derived from the D&D 5.1 SRD (CC BY 4.0) by Wizards of the Coast. This app is not affiliated with or endorsed by Wizards of the Coast.';
+
+  @override
+  String get sheetSectionAbilities => 'Ability scores';
+
+  @override
+  String get sheetSectionSavesSkills => 'Saving throws & skills';
+
+  @override
+  String get sheetSectionCombat => 'Combat';
+
+  @override
+  String get sheetSectionSpells => 'Spells';
+
+  @override
+  String get sheetSectionEquipment => 'Equipment';
+
+  @override
+  String get sheetSectionTraits => 'Traits';
+
+  @override
+  String get sheetSectionNotes => 'Notes';
+
+  @override
+  String get sheetHeaderBackground => 'Background';
+
+  @override
+  String get sheetHeaderAlignment => 'Alignment';
+
+  @override
+  String get sheetHpLabel => 'HP';
+
+  @override
+  String get sheetAbilityStr => 'Strength';
+
+  @override
+  String get sheetAbilityDex => 'Dexterity';
+
+  @override
+  String get sheetAbilityCon => 'Constitution';
+
+  @override
+  String get sheetAbilityInt => 'Intelligence';
+
+  @override
+  String get sheetAbilityWis => 'Wisdom';
+
+  @override
+  String get sheetAbilityCha => 'Charisma';
+
+  @override
+  String get sheetSavingThrowsLabel => 'Saving throws';
+
+  @override
+  String get sheetSkillsLabel => 'Skills';
+
+  @override
+  String get sheetCombatAc => 'Armor Class';
+
+  @override
+  String get sheetCombatInitiative => 'Initiative';
+
+  @override
+  String get sheetCombatSpeed => 'Speed';
+
+  @override
+  String get sheetCombatProfBonus => 'Prof. bonus';
+
+  @override
+  String get sheetCombatHitDice => 'Hit dice';
+
+  @override
+  String get sheetCombatDeathSaves => 'Death saves';
+
+  @override
+  String sheetCombatDeathSavesValue(Object s, Object f) {
+    return 'OK $s / Fail $f';
+  }
+
+  @override
+  String get sheetSpellsClass => 'Class';
+
+  @override
+  String get sheetSpellsSaveDc => 'Save DC';
+
+  @override
+  String get sheetSpellsAttackBonus => 'Attack bonus';
+
+  @override
+  String get sheetSpellsSlotsByLevel => 'Slots per level';
+
+  @override
+  String get sheetSpellsKnown => 'Known spells';
+
+  @override
+  String get sheetSpellCantrip => 'cantrip';
+
+  @override
+  String sheetSpellLevelShort(Object n) {
+    return 'Lv $n';
+  }
+
+  @override
+  String get sheetSpellAlwaysPrepared => 'Always prepared';
+
+  @override
+  String get sheetSpellPrepared => 'Prepared';
+
+  @override
+  String get sheetEquipmentInventory => 'Inventory';
+
+  @override
+  String get sheetTraitsPersonality => 'Personality traits';
+
+  @override
+  String get sheetTraitsIdeals => 'Ideals';
+
+  @override
+  String get sheetTraitsBonds => 'Bonds';
+
+  @override
+  String get sheetTraitsFlaws => 'Flaws';
+
+  @override
+  String get sheetTraitsLanguages => 'Languages';
+
+  @override
+  String get sheetTraitsArmor => 'Armor';
+
+  @override
+  String get sheetTraitsWeapons => 'Weapons';
+
+  @override
+  String get sheetTraitsTools => 'Tools';
+
+  @override
+  String get sheetTraitsFeatures => 'Features & traits';
+
+  @override
+  String get sheetNotesBackstory => 'Backstory';
+
+  @override
+  String get sheetNotesAllies => 'Allies & organizations';
+
+  @override
+  String get sheetNotesSymbol => 'Symbol';
+
+  @override
+  String get sheetNotesPhysical => 'Physical description';
+
+  @override
+  String get sheetNotesNotes => 'Notes';
+
+  @override
+  String get sharedInvalidLink => 'Invalid or revoked link.';
+
+  @override
+  String get shareDialogTitle => 'Share sheet';
+
+  @override
+  String get shareDialogIntro =>
+      'Generate a read-only public link to show the sheet to your DM. Anyone with the link can view it (no login required). You can revoke it anytime.';
+
+  @override
+  String get shareDialogPublicLink => 'Public link:';
+
+  @override
+  String get shareDialogCopyHint =>
+      'Copy this link now — it won\'t be displayed again after closing the dialog.';
+
+  @override
+  String get shareDialogCopiedSnack => 'Link copied';
+
+  @override
+  String get shareDialogCopy => 'Copy';
+
+  @override
+  String get shareDialogRevoke => 'Revoke';
+
+  @override
+  String get shareDialogActive => 'Active link';
+
+  @override
+  String shareDialogGeneratedAt(Object date) {
+    return 'Generated on $date.';
+  }
+
+  @override
+  String get shareDialogLostHint =>
+      'The plaintext link is not recoverable. If you lost it, generate a new link (the old one will be revoked automatically).';
+
+  @override
+  String get shareDialogRegenerate => 'Regenerate link';
+
+  @override
+  String get shareDialogGenerate => 'Generate share link';
+
+  @override
+  String get customSpellDialogTitleNew => 'New custom spell';
+
+  @override
+  String get customSpellDialogTitleEdit => 'Edit spell';
+
+  @override
+  String get customSpellFieldName => 'Name';
+
+  @override
+  String get customSpellFieldLevel => 'Level';
+
+  @override
+  String get customSpellFieldLevelHelper => '0 = cantrip';
+
+  @override
+  String get customSpellFieldSchool => 'School';
+
+  @override
+  String get customSpellFieldCastingTime => 'Casting time';
+
+  @override
+  String get customSpellHintCastingTime => 'e.g. 1 action';
+
+  @override
+  String get customSpellFieldRange => 'Range';
+
+  @override
+  String get customSpellHintRange => 'e.g. 60 feet';
+
+  @override
+  String get customSpellFieldDuration => 'Duration';
+
+  @override
+  String get customSpellHintDuration => 'e.g. Instantaneous, 1 minute';
+
+  @override
+  String get customSpellComponents => 'Components';
+
+  @override
+  String get customSpellMaterials => 'Materials';
+
+  @override
+  String get customSpellMaterialsHint => 'e.g. a phoenix feather';
+
+  @override
+  String get customSpellConcentration => 'Concentration';
+
+  @override
+  String get customSpellRitual => 'Ritual';
+
+  @override
+  String get customSpellClasses => 'Classes';
+
+  @override
+  String get customSpellDescription => 'Description';
+
+  @override
+  String get customSpellHigherLevels => 'At Higher Levels';
+
+  @override
+  String get abilityShortStr => 'STR';
+
+  @override
+  String get abilityShortDex => 'DEX';
+
+  @override
+  String get abilityShortCon => 'CON';
+
+  @override
+  String get abilityShortInt => 'INT';
+
+  @override
+  String get abilityShortWis => 'WIS';
+
+  @override
+  String get abilityShortCha => 'CHA';
+
+  @override
+  String get skillAcrobatics => 'Acrobatics';
+
+  @override
+  String get skillAnimalHandling => 'Animal Handling';
+
+  @override
+  String get skillArcana => 'Arcana';
+
+  @override
+  String get skillAthletics => 'Athletics';
+
+  @override
+  String get skillDeception => 'Deception';
+
+  @override
+  String get skillHistory => 'History';
+
+  @override
+  String get skillInsight => 'Insight';
+
+  @override
+  String get skillIntimidation => 'Intimidation';
+
+  @override
+  String get skillInvestigation => 'Investigation';
+
+  @override
+  String get skillMedicine => 'Medicine';
+
+  @override
+  String get skillNature => 'Nature';
+
+  @override
+  String get skillPerception => 'Perception';
+
+  @override
+  String get skillPerformance => 'Performance';
+
+  @override
+  String get skillPersuasion => 'Persuasion';
+
+  @override
+  String get skillReligion => 'Religion';
+
+  @override
+  String get skillSleightOfHand => 'Sleight of Hand';
+
+  @override
+  String get skillStealth => 'Stealth';
+
+  @override
+  String get skillSurvival => 'Survival';
+
+  @override
+  String get conditionBlinded => 'Blinded';
+
+  @override
+  String get conditionBlindedDesc =>
+      'A blinded creature can\'t see and automatically fails any ability check that requires sight. Attack rolls against the creature have advantage, and the creature\'s attack rolls have disadvantage.';
+
+  @override
+  String get conditionCharmed => 'Charmed';
+
+  @override
+  String get conditionCharmedDesc =>
+      'A charmed creature can\'t attack the charmer or target the charmer with harmful abilities or magical effects. The charmer has advantage on any ability check to interact socially with the creature.';
+
+  @override
+  String get conditionDeafened => 'Deafened';
+
+  @override
+  String get conditionDeafenedDesc =>
+      'A deafened creature can\'t hear and automatically fails any ability check that requires hearing.';
+
+  @override
+  String get conditionFrightened => 'Frightened';
+
+  @override
+  String get conditionFrightenedDesc =>
+      'A frightened creature has disadvantage on ability checks and attack rolls while the source of its fear is within line of sight. The creature can\'t willingly move closer to the source of its fear.';
+
+  @override
+  String get conditionGrappled => 'Grappled';
+
+  @override
+  String get conditionGrappledDesc =>
+      'A grappled creature\'s speed becomes 0, and it can\'t benefit from any bonus to its speed. The condition ends if the grappler is incapacitated or if the creature is moved out of reach.';
+
+  @override
+  String get conditionIncapacitated => 'Incapacitated';
+
+  @override
+  String get conditionIncapacitatedDesc =>
+      'An incapacitated creature can\'t take actions or reactions.';
+
+  @override
+  String get conditionInvisible => 'Invisible';
+
+  @override
+  String get conditionInvisibleDesc =>
+      'An invisible creature is impossible to see without the aid of magic or a special sense. For the purpose of hiding, the creature is heavily obscured. Attack rolls against the creature have disadvantage, and the creature\'s attack rolls have advantage.';
+
+  @override
+  String get conditionParalyzed => 'Paralyzed';
+
+  @override
+  String get conditionParalyzedDesc =>
+      'A paralyzed creature is incapacitated and can\'t move or speak. The creature automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage. Any attack that hits the creature is a critical hit if the attacker is within 5 feet.';
+
+  @override
+  String get conditionPetrified => 'Petrified';
+
+  @override
+  String get conditionPetrifiedDesc =>
+      'A petrified creature is transformed into solid inanimate substance. It is incapacitated, weight x10, and ceases aging. Attack rolls against the creature have advantage. It has resistance to all damage and is immune to poison and disease.';
+
+  @override
+  String get conditionPoisoned => 'Poisoned';
+
+  @override
+  String get conditionPoisonedDesc =>
+      'A poisoned creature has disadvantage on attack rolls and ability checks.';
+
+  @override
+  String get conditionProne => 'Prone';
+
+  @override
+  String get conditionProneDesc =>
+      'A prone creature can only crawl. It has disadvantage on attack rolls. Attack rolls against the creature have advantage if the attacker is within 5 feet, otherwise disadvantage.';
+
+  @override
+  String get conditionRestrained => 'Restrained';
+
+  @override
+  String get conditionRestrainedDesc =>
+      'A restrained creature\'s speed becomes 0, and it can\'t benefit from any bonus to its speed. Attack rolls against the creature have advantage, and the creature\'s attack rolls have disadvantage. The creature has disadvantage on Dexterity saving throws.';
+
+  @override
+  String get conditionStunned => 'Stunned';
+
+  @override
+  String get conditionStunnedDesc =>
+      'A stunned creature is incapacitated, can\'t move, and can speak only falteringly. The creature automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage.';
+
+  @override
+  String get conditionUnconscious => 'Unconscious';
+
+  @override
+  String get conditionUnconsciousDesc =>
+      'An unconscious creature is incapacitated, can\'t move or speak, and is unaware of its surroundings. It drops what it\'s holding and falls prone. The creature automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage. Any attack that hits the creature is a critical hit if the attacker is within 5 feet.';
+
+  @override
+  String get conditionExhaustion => 'Exhaustion';
+
+  @override
+  String get conditionExhaustionDesc =>
+      'Exhaustion has 6 levels with cumulative effects. Level 1: disadvantage on ability checks. Level 2: speed halved. Level 3: disadvantage on attack rolls and saving throws. Level 4: HP maximum halved. Level 5: speed 0. Level 6: death.';
+
+  @override
+  String get diceTitle => 'Dice roller';
+
+  @override
+  String get diceFormulaLabel => 'Formula (e.g. 1d20+5, 3d6+1d4)';
+
+  @override
+  String get diceAdvantage => 'Advantage';
+
+  @override
+  String get diceDisadvantage => 'Disadvantage';
+
+  @override
+  String get diceRollButton => 'Roll';
+
+  @override
+  String get diceHistory => 'History';
+
+  @override
+  String get diceClear => 'Clear';
+
+  @override
+  String get diceNoRollsYet => '— no rolls yet —';
+
+  @override
+  String get diceNoOtherRolls => '— no other rolls —';
+
+  @override
+  String get spellPickerTitle => 'SRD catalog';
+
+  @override
+  String get spellPickerSearchHint => 'Search by name (e.g. "fire")';
+
+  @override
+  String get spellFilterLevelHint => 'Level';
+
+  @override
+  String get spellFilterLevelAll => 'Level: all';
+
+  @override
+  String get spellFilterCantrips => 'Cantrips';
+
+  @override
+  String spellFilterLevelN(Object n) {
+    return 'Lv. $n';
+  }
+
+  @override
+  String get spellFilterSchoolHint => 'School';
+
+  @override
+  String get spellFilterSchoolAll => 'School: all';
+
+  @override
+  String get spellFilterClassHint => 'Class';
+
+  @override
+  String get spellFilterClassAll => 'Class: all';
+
+  @override
+  String get spellPickerNoResults => 'No results';
+
+  @override
+  String get spellPickerDetails => 'Details';
+
+  @override
+  String get spellPickerAdd => 'Add to sheet';
+
+  @override
+  String get editorToolbarShare => 'Share (read-only link)';
+
+  @override
+  String get editorPortraitChange => 'Change portrait';
+
+  @override
+  String get editorPortraitUpload => 'Upload portrait';
+
+  @override
+  String get editorPortraitUpdatedSnack => 'Portrait updated';
+
+  @override
+  String get editorPortraitRemovedSnack => 'Portrait removed';
+
+  @override
+  String get autosaveFormInvalid => 'Invalid form — not saved';
+
+  @override
+  String get editorAnagraficaName => 'Name';
+
+  @override
+  String get editorAnagraficaLevel => 'Level';
+
+  @override
+  String get editorAnagraficaRace => 'Race';
+
+  @override
+  String get editorAnagraficaSubrace => 'Subrace';
+
+  @override
+  String get editorAnagraficaClass => 'Class';
+
+  @override
+  String get editorAnagraficaSubclass => 'Subclass';
+
+  @override
+  String get editorAnagraficaExperience => 'Experience (XP)';
+
+  @override
+  String get editorAnagraficaInspiration => 'Inspiration';
+
+  @override
+  String get editorStatsTitle => 'Ability scores';
+
+  @override
+  String get editorStatsHint =>
+      'Values 1-30. The modifier (below the field) updates automatically.';
+
+  @override
+  String get editorAbilityTooltipNeedsValue => 'Enter the score to roll';
+
+  @override
+  String editorAbilityTooltipRoll(Object formula, Object ability) {
+    return 'Roll $formula ($ability)';
+  }
+
+  @override
+  String get editorColComp => 'Prof.';
+
+  @override
+  String get editorColExpert => 'Exp.';
+
+  @override
+  String get editorColTotal => 'Tot.';
+
+  @override
+  String get editorFlagOverrideTag => 'override';
+
+  @override
+  String get editorProfBonusOverrideTooltip => 'Manual override (Combat)';
+
+  @override
+  String get editorProfBonusAutoTooltip => 'Calculated from level';
+
+  @override
+  String editorProfBonusChipLabel(Object value) {
+    return 'Prof $value';
+  }
+
+  @override
+  String get editorCombatDefenseMovement => 'Defense & movement';
+
+  @override
+  String get editorCombatArmorClassLabel => 'Armor Class (AC)';
+
+  @override
+  String editorCombatHintAcAuto(Object value, Object ability) {
+    return 'auto: $value (10 + $ability)';
+  }
+
+  @override
+  String editorCombatHintInitAuto(Object value, Object ability) {
+    return 'auto: $value ($ability mod)';
+  }
+
+  @override
+  String get editorCombatSpeedLabel => 'Speed (ft)';
+
+  @override
+  String get editorCombatProfBonusLabel => 'Proficiency bonus';
+
+  @override
+  String editorCombatHintProfAuto(Object value) {
+    return 'auto: $value (from level)';
+  }
+
+  @override
+  String get editorCombatHpSectionTitle => 'Hit Points';
+
+  @override
+  String get editorCombatHpMaxLabel => 'Max HP';
+
+  @override
+  String get editorCombatHpCurrentLabel => 'Current HP';
+
+  @override
+  String get editorCombatHitDiceTotalLabel => 'Total';
+
+  @override
+  String get editorCombatHitDiceUsedLabel => 'Used';
+
+  @override
+  String get editorCombatDeathSavesSectionTitle => 'Death saving throws';
+
+  @override
+  String get editorCombatDeathSavesSuccLabel => 'Successes (0-3)';
+
+  @override
+  String get editorCombatDeathSavesFailLabel => 'Failures (0-3)';
+
+  @override
+  String get editorCombatConditionsTitle => 'Conditions';
+
+  @override
+  String get editorCombatConditionsHint =>
+      'Tap a chip to toggle. Tap the ⓘ icon for the PHB description.';
+
+  @override
+  String get editorCombatRestsTitle => 'Rests';
+
+  @override
+  String get editorCombatRestsHint =>
+      'Short rest: reset death saves (and warlock slots if warlock progression). Long rest: HP=max, temp=0, full slots, hit dice recovered by half.';
+
+  @override
+  String get editorHpDialogTitle => 'Edit HP';
+
+  @override
+  String get editorHpQuantityLabel => 'Amount';
+
+  @override
+  String get editorHpQuantityHint => 'e.g. 8';
+
+  @override
+  String get editorHpHeal => 'Heal';
+
+  @override
+  String get editorHpDamage => 'Damage';
+
+  @override
+  String get editorHpTempLabel => 'Temp HP';
+
+  @override
+  String get editorHpTempHelper => 'Do not stack: the highest value applies';
+
+  @override
+  String get editorHpTempApply => 'Apply temp HP';
+
+  @override
+  String get editorRestLong => 'Long rest';
+
+  @override
+  String get editorRestShort => 'Short rest';
+
+  @override
+  String get editorRestLongBody =>
+      'Will apply: HP to max, temp HP to 0, spell slots full, hit dice recovered by half, death saves reset.';
+
+  @override
+  String get editorRestShortBody =>
+      'Death saves will be reset. If warlock progression, spell slots refill.';
+
+  @override
+  String get editorRestLongConfirmTitle => 'Long rest?';
+
+  @override
+  String get editorRestShortConfirmTitle => 'Short rest?';
+
+  @override
+  String get editorRestLongApplied => 'Long rest applied';
+
+  @override
+  String get editorRestShortApplied => 'Short rest applied';
+
+  @override
+  String get editorSpellsCasterClassLabel => 'Spellcasting class';
+
+  @override
+  String get editorSpellsSaveDcLabel => 'Spell save DC';
+
+  @override
+  String get editorSpellsAttackLabel => 'Attack bonus';
+
+  @override
+  String get editorSpellsSlotsHint =>
+      'Leave empty the levels you don\'t have (won\'t be sent). You can prefill from the PHB table.';
+
+  @override
+  String get editorSpellsListTitle => 'Spell list';
+
+  @override
+  String get editorSpellsListHint =>
+      'Add from the SRD catalog (319 spells) or create a custom homebrew.';
+
+  @override
+  String get editorSpellsAddFromCatalog => 'Add from catalog';
+
+  @override
+  String get editorSpellsCustomSpell => 'Custom spell';
+
+  @override
+  String get editorSpellsConvertTitle => 'Customize spell';
+
+  @override
+  String get editorSpellsConvertBody =>
+      'It will be copied from the catalog and become an editable custom. The link to the SRD catalog is lost.';
+
+  @override
+  String get editorSpellsConvertConfirm => 'Customize';
+
+  @override
+  String get editorSpellsProgressionLabel => 'Progression (PHB)';
+
+  @override
+  String get editorSpellsFillFromPhb => 'Fill from PHB';
+
+  @override
+  String editorSpellsPrefillerPreview(Object level, Object slots) {
+    return 'Preview at level $level: $slots';
+  }
+
+  @override
+  String get editorSpellsNoSlotsAtLevel => 'no slots at this level';
+
+  @override
+  String get editorSpellsSetLevelFirst =>
+      'Set the character level first in the Profile tab.';
+
+  @override
+  String get editorSpellsFillConfirmTitle => 'Fill the slots?';
+
+  @override
+  String get editorSpellsFillConfirmBody =>
+      'The "Max" values will be overwritten from the PHB table. The current count will be clamped to the new max.';
+
+  @override
+  String get editorSpellsFillConfirmYes => 'Fill';
+
+  @override
+  String get editorSpellsFillSnack => 'Slots prefilled';
+
+  @override
+  String editorSpellsSlotLevel(Object n) {
+    return 'Level $n';
+  }
+
+  @override
+  String get editorSpellsSlotMax => 'Max';
+
+  @override
+  String get editorSpellsNoSlotsLine => '— no slots —';
+
+  @override
+  String get editorSpellsConsumeSlot => 'Use slot';
+
+  @override
+  String get editorSpellsRestoreSlot => 'Restore slot';
+
+  @override
+  String get editorSpellsLevelChipCantrip => 'Cant.';
+
+  @override
+  String editorSpellsLevelChipLvl(Object n) {
+    return 'L$n';
+  }
+
+  @override
+  String editorSpellsFromCatalog(Object source) {
+    return 'From catalog ($source)';
+  }
+
+  @override
+  String get editorSpellsCustomHomebrewTooltip => 'Custom homebrew';
+
+  @override
+  String get editorSpellsActionsTooltip => 'Actions';
+
+  @override
+  String get editorSpellsAlwaysPreparedShort => 'Always prep.';
+
+  @override
+  String get editorSpellsNotesLabel => 'Notes (per sheet)';
+
+  @override
+  String get editorSpellProgressionNone => 'None';
+
+  @override
+  String get editorSpellProgressionFull => 'Full caster (Wizard, Cleric, …)';
+
+  @override
+  String get editorSpellProgressionHalf => 'Half caster (Paladin, Ranger)';
+
+  @override
+  String get editorSpellProgressionThird => 'Third caster (Trickster, Eldritch)';
+
+  @override
+  String get editorSpellProgressionWarlock => 'Warlock (Pact Magic)';
+
+  @override
+  String get editorEquipCoinsTitle => 'Coins';
+
+  @override
+  String get editorEquipAddItem => 'Add item';
+
+  @override
+  String get editorEquipItemName => 'Item';
+
+  @override
+  String get editorEquipItemQty => 'Quantity';
+
+  @override
+  String get editorEquipItemWeight => 'Weight (lb)';
+
+  @override
+  String get editorEquipItemNotes => 'Notes';
+
+  @override
+  String get editorTraitsProficienciesTitle => 'Proficiencies';
+
+  @override
+  String get editorTraitsFeaturesFieldLabel => 'Features/traits';
+
+  @override
+  String get editorTraitsLanguagesNone => '— none —';
+
+  @override
+  String get editorTraitsAddLanguageLabel => 'Add language';
+
+  @override
+  String get editorNotesBackstoryLabel => 'Backstory';
+
+  @override
+  String get editorNotesNotesLabel => 'Free notes';
+
+  @override
+  String get editorNotAuthError => 'User not authenticated';
+
+  @override
+  String get editorValidatorEnterNumber => 'Enter a number';
+
+  @override
+  String get editorValidatorMinZero => 'Must be ≥ 0';
+
+  @override
+  String editorValidatorMinN(Object n) {
+    return 'Min $n';
+  }
+
+  @override
+  String editorValidatorMaxN(Object n) {
+    return 'Max $n';
+  }
+}

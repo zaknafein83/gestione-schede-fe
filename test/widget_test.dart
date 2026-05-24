@@ -1,30 +1,31 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:dndsheets_frontend/features/auth/data/auth_controller.dart';
+import 'package:dndsheets_frontend/features/auth/models/auth_models.dart';
 import 'package:dndsheets_frontend/main.dart';
 
+/// Sostituisce AuthController in modo che il bootstrap non tocchi
+/// flutter_secure_storage (non disponibile nell'env di test Flutter standard).
+class _UnauthenticatedAuthController extends AuthController {
+  @override
+  Future<UserDto?> build() async => null;
+}
+
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Landing renderizza "Benvenuto" quando non autenticato', (tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          authControllerProvider.overrideWith(_UnauthenticatedAuthController.new),
+        ],
+        child: const DndSheetsApp(),
+      ),
+    );
+    await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Benvenuto'), findsOneWidget);
+    expect(find.text('Crea un account'), findsOneWidget);
+    expect(find.text('Accedi'), findsOneWidget);
   });
 }
