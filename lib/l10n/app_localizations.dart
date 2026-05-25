@@ -517,8 +517,8 @@ abstract class AppL10n {
   /// No description provided for @landingMadeBy.
   String get landingMadeBy;
 
-  /// No description provided for @adminBackTooltip.
-  String get adminBackTooltip;
+  /// No description provided for @commonBack.
+  String get commonBack;
 
   /// No description provided for @loginAccessTitle.
   ///

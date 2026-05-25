@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/api_error.dart';
+import '../../../core/smart_back_button.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_controller.dart';
 import '../../auth/data/auth_storage.dart';
@@ -162,19 +162,7 @@ class _AdminScreenState extends ConsumerState<AdminScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.adminTitle),
-        // Back robusto: se c'è uno stack di navigazione fa il pop normale,
-        // altrimenti torna al profilo (è il posto canonico da cui si arriva qui).
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          tooltip: l10n.adminBackTooltip,
-          onPressed: () {
-            if (Navigator.canPop(context)) {
-              Navigator.pop(context);
-            } else {
-              context.go('/profile');
-            }
-          },
-        ),
+        leading: smartBackButton(context, fallback: '/profile'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

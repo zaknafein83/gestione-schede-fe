@@ -281,7 +281,7 @@ class AppL10nIt extends AppL10n {
   String get landingMadeBy => 'Realizzato da Zaknafein';
 
   @override
-  String get adminBackTooltip => 'Indietro';
+  String get commonBack => 'Indietro';
 
   @override
   String get loginAccessTitle => 'Accedi';
