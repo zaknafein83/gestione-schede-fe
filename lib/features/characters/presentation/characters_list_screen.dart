@@ -26,6 +26,7 @@ class CharactersListScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.navCharacters),
+        leading: smartBackButton(context, fallback: '/home'),
         actions: [
           PopupMenuButton<String>(
             tooltip: l10n.charactersImportTooltip,

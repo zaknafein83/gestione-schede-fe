@@ -45,6 +45,7 @@ class CharacterEditorScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.navCharacterEditor),
+        leading: smartBackButton(context, fallback: '/characters'),
         actions: [
           IconButton(
             tooltip: l10n.editorToolbarShare,

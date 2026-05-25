@@ -99,7 +99,7 @@
   "landingFooterContact": "Contact",
   "landingImageCredit":   "Background illustration: Placidplace via Pixabay.",
   "landingMadeBy":        "Made by Zaknafein",
-  "adminBackTooltip":     "Back",
+  "commonBack":           "Back",
   "loginAccessTitle":    "Sign in",
   "loginEmailRequired":  "Enter your email",
   "loginEmailInvalid":   "Invalid email",

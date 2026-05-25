@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/api_error.dart';
 import '../../../core/locale.dart';
+import '../../../core/smart_back_button.dart';
 import '../../../core/theme.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_controller.dart';
@@ -182,7 +183,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
     final l10n = AppL10n.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.profileTitle)),
+      appBar: AppBar(
+        title: Text(l10n.profileTitle),
+        leading: smartBackButton(context, fallback: '/home'),
+      ),
       body: user == null
           ? const Center(child: CircularProgressIndicator())
           : Center(
