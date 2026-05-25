@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/api_error.dart';
+import '../../../core/smart_back_button.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../paywall/presentation/paywall_dialog.dart';
 import '../../share/logic/file_download.dart';
