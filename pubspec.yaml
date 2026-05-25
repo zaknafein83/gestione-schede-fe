@@ -59,6 +59,11 @@ flutter:
     # Sorgente: https://pixabay.com/it/illustrations/scenario-torrente-fiume-nevoso-7858224/
     - assets/landing/hero_scenery.jpg
 
+    # Brand "Zaknafein" — logo del provider del servizio. Usato come marchio
+    # discreto (footer landing, pagina contatti) per identificare il Titolare.
+    # File generati anche in web/icons/ per favicon e PWA.
+    - assets/brand/brand-z.png
+
   fonts:
     # Cinzel — font display tipo "epigrafe romana", perfetto per il tono
     # fantasy della landing. Licenza SIL Open Font License 1.1

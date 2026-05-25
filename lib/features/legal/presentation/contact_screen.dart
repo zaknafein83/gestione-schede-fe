@@ -11,10 +11,28 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppL10n.of(context);
+    final l10n   = AppL10n.of(context);
+    final scheme = Theme.of(context).colorScheme;
     return LegalScaffold(
       title: l10n.legalContactTitle,
       children: [
+        // Logo del Titolare: tinted col primary del theme (viola in entrambi
+        // light/dark) per identificarlo come marchio del provider.
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 8, bottom: 16),
+            child: ColorFiltered(
+              colorFilter: ColorFilter.mode(scheme.primary, BlendMode.srcIn),
+              child: Image.asset(
+                'assets/brand/brand-z.png',
+                width: 96,
+                height: 96,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+        ),
+
         legalH1('Titolare del Servizio'),
         legalP(
           'Il Servizio PG 5e è fornito da Francesco Sisca (persona fisica), residente in '

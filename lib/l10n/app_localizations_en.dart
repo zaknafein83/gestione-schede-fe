@@ -277,6 +277,9 @@ class AppL10nEn extends AppL10n {
       'Background illustration: Placidplace via Pixabay.';
 
   @override
+  String get landingMadeBy => 'Made by Zaknafein';
+
+  @override
   String get loginAccessTitle => 'Sign in';
 
   @override
