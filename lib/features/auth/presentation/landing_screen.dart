@@ -920,9 +920,38 @@ class _Footer extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: 1100),
           child: Column(
             children: [
-              // Mini diamante decorativo prima dei link
-              const _DiamondMark(),
-              const SizedBox(height: 16),
+              // Brand "Made by Zaknafein": logo Z piccolo + scritta in Cinzel
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ColorFiltered(
+                    // L'immagine è nera; invertita diventa color crema. Aggiungo
+                    // poi una sfumatura gold via tint per integrarsi col tema.
+                    colorFilter: const ColorFilter.mode(
+                      _Palette.goldSoft,
+                      BlendMode.srcIn,
+                    ),
+                    child: Image.asset(
+                      'assets/brand/brand-z.png',
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    l10n.landingMadeBy,
+                    style: const TextStyle(
+                      fontFamily:    kFontDisplay,
+                      color:         _Palette.goldSoft,
+                      fontSize:      13,
+                      fontWeight:    FontWeight.w700,
+                      letterSpacing: 2,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 18),
               Wrap(
                 alignment: WrapAlignment.center,
                 crossAxisAlignment: WrapCrossAlignment.center,
