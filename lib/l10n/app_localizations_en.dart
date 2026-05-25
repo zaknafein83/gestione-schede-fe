@@ -192,14 +192,18 @@ class AppL10nEn extends AppL10n {
   String get landingSignIn => 'Sign in';
 
   @override
-  String get landingHeroTitle => 'Your 5e sheets, always with you';
+  String get landingHeroEyebrow => 'Chronicles of a 5e adventurer';
+
+  @override
+  String get landingHeroTitle => 'Forge your hero.\nLive your legend.';
 
   @override
   String get landingHeroSubtitle =>
-      'Create, edit, play. Your whole adventure on the web — and soon on mobile.';
+      'Keep every sheet, roll every die, share the deeds of your character — '
+      'a digital companion for your 5e role-playing adventures.';
 
   @override
-  String get landingCtaOpenWeb => 'Open the web app';
+  String get landingCtaOpenWeb => 'Enter your library';
 
   @override
   String get landingCtaOpenWebSub => 'Already have an account? Sign in.';
@@ -214,42 +218,47 @@ class AppL10nEn extends AppL10n {
   String get landingCtaStorePrefix => 'Soon';
 
   @override
-  String get landingCtaSpells => 'Browse spells';
+  String get landingCtaSpells => 'Browse the spell codex';
 
   @override
   String get landingCtaSpellsSub =>
       'Preview the public spell catalog (coming soon)';
 
   @override
-  String get landingFeaturesTitle => 'What you can do';
+  String get landingFeaturesTitle => "The Chronicler's arts";
 
   @override
-  String get landingFeatureSheetTitle => 'Complete sheet';
+  String get landingFeaturesSubtitle =>
+      'Everything an adventurer needs, gathered in a single grimoire.';
+
+  @override
+  String get landingFeatureSheetTitle => 'Character scroll';
 
   @override
   String get landingFeatureSheetDesc =>
-      'Every field from the 5e core rulebook, automatic calculations, dedicated tabs.';
+      'Every field from the 5e core rulebook, eight dedicated sections, automatic calculations. '
+      'No detail of your hero gets lost.';
 
   @override
-  String get landingFeatureDiceTitle => 'Dice & combat';
+  String get landingFeatureDiceTitle => 'Fate of the dice';
 
   @override
   String get landingFeatureDiceDesc =>
-      'Built-in dice roller, HP tracking, spell slots, conditions and rests.';
+      'Built-in dice roller, HP tracking, spell slots, conditions and rests at your fingertips.';
 
   @override
-  String get landingFeatureShareTitle => 'Easy sharing';
+  String get landingFeatureShareTitle => 'Shared sagas';
 
   @override
   String get landingFeatureShareDesc =>
-      'Generate a read-only link for your DM and friends, revocable in one click.';
+      'A read-only link for your Dungeon Master and party. Revocable in an instant, always yours.';
 
   @override
-  String get landingFeatureSpellsTitle => 'Spell catalog';
+  String get landingFeatureSpellsTitle => 'Spell codex';
 
   @override
   String get landingFeatureSpellsDesc =>
-      '319 SRD 5.1 spells, fast search, detailed cards in Italian and English.';
+      '319 spells from the SRD 5.1, fast search, complete descriptions in Italian and English.';
 
   @override
   String get landingFooterLegal => 'Legal';

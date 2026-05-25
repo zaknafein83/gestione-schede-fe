@@ -192,14 +192,18 @@ class AppL10nIt extends AppL10n {
   String get landingSignIn => 'Accedi';
 
   @override
-  String get landingHeroTitle => 'Le tue schede 5e, sempre con te';
+  String get landingHeroEyebrow => 'Cronache di un avventuriero 5e';
+
+  @override
+  String get landingHeroTitle => 'Forgia il tuo eroe.\nVivi la tua leggenda.';
 
   @override
   String get landingHeroSubtitle =>
-      'Crea, modifica, gioca. Tutta la tua avventura su web e — presto — su mobile.';
+      'Custodisci ogni scheda, lancia ogni dado, condividi le gesta del tuo personaggio — '
+      'un compagno digitale per le tue avventure di ruolo 5e.';
 
   @override
-  String get landingCtaOpenWeb => "Apri l'app web";
+  String get landingCtaOpenWeb => 'Entra nella tua biblioteca';
 
   @override
   String get landingCtaOpenWebSub => 'Hai già un account? Accedi.';
@@ -214,42 +218,48 @@ class AppL10nIt extends AppL10n {
   String get landingCtaStorePrefix => 'Presto';
 
   @override
-  String get landingCtaSpells => 'Consulta gli incantesimi';
+  String get landingCtaSpells => 'Sfoglia il codex degli incantesimi';
 
   @override
   String get landingCtaSpellsSub =>
       'Anteprima del catalogo pubblico (in arrivo)';
 
   @override
-  String get landingFeaturesTitle => 'Cosa puoi fare';
+  String get landingFeaturesTitle => 'Le arti del Cronista';
 
   @override
-  String get landingFeatureSheetTitle => 'Scheda completa';
+  String get landingFeaturesSubtitle =>
+      'Tutto quello che serve a un avventuriero, raccolto in un solo grimorio.';
+
+  @override
+  String get landingFeatureSheetTitle => 'Pergamena del PG';
 
   @override
   String get landingFeatureSheetDesc =>
-      'Tutti i campi del manuale base 5e, calcoli automatici, tab dedicate.';
+      'Ogni campo del manuale 5e, otto sezioni dedicate, calcoli automatici. '
+      'Nessun dettaglio del tuo eroe va perduto.';
 
   @override
-  String get landingFeatureDiceTitle => 'Dadi e combattimento';
+  String get landingFeatureDiceTitle => 'Il fato dei dadi';
 
   @override
   String get landingFeatureDiceDesc =>
-      'Dice roller integrato, gestione PF, slot incantesimi, condizioni e riposi.';
+      'Dice roller integrato, gestione PF, slot incantesimi, condizioni e riposi a portata di mano.';
 
   @override
-  String get landingFeatureShareTitle => 'Condivisione facile';
+  String get landingFeatureShareTitle => 'Saghe condivise';
 
   @override
   String get landingFeatureShareDesc =>
-      'Genera un link in sola lettura per Master e amici, revocabile in un clic.';
+      'Un link in sola lettura per il tuo Dungeon Master e la compagnia. '
+      'Revocabile in un istante, sempre tuo.';
 
   @override
-  String get landingFeatureSpellsTitle => 'Catalogo incantesimi';
+  String get landingFeatureSpellsTitle => 'Codex degli incantesimi';
 
   @override
   String get landingFeatureSpellsDesc =>
-      '319 incantesimi SRD 5.1, ricerca rapida, schede dettagliate in italiano e inglese.';
+      '319 incantesimi del SRD 5.1, ricerca rapida, descrizioni complete in italiano e inglese.';
 
   @override
   String get landingFooterLegal => 'Note legali';

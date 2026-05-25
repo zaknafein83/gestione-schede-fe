@@ -439,6 +439,9 @@ abstract class AppL10n {
   /// **'Accedi'**
   String get landingSignIn;
 
+  /// No description provided for @landingHeroEyebrow.
+  String get landingHeroEyebrow;
+
   /// No description provided for @landingHeroTitle.
   String get landingHeroTitle;
 
@@ -468,6 +471,9 @@ abstract class AppL10n {
 
   /// No description provided for @landingFeaturesTitle.
   String get landingFeaturesTitle;
+
+  /// No description provided for @landingFeaturesSubtitle.
+  String get landingFeaturesSubtitle;
 
   /// No description provided for @landingFeatureSheetTitle.
   String get landingFeatureSheetTitle;
