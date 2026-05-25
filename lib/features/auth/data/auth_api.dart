@@ -107,6 +107,20 @@ class AuthApi {
     }
   }
 
+  /// GET /me/export — scarica il dump completo dei dati personali
+  /// dell'utente (GDPR art. 15 + 20). Ritorna la mappa JSON pronta da
+  /// serializzare e offrire come download.
+  Future<Map<String, dynamic>> exportMyData(String accessToken) async {
+    final res = await _dio.get(
+      '/me/export',
+      options: Options(headers: {'Authorization': 'Bearer $accessToken'}),
+    );
+    if (res.statusCode == 200) {
+      return Map<String, dynamic>.from(res.data as Map);
+    }
+    throw ApiError.fromResponseData(res.statusCode ?? 0, res.data);
+  }
+
   /// POST /me/delete-account — hard delete cascade dell'account.
   /// Richiede la password attuale per conferma. Irreversibile.
   Future<void> deleteAccount(String accessToken, String password) async {

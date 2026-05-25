@@ -1,22 +1,30 @@
 /// Payload per POST /auth/register.
+///
+/// [acceptPrivacy] è la prova di consenso GDPR (art. 7(1)). Il backend
+/// rifiuta la registrazione con 400 se è false o assente. Va settato a true
+/// SOLO se l'utente ha realmente spuntato il checkbox in UI con i link a
+/// /privacy e /terms.
 class RegisterRequest {
   RegisterRequest({
     required this.email,
     required this.password,
     required this.username,
     required this.displayName,
+    required this.acceptPrivacy,
   });
 
   final String email;
   final String password;
   final String username;
   final String displayName;
+  final bool   acceptPrivacy;
 
   Map<String, dynamic> toJson() => {
         'email': email,
         'password': password,
         'username': username,
         'displayName': displayName,
+        'acceptPrivacy': acceptPrivacy,
       };
 }
 

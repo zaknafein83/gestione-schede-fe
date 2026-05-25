@@ -15,6 +15,12 @@ import '../features/characters/presentation/character_editor_screen.dart';
 import '../features/characters/presentation/characters_list_screen.dart';
 import '../features/share/presentation/shared_character_screen.dart';
 import '../features/home/presentation/home_screen.dart';
+import '../features/legal/presentation/account_deletion_info_screen.dart';
+import '../features/legal/presentation/contact_screen.dart';
+import '../features/legal/presentation/cookies_screen.dart';
+import '../features/legal/presentation/privacy_screen.dart';
+import '../features/legal/presentation/terms_screen.dart';
+import '../features/misc/presentation/coming_soon_screen.dart';
 import '../features/profile/presentation/profile_screen.dart';
 
 /// Path raggiungibili senza essere autenticati.
@@ -26,6 +32,12 @@ const _publicPaths = {
   '/verify-email',
   '/forgot-password',
   '/reset-password',
+  '/coming-soon',
+  '/privacy',
+  '/terms',
+  '/cookies',
+  '/contact',
+  '/account-deletion-info',
 };
 
 /// Path prefix che restano pubblici anche senza login (es. /share/...).
@@ -107,6 +119,19 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           final token = state.uri.queryParameters['token'] ?? '';
           return ResetPasswordScreen(token: token);
         },
+      ),
+      GoRoute(
+        path: '/coming-soon',
+        builder: (_, state) =>
+            ComingSoonScreen(topic: state.uri.queryParameters['for']),
+      ),
+      GoRoute(path: '/privacy', builder: (_, _) => const PrivacyScreen()),
+      GoRoute(path: '/terms',   builder: (_, _) => const TermsScreen()),
+      GoRoute(path: '/cookies', builder: (_, _) => const CookiesScreen()),
+      GoRoute(path: '/contact', builder: (_, _) => const ContactScreen()),
+      GoRoute(
+        path: '/account-deletion-info',
+        builder: (_, _) => const AccountDeletionInfoScreen(),
       ),
     ],
   );

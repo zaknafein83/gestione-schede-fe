@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,6 +10,7 @@ import '../../../core/locale.dart';
 import '../../../core/theme.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_controller.dart';
+import '../../share/logic/file_download.dart';
 import 'avatar_widget.dart';
 import 'change_password_dialog.dart';
 import 'delete_account_dialog.dart';
@@ -25,6 +28,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   final _bio          = TextEditingController();
   bool _initialized = false;
   bool _submitting  = false;
+  bool _exporting   = false;
 
   @override
   void dispose() {
@@ -116,6 +120,44 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       );
       // logout gia' avvenuto nel controller — redirect a /login dal router
       context.go('/login');
+    }
+  }
+
+  Future<void> _exportMyData() async {
+    final l10n = AppL10n.of(context);
+    setState(() => _exporting = true);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(l10n.profileExportInProgress)),
+    );
+    try {
+      final data = await ref.read(authControllerProvider.notifier).exportMyData();
+
+      // Serializza pretty + scarica come file.
+      final json     = const JsonEncoder.withIndent('  ').convert(data);
+      final now      = DateTime.now();
+      final ts       = '${now.year}${now.month.toString().padLeft(2, '0')}'
+          '${now.day.toString().padLeft(2, '0')}-'
+          '${now.hour.toString().padLeft(2, '0')}'
+          '${now.minute.toString().padLeft(2, '0')}';
+      final filename = 'pg5e-export-$ts.json';
+      downloadJsonFile(filename, json);
+
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.profileExportDone)),
+      );
+    } on ApiError catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.profileExportFailed(e.detail))),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.profileExportFailed(e.toString()))),
+      );
+    } finally {
+      if (mounted) setState(() => _exporting = false);
     }
   }
 
@@ -259,6 +301,11 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         const _ThemeModeSelector(),
                         const Divider(height: 40),
                         _AboutSection(isPremium: user.isPremium),
+                        const Divider(height: 40),
+                        _PrivacySection(
+                          exporting: _exporting,
+                          onExport: _exportMyData,
+                        ),
                         const Divider(height: 40),
                         _DangerZone(onDelete: _openDeleteAccount),
                       ],
@@ -447,6 +494,70 @@ class _ThemeModeSelector extends ConsumerWidget {
           selected: {mode},
           onSelectionChanged: (s) =>
               ref.read(themeModeProvider.notifier).setMode(s.first),
+        ),
+      ],
+    );
+  }
+}
+
+/// Sezione "Privacy e dati" — export GDPR + link a pagine legali.
+class _PrivacySection extends StatelessWidget {
+  const _PrivacySection({required this.exporting, required this.onExport});
+  final bool exporting;
+  final VoidCallback onExport;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppL10n.of(context);
+    final t    = Theme.of(context).textTheme;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            const Icon(Icons.privacy_tip_outlined, size: 20),
+            const SizedBox(width: 8),
+            Text(l10n.profilePrivacySectionTitle, style: t.titleMedium),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Text(l10n.profilePrivacyHint, style: t.bodySmall),
+        const SizedBox(height: 12),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: OutlinedButton.icon(
+            icon: exporting
+                ? const SizedBox(
+                    height: 16, width: 16,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : const Icon(Icons.download_outlined),
+            label: Text(l10n.profileExportButton),
+            onPressed: exporting ? null : onExport,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Wrap(
+          spacing: 12,
+          runSpacing: 4,
+          children: [
+            TextButton(
+              onPressed: () => context.push('/privacy'),
+              child: Text(l10n.profileLegalPrivacyLink),
+            ),
+            TextButton(
+              onPressed: () => context.push('/terms'),
+              child: Text(l10n.profileLegalTermsLink),
+            ),
+            TextButton(
+              onPressed: () => context.push('/cookies'),
+              child: Text(l10n.profileLegalCookiesLink),
+            ),
+            TextButton(
+              onPressed: () => context.push('/contact'),
+              child: Text(l10n.profileLegalContactLink),
+            ),
+          ],
         ),
       ],
     );

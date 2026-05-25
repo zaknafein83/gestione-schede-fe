@@ -9,7 +9,7 @@ class AppL10nIt extends AppL10n {
   AppL10nIt([String locale = 'it']) : super(locale);
 
   @override
-  String get appTitle => 'DnD Sheets';
+  String get appTitle => 'PG 5e';
 
   @override
   String get navHome => 'Home';
@@ -182,13 +182,86 @@ class AppL10nIt extends AppL10n {
   String get landingWelcome => 'Benvenuto';
 
   @override
-  String get landingTagline => 'Gestisci le tue schede personaggio D&D 5e.';
+  String get landingTagline =>
+      'Gestisci le tue schede personaggio per giochi di ruolo fantasy 5e.';
 
   @override
   String get landingCreateAccount => 'Crea un account';
 
   @override
   String get landingSignIn => 'Accedi';
+
+  @override
+  String get landingHeroTitle => 'Le tue schede 5e, sempre con te';
+
+  @override
+  String get landingHeroSubtitle =>
+      'Crea, modifica, gioca. Tutta la tua avventura su web e — presto — su mobile.';
+
+  @override
+  String get landingCtaOpenWeb => "Apri l'app web";
+
+  @override
+  String get landingCtaOpenWebSub => 'Hai già un account? Accedi.';
+
+  @override
+  String get landingCtaAppStore => 'Scarica su App Store';
+
+  @override
+  String get landingCtaGooglePlay => 'Disponibile su Google Play';
+
+  @override
+  String get landingCtaStorePrefix => 'Presto';
+
+  @override
+  String get landingCtaSpells => 'Consulta gli incantesimi';
+
+  @override
+  String get landingCtaSpellsSub =>
+      'Anteprima del catalogo pubblico (in arrivo)';
+
+  @override
+  String get landingFeaturesTitle => 'Cosa puoi fare';
+
+  @override
+  String get landingFeatureSheetTitle => 'Scheda completa';
+
+  @override
+  String get landingFeatureSheetDesc =>
+      'Tutti i campi del manuale base 5e, calcoli automatici, tab dedicate.';
+
+  @override
+  String get landingFeatureDiceTitle => 'Dadi e combattimento';
+
+  @override
+  String get landingFeatureDiceDesc =>
+      'Dice roller integrato, gestione PF, slot incantesimi, condizioni e riposi.';
+
+  @override
+  String get landingFeatureShareTitle => 'Condivisione facile';
+
+  @override
+  String get landingFeatureShareDesc =>
+      'Genera un link in sola lettura per Master e amici, revocabile in un clic.';
+
+  @override
+  String get landingFeatureSpellsTitle => 'Catalogo incantesimi';
+
+  @override
+  String get landingFeatureSpellsDesc =>
+      '319 incantesimi SRD 5.1, ricerca rapida, schede dettagliate in italiano e inglese.';
+
+  @override
+  String get landingFooterLegal => 'Note legali';
+
+  @override
+  String get landingFooterPrivacy => 'Privacy';
+
+  @override
+  String get landingFooterTerms => 'Termini';
+
+  @override
+  String get landingFooterContact => 'Contatti';
 
   @override
   String get loginAccessTitle => 'Accedi';
@@ -1606,4 +1679,147 @@ class AppL10nIt extends AppL10n {
   String editorValidatorMaxN(Object n) {
     return 'Max $n';
   }
+
+  @override
+  String get comingSoonTitle => 'Lavori in corso';
+
+  @override
+  String get comingSoonStayTuned =>
+      'Stiamo lavorando per renderla disponibile a breve. Torna a trovarci.';
+
+  @override
+  String get comingSoonIos =>
+      "L'app per iPhone e iPad arriverà presto sull'App Store.";
+
+  @override
+  String get comingSoonAndroid =>
+      "L'app per Android arriverà presto sul Google Play Store.";
+
+  @override
+  String get comingSoonSpells =>
+      'Il catalogo pubblico degli incantesimi sarà presto consultabile senza account.';
+
+  @override
+  String get comingSoonGeneric => 'Questa sezione è in lavorazione.';
+
+  @override
+  String get comingSoonBack => 'Torna alla home';
+
+  @override
+  String get legalPrivacyTitle => 'Privacy Policy';
+
+  @override
+  String get legalTermsTitle => 'Termini di Servizio';
+
+  @override
+  String get legalCookiesTitle => 'Politica sui Cookie';
+
+  @override
+  String get legalContactTitle => 'Contatti';
+
+  @override
+  String legalLastUpdated(String date) => 'Ultimo aggiornamento: $date';
+
+  @override
+  String get legalOnlyItalianNotice =>
+      'I testi legali sono pubblicati in italiano. La versione in lingua italiana è quella ufficiale.';
+
+  @override
+  String get legalBackToHome => 'Torna alla home';
+
+  @override
+  String get registerAcceptPart1 => 'Ho letto e accetto la ';
+
+  @override
+  String get registerAcceptPart2 => ' e i ';
+
+  @override
+  String get registerAcceptPart3 => '.';
+
+  @override
+  String get registerPrivacyLink => 'Privacy Policy';
+
+  @override
+  String get registerTermsLink => 'Termini di Servizio';
+
+  @override
+  String get registerAcceptRequired =>
+      'Devi accettare la Privacy Policy e i Termini di Servizio per registrarti';
+
+  @override
+  String get profilePrivacySectionTitle => 'Privacy e dati';
+
+  @override
+  String get profilePrivacyHint =>
+      'Scarica una copia completa dei tuoi dati personali in formato JSON, oppure consulta la nostra Privacy Policy.';
+
+  @override
+  String get profileExportButton => 'Esporta i miei dati';
+
+  @override
+  String get profileExportInProgress => 'Preparazione export in corso…';
+
+  @override
+  String get profileExportDone => 'Esportazione completata.';
+
+  @override
+  String profileExportFailed(String error) => 'Esportazione fallita: $error';
+
+  @override
+  String get profileLegalPrivacyLink => 'Privacy Policy';
+
+  @override
+  String get profileLegalTermsLink => 'Termini di Servizio';
+
+  @override
+  String get profileLegalCookiesLink => 'Cookie';
+
+  @override
+  String get profileLegalContactLink => 'Contatti';
+
+  @override
+  String get deletionInfoTitle => 'Come cancellare il tuo account';
+  @override
+  String get deletionInfoIntro =>
+      'Puoi cancellare il tuo account e tutti i dati associati in qualsiasi momento. '
+      'La cancellazione è immediata e irreversibile.';
+  @override
+  String get deletionInfoStepsTitle => 'Procedura standard';
+  @override
+  String get deletionInfoStep1 => 'Accedi al tuo account.';
+  @override
+  String get deletionInfoStep2 => 'Vai su Profilo → sezione "Danger zone" in fondo alla pagina.';
+  @override
+  String get deletionInfoStep3 => 'Premi "Cancella account".';
+  @override
+  String get deletionInfoStep4 =>
+      'Digita il tuo username e la password per conferma, poi premi il bottone rosso.';
+  @override
+  String get deletionInfoWhatRemovedTitle => 'Cosa viene cancellato';
+  @override
+  String get deletionInfoWhatRemoved =>
+      'Tutti i seguenti dati vengono rimossi in modo definitivo, senza possibilità di recupero:';
+  @override
+  String get deletionInfoBullet1 => 'Account, email, password (hash), foto del profilo.';
+  @override
+  String get deletionInfoBullet2 => 'Tutte le tue schede personaggio e le immagini dei ritratti.';
+  @override
+  String get deletionInfoBullet3 => 'Cronologia dei tiri di dado.';
+  @override
+  String get deletionInfoBullet4 => 'Tutti i link di condivisione attivi delle tue schede.';
+  @override
+  String get deletionInfoBullet5 => 'Tutte le sessioni attive su qualsiasi dispositivo.';
+  @override
+  String get deletionInfoCannotLoginTitle => 'Non riesci ad accedere?';
+  @override
+  String get deletionInfoCannotLogin =>
+      'Se hai perso le credenziali e non riesci a fare il reset password, scrivici '
+      "un'email all'indirizzo qui sotto specificando l'indirizzo email del tuo account. "
+      'Ti aiuteremo a procedere con la cancellazione dopo aver verificato la tua identità.';
+  @override
+  String get deletionInfoEmail => 'franksisca@gmail.com';
+  @override
+  String get deletionInfoLoginBtn => 'Accedi e cancella';
+  @override
+  String get deletionInfoBackHome => 'Torna alla home';
 }

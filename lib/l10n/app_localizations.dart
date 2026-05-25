@@ -100,7 +100,7 @@ abstract class AppL10n {
   /// No description provided for @appTitle.
   ///
   /// In it, this message translates to:
-  /// **'DnD Sheets'**
+  /// **'PG 5e'**
   String get appTitle;
 
   /// No description provided for @navHome.
@@ -438,6 +438,72 @@ abstract class AppL10n {
   /// In it, this message translates to:
   /// **'Accedi'**
   String get landingSignIn;
+
+  /// No description provided for @landingHeroTitle.
+  String get landingHeroTitle;
+
+  /// No description provided for @landingHeroSubtitle.
+  String get landingHeroSubtitle;
+
+  /// No description provided for @landingCtaOpenWeb.
+  String get landingCtaOpenWeb;
+
+  /// No description provided for @landingCtaOpenWebSub.
+  String get landingCtaOpenWebSub;
+
+  /// No description provided for @landingCtaAppStore.
+  String get landingCtaAppStore;
+
+  /// No description provided for @landingCtaGooglePlay.
+  String get landingCtaGooglePlay;
+
+  /// No description provided for @landingCtaStorePrefix.
+  String get landingCtaStorePrefix;
+
+  /// No description provided for @landingCtaSpells.
+  String get landingCtaSpells;
+
+  /// No description provided for @landingCtaSpellsSub.
+  String get landingCtaSpellsSub;
+
+  /// No description provided for @landingFeaturesTitle.
+  String get landingFeaturesTitle;
+
+  /// No description provided for @landingFeatureSheetTitle.
+  String get landingFeatureSheetTitle;
+
+  /// No description provided for @landingFeatureSheetDesc.
+  String get landingFeatureSheetDesc;
+
+  /// No description provided for @landingFeatureDiceTitle.
+  String get landingFeatureDiceTitle;
+
+  /// No description provided for @landingFeatureDiceDesc.
+  String get landingFeatureDiceDesc;
+
+  /// No description provided for @landingFeatureShareTitle.
+  String get landingFeatureShareTitle;
+
+  /// No description provided for @landingFeatureShareDesc.
+  String get landingFeatureShareDesc;
+
+  /// No description provided for @landingFeatureSpellsTitle.
+  String get landingFeatureSpellsTitle;
+
+  /// No description provided for @landingFeatureSpellsDesc.
+  String get landingFeatureSpellsDesc;
+
+  /// No description provided for @landingFooterLegal.
+  String get landingFooterLegal;
+
+  /// No description provided for @landingFooterPrivacy.
+  String get landingFooterPrivacy;
+
+  /// No description provided for @landingFooterTerms.
+  String get landingFooterTerms;
+
+  /// No description provided for @landingFooterContact.
+  String get landingFooterContact;
 
   /// No description provided for @loginAccessTitle.
   ///
@@ -2226,6 +2292,117 @@ abstract class AppL10n {
 
   /// No description provided for @editorValidatorMaxN.
   String editorValidatorMaxN(Object n);
+
+  /// No description provided for @comingSoonTitle.
+  String get comingSoonTitle;
+
+  /// No description provided for @comingSoonStayTuned.
+  String get comingSoonStayTuned;
+
+  /// No description provided for @comingSoonIos.
+  String get comingSoonIos;
+
+  /// No description provided for @comingSoonAndroid.
+  String get comingSoonAndroid;
+
+  /// No description provided for @comingSoonSpells.
+  String get comingSoonSpells;
+
+  /// No description provided for @comingSoonGeneric.
+  String get comingSoonGeneric;
+
+  /// No description provided for @comingSoonBack.
+  String get comingSoonBack;
+
+  /// No description provided for @legalPrivacyTitle.
+  String get legalPrivacyTitle;
+
+  /// No description provided for @legalTermsTitle.
+  String get legalTermsTitle;
+
+  /// No description provided for @legalCookiesTitle.
+  String get legalCookiesTitle;
+
+  /// No description provided for @legalContactTitle.
+  String get legalContactTitle;
+
+  /// No description provided for @legalLastUpdated.
+  String legalLastUpdated(String date);
+
+  /// No description provided for @legalOnlyItalianNotice.
+  String get legalOnlyItalianNotice;
+
+  /// No description provided for @legalBackToHome.
+  String get legalBackToHome;
+
+  /// No description provided for @registerAcceptPart1.
+  String get registerAcceptPart1;
+
+  /// No description provided for @registerAcceptPart2.
+  String get registerAcceptPart2;
+
+  /// No description provided for @registerAcceptPart3.
+  String get registerAcceptPart3;
+
+  /// No description provided for @registerPrivacyLink.
+  String get registerPrivacyLink;
+
+  /// No description provided for @registerTermsLink.
+  String get registerTermsLink;
+
+  /// No description provided for @registerAcceptRequired.
+  String get registerAcceptRequired;
+
+  /// No description provided for @profilePrivacySectionTitle.
+  String get profilePrivacySectionTitle;
+
+  /// No description provided for @profilePrivacyHint.
+  String get profilePrivacyHint;
+
+  /// No description provided for @profileExportButton.
+  String get profileExportButton;
+
+  /// No description provided for @profileExportInProgress.
+  String get profileExportInProgress;
+
+  /// No description provided for @profileExportDone.
+  String get profileExportDone;
+
+  /// No description provided for @profileExportFailed.
+  String profileExportFailed(String error);
+
+  /// No description provided for @profileLegalPrivacyLink.
+  String get profileLegalPrivacyLink;
+
+  /// No description provided for @profileLegalTermsLink.
+  String get profileLegalTermsLink;
+
+  /// No description provided for @profileLegalCookiesLink.
+  String get profileLegalCookiesLink;
+
+  /// No description provided for @profileLegalContactLink.
+  String get profileLegalContactLink;
+
+  /// No description provided for @deletionInfoTitle.
+  String get deletionInfoTitle;
+  String get deletionInfoIntro;
+  String get deletionInfoStepsTitle;
+  String get deletionInfoStep1;
+  String get deletionInfoStep2;
+  String get deletionInfoStep3;
+  String get deletionInfoStep4;
+  String get deletionInfoWhatRemovedTitle;
+  String get deletionInfoWhatRemoved;
+  String get deletionInfoBullet1;
+  String get deletionInfoBullet2;
+  String get deletionInfoBullet3;
+  String get deletionInfoBullet4;
+  String get deletionInfoBullet5;
+  String get deletionInfoCannotLoginTitle;
+  String get deletionInfoCannotLogin;
+  String get deletionInfoEmail;
+  String get deletionInfoLoginBtn;
+  String get deletionInfoBackHome;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

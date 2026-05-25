@@ -1,6 +1,8 @@
-# dndsheets_frontend
+# PG 5e — frontend
 
-Gestionale schede personaggio D&D 5e
+Gestionale di schede personaggio per giochi di ruolo fantasy 5e.
+
+Package Dart interno: `dndsheets_frontend` (non cambiato per non rompere gli import).
 
 ## Getting Started
 

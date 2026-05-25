@@ -9,7 +9,7 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'DnD Sheets';
+  String get appTitle => 'PG 5e';
 
   @override
   String get navHome => 'Home';
@@ -182,13 +182,86 @@ class AppL10nEn extends AppL10n {
   String get landingWelcome => 'Welcome';
 
   @override
-  String get landingTagline => 'Manage your D&D 5e character sheets.';
+  String get landingTagline =>
+      'Manage your character sheets for 5e fantasy role-playing games.';
 
   @override
   String get landingCreateAccount => 'Create an account';
 
   @override
   String get landingSignIn => 'Sign in';
+
+  @override
+  String get landingHeroTitle => 'Your 5e sheets, always with you';
+
+  @override
+  String get landingHeroSubtitle =>
+      'Create, edit, play. Your whole adventure on the web — and soon on mobile.';
+
+  @override
+  String get landingCtaOpenWeb => 'Open the web app';
+
+  @override
+  String get landingCtaOpenWebSub => 'Already have an account? Sign in.';
+
+  @override
+  String get landingCtaAppStore => 'Download on the App Store';
+
+  @override
+  String get landingCtaGooglePlay => 'Get it on Google Play';
+
+  @override
+  String get landingCtaStorePrefix => 'Soon';
+
+  @override
+  String get landingCtaSpells => 'Browse spells';
+
+  @override
+  String get landingCtaSpellsSub =>
+      'Preview the public spell catalog (coming soon)';
+
+  @override
+  String get landingFeaturesTitle => 'What you can do';
+
+  @override
+  String get landingFeatureSheetTitle => 'Complete sheet';
+
+  @override
+  String get landingFeatureSheetDesc =>
+      'Every field from the 5e core rulebook, automatic calculations, dedicated tabs.';
+
+  @override
+  String get landingFeatureDiceTitle => 'Dice & combat';
+
+  @override
+  String get landingFeatureDiceDesc =>
+      'Built-in dice roller, HP tracking, spell slots, conditions and rests.';
+
+  @override
+  String get landingFeatureShareTitle => 'Easy sharing';
+
+  @override
+  String get landingFeatureShareDesc =>
+      'Generate a read-only link for your DM and friends, revocable in one click.';
+
+  @override
+  String get landingFeatureSpellsTitle => 'Spell catalog';
+
+  @override
+  String get landingFeatureSpellsDesc =>
+      '319 SRD 5.1 spells, fast search, detailed cards in Italian and English.';
+
+  @override
+  String get landingFooterLegal => 'Legal';
+
+  @override
+  String get landingFooterPrivacy => 'Privacy';
+
+  @override
+  String get landingFooterTerms => 'Terms';
+
+  @override
+  String get landingFooterContact => 'Contact';
 
   @override
   String get loginAccessTitle => 'Sign in';
@@ -1608,4 +1681,147 @@ class AppL10nEn extends AppL10n {
   String editorValidatorMaxN(Object n) {
     return 'Max $n';
   }
+
+  @override
+  String get comingSoonTitle => 'Coming soon';
+
+  @override
+  String get comingSoonStayTuned =>
+      "We're working to make this available soon. Stay tuned.";
+
+  @override
+  String get comingSoonIos =>
+      'The iPhone and iPad app is coming soon to the App Store.';
+
+  @override
+  String get comingSoonAndroid =>
+      'The Android app is coming soon to the Google Play Store.';
+
+  @override
+  String get comingSoonSpells =>
+      'The public spell catalog will soon be browsable without an account.';
+
+  @override
+  String get comingSoonGeneric => 'This section is under construction.';
+
+  @override
+  String get comingSoonBack => 'Back to home';
+
+  @override
+  String get legalPrivacyTitle => 'Privacy Policy';
+
+  @override
+  String get legalTermsTitle => 'Terms of Service';
+
+  @override
+  String get legalCookiesTitle => 'Cookie Policy';
+
+  @override
+  String get legalContactTitle => 'Contact';
+
+  @override
+  String legalLastUpdated(String date) => 'Last updated: $date';
+
+  @override
+  String get legalOnlyItalianNotice =>
+      'Legal texts are published in Italian. The Italian version is the official one.';
+
+  @override
+  String get legalBackToHome => 'Back to home';
+
+  @override
+  String get registerAcceptPart1 => 'I have read and accept the ';
+
+  @override
+  String get registerAcceptPart2 => ' and the ';
+
+  @override
+  String get registerAcceptPart3 => '.';
+
+  @override
+  String get registerPrivacyLink => 'Privacy Policy';
+
+  @override
+  String get registerTermsLink => 'Terms of Service';
+
+  @override
+  String get registerAcceptRequired =>
+      'You must accept the Privacy Policy and the Terms of Service to register';
+
+  @override
+  String get profilePrivacySectionTitle => 'Privacy & data';
+
+  @override
+  String get profilePrivacyHint =>
+      'Download a full copy of your personal data in JSON format, or read our Privacy Policy.';
+
+  @override
+  String get profileExportButton => 'Export my data';
+
+  @override
+  String get profileExportInProgress => 'Preparing export…';
+
+  @override
+  String get profileExportDone => 'Export completed.';
+
+  @override
+  String profileExportFailed(String error) => 'Export failed: $error';
+
+  @override
+  String get profileLegalPrivacyLink => 'Privacy Policy';
+
+  @override
+  String get profileLegalTermsLink => 'Terms of Service';
+
+  @override
+  String get profileLegalCookiesLink => 'Cookies';
+
+  @override
+  String get profileLegalContactLink => 'Contact';
+
+  @override
+  String get deletionInfoTitle => 'How to delete your account';
+  @override
+  String get deletionInfoIntro =>
+      'You can delete your account and all associated data at any time. '
+      'Deletion is immediate and irreversible.';
+  @override
+  String get deletionInfoStepsTitle => 'Standard procedure';
+  @override
+  String get deletionInfoStep1 => 'Sign in to your account.';
+  @override
+  String get deletionInfoStep2 => 'Go to Profile → "Danger zone" at the bottom of the page.';
+  @override
+  String get deletionInfoStep3 => 'Press "Delete account".';
+  @override
+  String get deletionInfoStep4 =>
+      'Type your username and password to confirm, then press the red button.';
+  @override
+  String get deletionInfoWhatRemovedTitle => 'What gets deleted';
+  @override
+  String get deletionInfoWhatRemoved =>
+      'All of the following data is permanently removed, with no possibility of recovery:';
+  @override
+  String get deletionInfoBullet1 => 'Account, email, password (hash), profile picture.';
+  @override
+  String get deletionInfoBullet2 => 'All your character sheets and portrait images.';
+  @override
+  String get deletionInfoBullet3 => 'Dice roll history.';
+  @override
+  String get deletionInfoBullet4 => 'All active sharing links of your sheets.';
+  @override
+  String get deletionInfoBullet5 => 'All active sessions on every device.';
+  @override
+  String get deletionInfoCannotLoginTitle => "Can't sign in?";
+  @override
+  String get deletionInfoCannotLogin =>
+      "If you have lost your credentials and can't reset your password, write us "
+      'at the email below, specifying the email address of your account. '
+      "We'll help you complete the deletion after verifying your identity.";
+  @override
+  String get deletionInfoEmail => 'franksisca@gmail.com';
+  @override
+  String get deletionInfoLoginBtn => 'Sign in and delete';
+  @override
+  String get deletionInfoBackHome => 'Back to home';
 }
