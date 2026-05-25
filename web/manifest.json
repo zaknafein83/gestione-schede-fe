@@ -1,11 +1,11 @@
 {
-    "name": "dndsheets_frontend",
-    "short_name": "dndsheets_frontend",
+    "name": "PG 5e",
+    "short_name": "PG 5e",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "Gestionale schede personaggio D&D 5e",
+    "background_color": "#673AB7",
+    "theme_color": "#673AB7",
+    "description": "Gestionale di schede personaggio per giochi di ruolo fantasy 5e.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

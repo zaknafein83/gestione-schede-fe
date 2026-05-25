@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/api_error.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../legal/presentation/legal_footer_links.dart';
 import '../data/auth_api.dart';
 import '../models/auth_models.dart';
 
@@ -23,8 +25,10 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final _username    = TextEditingController();
   final _displayName = TextEditingController();
 
-  bool _submitting = false;
-  bool _showPassword = false;
+  bool _submitting    = false;
+  bool _showPassword  = false;
+  bool _acceptPrivacy = false;
+  bool _showAcceptError = false;  // mostra l'errore solo dopo un tentativo di submit
 
   @override
   void dispose() {
@@ -37,14 +41,21 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   }
 
   Future<void> _submit() async {
-    if (!_formKey.currentState!.validate()) return;
+    final formOk = _formKey.currentState!.validate();
+    // Privacy/Terms vanno spuntati — controllo separato dal Form (è uno stato)
+    if (!_acceptPrivacy) {
+      setState(() => _showAcceptError = true);
+    }
+    if (!formOk || !_acceptPrivacy) return;
+
     setState(() => _submitting = true);
 
     final req = RegisterRequest(
-      email:       _email.text.trim().toLowerCase(),
-      password:    _password.text,
-      username:    _username.text.trim(),
-      displayName: _displayName.text.trim(),
+      email:         _email.text.trim().toLowerCase(),
+      password:      _password.text,
+      username:      _username.text.trim(),
+      displayName:   _displayName.text.trim(),
+      acceptPrivacy: _acceptPrivacy,
     );
 
     try {
@@ -181,7 +192,16 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       ),
                       validator: (v) => _validateConfirmPwd(l10n, v),
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 16),
+                    _PrivacyConsentRow(
+                      value: _acceptPrivacy,
+                      showError: _showAcceptError && !_acceptPrivacy,
+                      onChanged: (v) => setState(() {
+                        _acceptPrivacy = v ?? false;
+                        if (_acceptPrivacy) _showAcceptError = false;
+                      }),
+                    ),
+                    const SizedBox(height: 16),
                     FilledButton(
                       onPressed: _submitting ? null : _submit,
                       child: Padding(
@@ -194,6 +214,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                             : Text(l10n.authBtnRegister),
                       ),
                     ),
+                    const SizedBox(height: 16),
+                    const LegalFooterLinks(),
                   ],
                 ),
               ),
@@ -201,6 +223,88 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Riga di consenso GDPR: checkbox + testo "Ho letto e accetto la Privacy e
+/// i Termini" con i link cliccabili che aprono /privacy e /terms.
+///
+/// Mostra un messaggio di errore rosso sotto quando [showError] è true.
+class _PrivacyConsentRow extends StatelessWidget {
+  const _PrivacyConsentRow({
+    required this.value,
+    required this.onChanged,
+    required this.showError,
+  });
+
+  final bool value;
+  final bool showError;
+  final ValueChanged<bool?> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n   = AppL10n.of(context);
+    final scheme = Theme.of(context).colorScheme;
+
+    final linkStyle = TextStyle(
+      color: scheme.primary,
+      decoration: TextDecoration.underline,
+      fontWeight: FontWeight.w600,
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 2),
+              child: Checkbox(
+                value: value,
+                onChanged: onChanged,
+              ),
+            ),
+            const SizedBox(width: 4),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: RichText(
+                  text: TextSpan(
+                    style: DefaultTextStyle.of(context).style,
+                    children: [
+                      TextSpan(text: l10n.registerAcceptPart1),
+                      TextSpan(
+                        text: l10n.registerPrivacyLink,
+                        style: linkStyle,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => context.push('/privacy'),
+                      ),
+                      TextSpan(text: l10n.registerAcceptPart2),
+                      TextSpan(
+                        text: l10n.registerTermsLink,
+                        style: linkStyle,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => context.push('/terms'),
+                      ),
+                      TextSpan(text: l10n.registerAcceptPart3),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        if (showError)
+          Padding(
+            padding: const EdgeInsets.only(left: 12, top: 4),
+            child: Text(
+              l10n.registerAcceptRequired,
+              style: TextStyle(color: scheme.error, fontSize: 12),
+            ),
+          ),
+      ],
     );
   }
 }

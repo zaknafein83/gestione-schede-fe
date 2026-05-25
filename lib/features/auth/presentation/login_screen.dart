@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/api_error.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../legal/presentation/legal_footer_links.dart';
 import '../data/auth_controller.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -124,6 +125,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     onPressed: () => context.go('/register'),
                     child: Text(l10n.loginGoRegister),
                   ),
+                  const SizedBox(height: 16),
+                  const LegalFooterLinks(),
                 ],
               ),
             ),

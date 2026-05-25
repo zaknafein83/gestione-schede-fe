@@ -103,6 +103,13 @@ class AuthController extends AsyncNotifier<UserDto?> {
     ref.read(avatarVersionProvider.notifier).bump();
   }
 
+  /// GDPR: scarica un dump JSON completo dei dati personali (art. 15 + 20).
+  /// Ritorna la mappa cosi' com'è dal backend; il caller la serializza/scarica.
+  Future<Map<String, dynamic>> exportMyData() async {
+    final access = await _requireAccess();
+    return _api.exportMyData(access);
+  }
+
   Future<String> _requireAccess() async {
     final access = await _storage.loadAccess();
     if (access == null) {
