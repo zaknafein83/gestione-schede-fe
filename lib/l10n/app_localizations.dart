@@ -511,6 +511,9 @@ abstract class AppL10n {
   /// No description provided for @landingFooterContact.
   String get landingFooterContact;
 
+  /// No description provided for @landingImageCredit.
+  String get landingImageCredit;
+
   /// No description provided for @loginAccessTitle.
   ///
   /// In it, this message translates to:

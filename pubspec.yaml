@@ -50,3 +50,21 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+  assets:
+    # Landing fantasy: foto di sfondo hero.
+    # "Scenario Torrente Fiume" — illustrazione di Placidplace via Pixabay,
+    # licenza Pixabay Content License (uso libero, attribution non obbligatoria
+    # ma citata in footer per correttezza).
+    # Sorgente: https://pixabay.com/it/illustrations/scenario-torrente-fiume-nevoso-7858224/
+    - assets/landing/hero_scenery.jpg
+
+  fonts:
+    # Cinzel — font display tipo "epigrafe romana", perfetto per il tono
+    # fantasy della landing. Licenza SIL Open Font License 1.1
+    # (cfr. assets/fonts/Cinzel-OFL.txt). Variable font: un solo file
+    # supporta tutti i pesi da 400 a 900.
+    # Sorgente: https://fonts.google.com/specimen/Cinzel
+    - family: Cinzel
+      fonts:
+        - asset: assets/fonts/Cinzel-Variable.ttf

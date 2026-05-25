@@ -22,6 +22,11 @@ class _Palette {
   static const goldDim   = Color(0xFFB4912F); // oro spento
 }
 
+/// Font display fantasy (Cinzel, self-hosted in assets/fonts).
+/// Lo usiamo solo per titoli/eyebrow; per il body teniamo il font di sistema
+/// (più leggibile su testi lunghi).
+const String _fontDisplay = 'Cinzel';
+
 /// Pagina iniziale pubblica con estetica fantasy: hero "epico" + CTA store +
 /// griglia delle arti del Cronista + footer ornamentale.
 class LandingScreen extends StatelessWidget {
@@ -65,7 +70,9 @@ class _HeroSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppL10n.of(context);
 
-    // Gradient profondo: viola → nero, con un alone più caldo verso il centro
+    // Gradient profondo: viola → nero. È il livello base che sta sotto la
+    // foto, così se l'immagine è lenta a caricare l'utente vede comunque
+    // qualcosa di "epico".
     final bg = const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
@@ -78,7 +85,54 @@ class _HeroSection extends StatelessWidget {
       decoration: BoxDecoration(gradient: bg),
       child: Stack(
         children: [
-          // Scintille + glow centrale + silhouette montagne in basso
+          // 1. Foto Pixabay: paesaggio fantasy (torrente nevoso) sfumato col
+          //    nero in basso e con un overlay scuro per garantire contrasto
+          //    sul testo. "Image by Placidplace from Pixabay".
+          Positioned.fill(
+            child: IgnorePointer(
+              child: ShaderMask(
+                blendMode: BlendMode.dstIn,
+                shaderCallback: (rect) => const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xCCFFFFFF), // foto al ~80% in alto
+                    Color(0x66FFFFFF), // sfuma verso il basso
+                    Color(0x00FFFFFF), // trasparente in fondo
+                  ],
+                  stops: [0.0, 0.6, 1.0],
+                ).createShader(rect),
+                child: Image.asset(
+                  'assets/landing/hero_scenery.jpg',
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
+                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
+                ),
+              ),
+            ),
+          ),
+          // 2. Overlay scuro per leggibilità: gradiente nero ~50% al centro
+          //    e quasi opaco ai bordi, così il testo (specialmente bianco)
+          //    resta sempre leggibile sopra qualsiasi punto della foto.
+          Positioned.fill(
+            child: IgnorePointer(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      _Palette.ink.withValues(alpha: 0.55),
+                      _Palette.ink.withValues(alpha: 0.45),
+                      _Palette.ink.withValues(alpha: 0.85),
+                    ],
+                    stops: const [0.0, 0.5, 1.0],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          // 3. Scintille + glow centrale + silhouette montagne in basso
           const Positioned.fill(
             child: IgnorePointer(child: _FantasyBackground()),
           ),
@@ -136,13 +190,15 @@ class _HeroText extends StatelessWidget {
           l10n.landingHeroTitle,
           textAlign: align,
           style: const TextStyle(
+            fontFamily: _fontDisplay,
             color: Colors.white,
             fontSize: 44,
-            fontWeight: FontWeight.w900,
-            height: 1.1,
-            letterSpacing: 0.5,
+            fontWeight: FontWeight.w800,
+            height: 1.15,
+            letterSpacing: 1.5,
             shadows: [
-              Shadow(blurRadius: 24, color: Color(0x66D4AF37), offset: Offset(0, 2)),
+              Shadow(blurRadius: 16, color: Colors.black87, offset: Offset(0, 2)),
+              Shadow(blurRadius: 32, color: Color(0x66D4AF37), offset: Offset(0, 0)),
             ],
           ),
         ),
@@ -211,10 +267,11 @@ class _Eyebrow extends StatelessWidget {
       Text(
         text,
         style: const TextStyle(
+          fontFamily: _fontDisplay,
           color: _Palette.goldSoft,
           fontSize: 12,
           fontWeight: FontWeight.w700,
-          letterSpacing: 3,
+          letterSpacing: 4,
         ),
       ),
       const SizedBox(width: 12),
@@ -339,10 +396,11 @@ class _D20Painter extends CustomPainter {
       text: TextSpan(
         text: '20',
         style: TextStyle(
+          fontFamily: 'Cinzel',
           color: _Palette.goldSoft,
-          fontSize: radius * 0.62,
-          fontWeight: FontWeight.w900,
-          letterSpacing: -2,
+          fontSize: radius * 0.66,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0,
           shadows: const [
             Shadow(blurRadius: 12, color: Colors.black87, offset: Offset(0, 2)),
           ],
@@ -719,10 +777,11 @@ class _FeaturesSection extends StatelessWidget {
                 l10n.landingFeaturesTitle,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
+                  fontFamily: _fontDisplay,
                   color: Colors.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 0.5,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 2,
                 ),
               ),
               const SizedBox(height: 10),
@@ -805,10 +864,11 @@ class _FeatureCard extends StatelessWidget {
           Text(
             f.title,
             style: const TextStyle(
+              fontFamily: _fontDisplay,
               color: Colors.white,
               fontSize: 17,
               fontWeight: FontWeight.w700,
-              letterSpacing: 0.3,
+              letterSpacing: 1,
             ),
           ),
           const SizedBox(height: 8),
@@ -882,6 +942,16 @@ class _Footer extends StatelessWidget {
                   color: dimWhite,
                   fontSize: 12,
                   height: 1.5,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                l10n.landingImageCredit,
+                style: TextStyle(
+                  color: dimWhite,
+                  fontSize: 11,
+                  fontStyle: FontStyle.italic,
                 ),
                 textAlign: TextAlign.center,
               ),
