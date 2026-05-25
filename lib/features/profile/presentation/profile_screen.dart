@@ -294,7 +294,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           OutlinedButton.icon(
                             icon: const Icon(Icons.admin_panel_settings_outlined),
                             label: Text(l10n.adminMenuLink),
-                            onPressed: () => context.go('/admin'),
+                            onPressed: () => context.push('/admin'),
                           ),
                         ],
                         const Divider(height: 40),

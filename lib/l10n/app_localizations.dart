@@ -517,6 +517,9 @@ abstract class AppL10n {
   /// No description provided for @landingMadeBy.
   String get landingMadeBy;
 
+  /// No description provided for @adminBackTooltip.
+  String get adminBackTooltip;
+
   /// No description provided for @loginAccessTitle.
   ///
   /// In it, this message translates to:

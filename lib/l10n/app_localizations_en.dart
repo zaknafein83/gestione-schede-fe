@@ -280,6 +280,9 @@ class AppL10nEn extends AppL10n {
   String get landingMadeBy => 'Made by Zaknafein';
 
   @override
+  String get adminBackTooltip => 'Back';
+
+  @override
   String get loginAccessTitle => 'Sign in';
 
   @override
