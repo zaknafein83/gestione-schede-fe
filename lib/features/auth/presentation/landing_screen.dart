@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/theme.dart' show kFontDisplay;
 import '../../../l10n/app_localizations.dart';
 
 /// Sopra questa larghezza il layout diventa "desktop":
@@ -22,10 +23,10 @@ class _Palette {
   static const goldDim   = Color(0xFFB4912F); // oro spento
 }
 
-/// Font display fantasy (Cinzel, self-hosted in assets/fonts).
-/// Lo usiamo solo per titoli/eyebrow; per il body teniamo il font di sistema
-/// (più leggibile su testi lunghi).
-const String _fontDisplay = 'Cinzel';
+/// Alias locale del font display globale (vedi theme.dart). Lo manteniamo
+/// solo per i CustomPaint dove abbiamo bisogno della costante a livello di
+/// codice (TextSpan/TextPainter non leggono dal theme automaticamente).
+const String _fontDisplay = kFontDisplay;
 
 /// Pagina iniziale pubblica con estetica fantasy: hero "epico" + CTA store +
 /// griglia delle arti del Cronista + footer ornamentale.
