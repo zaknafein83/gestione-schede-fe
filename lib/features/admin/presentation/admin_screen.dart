@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/api_error.dart';
@@ -159,7 +160,22 @@ class _AdminScreenState extends ConsumerState<AdminScreen> {
     final me = ref.watch(authControllerProvider).asData?.value;
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.adminTitle)),
+      appBar: AppBar(
+        title: Text(l10n.adminTitle),
+        // Back robusto: se c'è uno stack di navigazione fa il pop normale,
+        // altrimenti torna al profilo (è il posto canonico da cui si arriva qui).
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          tooltip: l10n.adminBackTooltip,
+          onPressed: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            } else {
+              context.go('/profile');
+            }
+          },
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
