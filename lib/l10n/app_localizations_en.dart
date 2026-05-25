@@ -273,6 +273,10 @@ class AppL10nEn extends AppL10n {
   String get landingFooterContact => 'Contact';
 
   @override
+  String get landingImageCredit =>
+      'Background illustration: Placidplace via Pixabay.';
+
+  @override
   String get loginAccessTitle => 'Sign in';
 
   @override
