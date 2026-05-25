@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/api_error.dart';
+import '../../../core/smart_back_button.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../dice/presentation/dice_roller_dialog.dart';
