@@ -4,10 +4,12 @@ import '../../auth/data/auth_storage.dart';
 import '../models/character_models.dart';
 import 'characters_api.dart';
 
-/// Fetch del dettaglio di una scheda. Riferito per id; si invalida con
-/// `ref.invalidate(characterDetailProvider(id))` dopo PATCH/portrait/ecc.
+/// Fetch del dettaglio di una scheda. `autoDispose` cosi' quando esci dalla
+/// screen che lo osserva il provider viene distrutto e al prossimo accesso
+/// (es. passando dall'editor classico al layout custom) si fa un fetch fresh.
+/// Evita drift fra le viste senza dover invalidare manualmente.
 final characterDetailProvider =
-    FutureProvider.family<CharacterDto, String>((ref, id) async {
+    FutureProvider.autoDispose.family<CharacterDto, String>((ref, id) async {
   final storage = ref.read(authStorageProvider);
   final api     = ref.read(charactersApiProvider);
   final access  = await storage.loadAccess();
