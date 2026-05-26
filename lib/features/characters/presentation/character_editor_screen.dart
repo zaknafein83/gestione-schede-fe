@@ -91,7 +91,7 @@ class _CharacterEditorScreenState extends ConsumerState<CharacterEditorScreen> {
 }
 
 class _EditorBody extends ConsumerStatefulWidget {
-  const _EditorBody({required this.initial});
+  const _EditorBody({super.key, required this.initial});
   final CharacterDto initial;
 
   @override
