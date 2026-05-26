@@ -508,6 +508,8 @@
   "homeCustomDashboardTitle":    "Custom dashboard",
   "homeCustomDashboardSubtitle": "Build your character sheet with drag-and-drop widgets — pick what to show and where. Premium only.",
   "homeCustomDashboardOpen":     "Open characters",
+  "charactersCardOpenClassic":   "Classic view",
+  "charactersCardOpenLayout":    "Custom layout",
 
   "editorAnagraficaName":      "Name",
   "editorAnagraficaLevel":     "Level",

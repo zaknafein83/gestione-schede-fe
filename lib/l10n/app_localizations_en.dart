@@ -1418,6 +1418,12 @@ class AppL10nEn extends AppL10n {
   String get homeCustomDashboardOpen => 'Open characters';
 
   @override
+  String get charactersCardOpenClassic => 'Classic view';
+
+  @override
+  String get charactersCardOpenLayout => 'Custom layout';
+
+  @override
   String get editorAnagraficaName => 'Name';
 
   @override

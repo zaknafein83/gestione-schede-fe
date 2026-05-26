@@ -2695,6 +2695,18 @@ abstract class AppL10n {
   /// **'Vai alle schede'**
   String get homeCustomDashboardOpen;
 
+  /// No description provided for @charactersCardOpenClassic.
+  ///
+  /// In it, this message translates to:
+  /// **'Vista classica'**
+  String get charactersCardOpenClassic;
+
+  /// No description provided for @charactersCardOpenLayout.
+  ///
+  /// In it, this message translates to:
+  /// **'Layout personalizzato'**
+  String get charactersCardOpenLayout;
+
   /// No description provided for @editorAnagraficaName.
   ///
   /// In it, this message translates to:

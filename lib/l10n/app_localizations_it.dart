@@ -1416,6 +1416,12 @@ class AppL10nIt extends AppL10n {
   String get homeCustomDashboardOpen => 'Vai alle schede';
 
   @override
+  String get charactersCardOpenClassic => 'Vista classica';
+
+  @override
+  String get charactersCardOpenLayout => 'Layout personalizzato';
+
+  @override
   String get editorAnagraficaName => 'Nome';
 
   @override
