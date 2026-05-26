@@ -32,21 +32,36 @@ import 'widgets/traits_widget.dart';
 /// backend). Mostra i widget posizionati nel canvas; tap apre popup con
 /// azioni (rimuovi, z-order). Drag & resize verranno aggiunti nella
 /// prossima iterazione.
-class LayoutEditorScreen extends ConsumerWidget {
+class LayoutEditorScreen extends ConsumerStatefulWidget {
   const LayoutEditorScreen({super.key, required this.id});
 
   final String id;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final asyncChar   = ref.watch(characterDetailProvider(id));
-    final asyncLayout = ref.watch(characterLayoutProvider(id));
+  ConsumerState<LayoutEditorScreen> createState() => _LayoutEditorScreenState();
+}
+
+class _LayoutEditorScreenState extends ConsumerState<LayoutEditorScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Forza fresh fetch al mount: autoDispose ha un microtask delay e
+    // navigando rapidamente fra screens (es. dall'editor classico) il
+    // provider potrebbe ritornare l'ultima cached value invece di rifare GET.
+    ref.invalidate(characterDetailProvider(widget.id));
+    ref.invalidate(characterLayoutProvider(widget.id));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final asyncChar   = ref.watch(characterDetailProvider(widget.id));
+    final asyncLayout = ref.watch(characterLayoutProvider(widget.id));
 
     final l10n = AppL10n.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.editorLayoutTitle),
-        leading: smartBackButton(context, fallback: '/characters/$id'),
+        leading: smartBackButton(context, fallback: '/characters/${widget.id}'),
       ),
       body: asyncChar.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -54,8 +69,15 @@ class LayoutEditorScreen extends ConsumerWidget {
         data:    (c) => asyncLayout.when(
           loading: () => const Center(child: CircularProgressIndicator()),
           error:   (e, _) => Center(child: Text(e is ApiError ? e.detail : e.toString())),
+          // ValueKey combinata: cambia se i dati scheda o il layout cambiano,
+          // forzando il rebuild dello State (controller + lista widget fresh).
           data:    (layout) => _LayoutEditorBody(
-            characterId: id,
+            key: ValueKey(
+              '${widget.id}-'
+              '${c.updatedAt?.millisecondsSinceEpoch ?? 0}-'
+              '${layout.updatedAt?.millisecondsSinceEpoch ?? 0}',
+            ),
+            characterId: widget.id,
             initialChar: c,
             initialLayout: layout,
           ),

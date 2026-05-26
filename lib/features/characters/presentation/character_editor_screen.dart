@@ -32,14 +32,29 @@ import 'widgets/traits_widget.dart';
 ///
 /// Tab: Anagrafica · Stats · Combat · Incantesimi · Equip · Tratti · Note.
 /// Salvataggio esplicito via bottone "Salva" — invia tutto il form in PATCH.
-class CharacterEditorScreen extends ConsumerWidget {
+class CharacterEditorScreen extends ConsumerStatefulWidget {
   const CharacterEditorScreen({super.key, required this.id});
 
   final String id;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final async = ref.watch(characterDetailProvider(id));
+  ConsumerState<CharacterEditorScreen> createState() =>
+      _CharacterEditorScreenState();
+}
+
+class _CharacterEditorScreenState extends ConsumerState<CharacterEditorScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Forza fresh fetch al mount: autoDispose ha un microtask delay e
+    // navigando rapidamente fra screens il provider potrebbe ritornare
+    // l'ultima cached value (post PATCH dell'altra view).
+    ref.invalidate(characterDetailProvider(widget.id));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final async = ref.watch(characterDetailProvider(widget.id));
 
     final l10n = AppL10n.of(context);
     return Scaffold(
@@ -50,12 +65,12 @@ class CharacterEditorScreen extends ConsumerWidget {
           IconButton(
             tooltip: l10n.editorToolbarShare,
             icon: const Icon(Icons.share_outlined),
-            onPressed: () => showShareDialog(context, id),
+            onPressed: () => showShareDialog(context, widget.id),
           ),
           IconButton(
             tooltip: l10n.diceTitle,
             icon: const Icon(Icons.casino_outlined),
-            onPressed: () => showDiceRoller(context, characterId: id),
+            onPressed: () => showDiceRoller(context, characterId: widget.id),
           ),
         ],
       ),
@@ -64,7 +79,12 @@ class CharacterEditorScreen extends ConsumerWidget {
         error: (e, _) => Center(
           child: Text(e is ApiError ? e.detail : e.toString()),
         ),
-        data: (c) => _EditorBody(initial: c),
+        // ValueKey su updatedAt: quando i dati cambiano (fetch fresh post-save
+        // dall'altra vista), Flutter ricrea lo State invece di riusarlo.
+        data: (c) => _EditorBody(
+          key: ValueKey('${c.id}-${c.updatedAt?.millisecondsSinceEpoch ?? 0}'),
+          initial: c,
+        ),
       ),
     );
   }
