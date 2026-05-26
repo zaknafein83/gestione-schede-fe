@@ -925,12 +925,6 @@ abstract class AppL10n {
   /// **'Ciao, {name}!'**
   String homeGreeting(Object name);
 
-  /// No description provided for @homeBuyCoffeeTooltip.
-  ///
-  /// In it, this message translates to:
-  /// **'Offrimi un caffè ☕'**
-  String get homeBuyCoffeeTooltip;
-
   /// No description provided for @profileTitle.
   ///
   /// In it, this message translates to:
