@@ -64,7 +64,17 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       context.go('/check-email', extra: req.email);
     } on ApiError catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.detail)));
+      // Caso particolare: la validazione backend del consenso GDPR risponde
+      // con detail "acceptPrivacy: ...". Lo rendiamo user-friendly mostrando
+      // il messaggio i18n e evidenziando la checkbox.
+      if (e.detail.contains('acceptPrivacy')) {
+        setState(() => _showAcceptError = true);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppL10n.of(context).registerAcceptRequired)),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.detail)));
+      }
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
@@ -245,9 +255,17 @@ class _PrivacyConsentRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n   = AppL10n.of(context);
-    final scheme = Theme.of(context).colorScheme;
+    final theme  = Theme.of(context);
+    final scheme = theme.colorScheme;
 
-    final linkStyle = TextStyle(
+    // Stile esplicito: non usare DefaultTextStyle.of(context).style perche'
+    // dentro un Form su tema scuro restituisce un colore nero che rende il
+    // testo invisibile su sfondo dark (Material 3 / Flutter web mobile).
+    final baseStyle = (theme.textTheme.bodyMedium ?? const TextStyle()).copyWith(
+      color: scheme.onSurface,
+      fontSize: 14,
+    );
+    final linkStyle = baseStyle.copyWith(
       color: scheme.primary,
       decoration: TextDecoration.underline,
       fontWeight: FontWeight.w600,
@@ -256,45 +274,49 @@ class _PrivacyConsentRow extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 2),
-              child: Checkbox(
-                value: value,
-                onChanged: onChanged,
-              ),
-            ),
-            const SizedBox(width: 4),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 12),
-                child: RichText(
-                  text: TextSpan(
-                    style: DefaultTextStyle.of(context).style,
-                    children: [
-                      TextSpan(text: l10n.registerAcceptPart1),
-                      TextSpan(
-                        text: l10n.registerPrivacyLink,
-                        style: linkStyle,
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => context.push('/privacy'),
-                      ),
-                      TextSpan(text: l10n.registerAcceptPart2),
-                      TextSpan(
-                        text: l10n.registerTermsLink,
-                        style: linkStyle,
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => context.push('/terms'),
-                      ),
-                      TextSpan(text: l10n.registerAcceptPart3),
-                    ],
+        // Tap sull'intera riga (checkbox + testo) commuta lo stato — facilita
+        // il targeting su mobile. I tap sui link Privacy/ToS hanno priorita'
+        // grazie ai TapGestureRecognizer nei TextSpan.
+        InkWell(
+          onTap: () => onChanged(!value),
+          borderRadius: BorderRadius.circular(8),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Checkbox(
+                  value: value,
+                  onChanged: onChanged,
+                ),
+                const SizedBox(width: 4),
+                Expanded(
+                  child: RichText(
+                    text: TextSpan(
+                      style: baseStyle,
+                      children: [
+                        TextSpan(text: l10n.registerAcceptPart1),
+                        TextSpan(
+                          text: l10n.registerPrivacyLink,
+                          style: linkStyle,
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => context.push('/privacy'),
+                        ),
+                        TextSpan(text: l10n.registerAcceptPart2),
+                        TextSpan(
+                          text: l10n.registerTermsLink,
+                          style: linkStyle,
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => context.push('/terms'),
+                        ),
+                        TextSpan(text: l10n.registerAcceptPart3),
+                      ],
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
         if (showError)
           Padding(
