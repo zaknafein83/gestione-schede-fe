@@ -113,6 +113,8 @@ class _EditorBodyState extends ConsumerState<_EditorBody>
     controller.dispose();
     _autosaveTimer?.cancel();
     _tab.dispose();
+    // Fresh fetch al prossimo accesso (layout editor o shared link).
+    ref.invalidate(characterDetailProvider(widget.initial.id));
     super.dispose();
   }
 
