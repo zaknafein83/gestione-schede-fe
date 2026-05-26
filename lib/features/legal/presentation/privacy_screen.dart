@@ -46,7 +46,23 @@ class PrivacyScreen extends StatelessWidget {
           'Schede personaggio: tutti i dati inseriti dall\'utente per descrivere i propri personaggi del gioco di ruolo (statistiche, equipaggiamento, incantesimi, note, immagini del personaggio).',
           'Token di condivisione: identificativi opachi generati per la condivisione in sola lettura di una scheda con terzi tramite link pubblico; revocabili in qualunque momento.',
         ]),
-        legalH2('2.2 Dati raccolti automaticamente'),
+        legalH2('2.2 Dati ricevuti dal fornitore di autenticazione OAuth (opzionale)'),
+        legalP(
+          'Se l\'utente sceglie di registrarsi o accedere tramite l\'opzione "Continua con Google", '
+          'il Servizio riceve da Google LLC i seguenti dati associati all\'account Google dell\'utente:',
+        ),
+        legalUl([
+          'Identificativo univoco dell\'account Google ("sub") — usato come chiave per riconoscere l\'utente nei successivi accessi.',
+          'Indirizzo email associato all\'account Google e relativo stato di verifica — utilizzato come email dell\'account Servizio.',
+          'Nome dell\'account Google ("name") — utilizzato come nome visualizzato di default; modificabile dall\'utente in qualunque momento.',
+        ]),
+        legalP(
+          'L\'eventuale URL della foto profilo Google non viene importato né conservato dal Servizio. '
+          'Il flusso di autenticazione avviene tramite il protocollo standard OAuth 2.0 / OpenID Connect; '
+          'il Servizio non ha accesso alla password dell\'account Google né ad altri dati dell\'account.',
+        ),
+
+        legalH2('2.3 Dati raccolti automaticamente'),
         legalUl([
           'Cronologia dei tiri di dado effettuati con il dice roller (mantenuta in sessione, non condivisa con terzi).',
           'Token di sessione (access token e refresh token) — necessari per mantenere l\'utente autenticato; archiviati sul dispositivo dell\'utente in storage sicuro.',
@@ -102,6 +118,7 @@ class PrivacyScreen extends StatelessWidget {
           'Resend, Inc. (con sede negli Stati Uniti d\'America) — fornitore del servizio di invio email transazionali. Tratta esclusivamente l\'indirizzo email del destinatario e il contenuto dell\'email transazionale (verifica account, reset password).',
           'OVH Groupe SAS (con sede in Francia, Unione Europea) — fornitore dell\'infrastruttura di hosting (server virtuale) e del registrar del dominio. I dati sono archiviati su server siti nell\'Unione Europea.',
           'GitHub, Inc. (con sede negli Stati Uniti d\'America) — fornitore del registry da cui vengono distribuite le immagini software del Servizio. Non riceve dati personali degli utenti durante il funzionamento del Servizio.',
+          'Google LLC (con sede negli Stati Uniti d\'America) — fornitore del servizio di autenticazione OAuth 2.0 / OpenID Connect, attivato solo se l\'utente sceglie di usare "Continua con Google". Tratta l\'identificativo dell\'account Google, l\'indirizzo email e il nome dell\'utente al solo scopo di consentire l\'autenticazione.',
         ]),
         legalP(
           'I dati non sono ceduti, venduti, comunicati o diffusi ad altri soggetti, salvo obblighi di legge.',
@@ -111,7 +128,7 @@ class PrivacyScreen extends StatelessWidget {
         legalH1('6. Trasferimenti extra-UE'),
         legalP(
           'I dati possono essere trasferiti verso paesi al di fuori dello Spazio Economico Europeo, '
-          'in particolare gli Stati Uniti d\'America, esclusivamente verso fornitori (Resend, GitHub) che '
+          'in particolare gli Stati Uniti d\'America, esclusivamente verso fornitori (Resend, GitHub, Google) che '
           'aderiscono all\'EU-US Data Privacy Framework (Decisione di adeguatezza della Commissione UE '
           'del 10 luglio 2023) e che hanno sottoscritto Standard Contractual Clauses con il Titolare.',
         ),

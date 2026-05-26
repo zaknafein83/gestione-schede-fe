@@ -36,6 +36,23 @@ class AuthApi {
     throw ApiError.fromResponseData(res.statusCode ?? 0, res.data);
   }
 
+  /// POST /auth/google — login o registrazione OIDC. {@code acceptPrivacy}
+  /// e' richiesto a true solo al primo accesso (utente nuovo); per i login
+  /// successivi il backend lo ignora.
+  Future<LoginResponse> googleLogin({
+    required String idToken,
+    required bool acceptPrivacy,
+  }) async {
+    final res = await _dio.post('/auth/google', data: {
+      'idToken': idToken,
+      'acceptPrivacy': acceptPrivacy,
+    });
+    if (res.statusCode == 200) {
+      return LoginResponse.fromJson(res.data as Map<String, dynamic>);
+    }
+    throw ApiError.fromResponseData(res.statusCode ?? 0, res.data);
+  }
+
   Future<LoginResponse> refresh(String refreshToken) async {
     final res = await _dio.post('/auth/refresh', data: {'refreshToken': refreshToken});
     if (res.statusCode == 200) {

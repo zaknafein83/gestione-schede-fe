@@ -4,10 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/api_error.dart';
+import '../../../core/google_config.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../legal/presentation/legal_footer_links.dart';
 import '../data/auth_api.dart';
+import '../data/auth_controller.dart';
 import '../models/auth_models.dart';
+import 'google_sign_in_button.dart';
 
 class RegisterScreen extends ConsumerStatefulWidget {
   const RegisterScreen({super.key});
@@ -80,6 +83,40 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(AppL10n.of(context).commonNetworkError(e.toString()))),
       );
+    } finally {
+      if (mounted) setState(() => _submitting = false);
+    }
+  }
+
+  /// Callback dal bottone Google Sign-In. Richiede che la checkbox privacy
+  /// sia spuntata (la stessa che vale per la registrazione email) — se non lo
+  /// e', mostriamo l'errore e mettiamo il flag rosso.
+  Future<void> _onGoogleCredential(String idToken) async {
+    if (_submitting) return;
+    if (!_acceptPrivacy) {
+      setState(() => _showAcceptError = true);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppL10n.of(context).registerAcceptRequired)),
+      );
+      return;
+    }
+    setState(() => _submitting = true);
+    try {
+      await ref.read(authControllerProvider.notifier).signInWithGoogle(
+            idToken: idToken,
+            acceptPrivacy: true,
+          );
+      if (!mounted) return;
+      final st = ref.read(authControllerProvider);
+      if (st.asData?.value != null) {
+        context.go('/home');
+      } else if (st.hasError) {
+        final err = st.error;
+        final msg = err is ApiError
+            ? err.detail
+            : AppL10n.of(context).commonNetworkError(err.toString());
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
+      }
     } finally {
       if (mounted) setState(() => _submitting = false);
     }
@@ -224,6 +261,16 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                             : Text(l10n.authBtnRegister),
                       ),
                     ),
+                    if (isGoogleAuthEnabled) ...[
+                      const SizedBox(height: 20),
+                      _RegisterOrDivider(label: l10n.authOrDivider),
+                      const SizedBox(height: 16),
+                      Center(
+                        child: GoogleSignInButtonWidget(
+                          onCredential: _onGoogleCredential,
+                        ),
+                      ),
+                    ],
                     const SizedBox(height: 16),
                     const LegalFooterLinks(),
                   ],
@@ -233,6 +280,28 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Divisore orizzontale con etichetta tipo "OPPURE", fra il form classico
+/// e il pulsante Google Sign-In.
+class _RegisterOrDivider extends StatelessWidget {
+  const _RegisterOrDivider({required this.label});
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = Theme.of(context).colorScheme.outlineVariant;
+    return Row(
+      children: [
+        Expanded(child: Divider(color: color)),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Text(label, style: Theme.of(context).textTheme.labelSmall),
+        ),
+        Expanded(child: Divider(color: color)),
+      ],
     );
   }
 }

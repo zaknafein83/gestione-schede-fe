@@ -61,6 +61,8 @@
   "authNeedAccount":     "Don't have an account?",
   "authHaveAccount":     "Already have an account?",
   "authBtnLogin":        "Sign in",
+  "authOrDivider":       "or",
+  "loginGoogleNeedsRegister":"To sign in with Google the first time you need to register accepting the Terms.",
   "authBtnRegister":     "Create account",
   "authCheckEmailTitle": "Check your email",
   "authCheckEmailBody":  "We sent a verification link to {email}.",
