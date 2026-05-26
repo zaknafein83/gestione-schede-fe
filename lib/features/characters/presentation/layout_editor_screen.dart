@@ -11,6 +11,8 @@ import '../../paywall/presentation/paywall_dialog.dart';
 import '../data/character_detail_providers.dart';
 import '../data/character_layout_api.dart';
 import '../data/character_layout_providers.dart';
+import '../data/characters_api.dart';
+import '../data/characters_controller.dart';
 import '../models/character_models.dart';
 import '../models/layout_models.dart';
 import 'character_editor_controller.dart';
@@ -90,32 +92,65 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
   late List<LayoutWidget> _widgets;
 
   Timer? _saveTimer;
-  bool _dirty = false;
+  /// Modifiche alle posizioni/dimensioni dei widget → PUT /layout.
+  bool _layoutDirty = false;
+  /// Modifiche ai dati della scheda (es. HP, condizioni dentro un widget)
+  /// → PATCH /characters/{id}. Triggerato dal listener su dirtyVersion del
+  /// controller.
+  bool _charDirty = false;
   bool _saving = false;
   String? _saveError;
   DateTime? _lastSavedAt;
   static const _saveDebounce = Duration(seconds: 1);
+
+  bool get _dirty => _layoutDirty || _charDirty;
 
   @override
   void initState() {
     super.initState();
     _controller = CharacterEditorController(initial: widget.initialChar);
     _widgets = List.of(widget.initialLayout.widgets);
+    // I widget dentro il canvas possono editare i campi della scheda (HP,
+    // conditions, ecc.). Ascoltiamo dirtyVersion per programmare un PATCH.
+    _controller.addListener(_onControllerChanged);
+    _controller.dirtyVersion.addListener(_onCharDirty);
   }
 
   @override
   void dispose() {
+    _controller.removeListener(_onControllerChanged);
+    _controller.dirtyVersion.removeListener(_onCharDirty);
     _controller.dispose();
     _saveTimer?.cancel();
+    // Invalida i provider cosi' altre viste (lista, editor classico) fanno
+    // fresh fetch al prossimo accesso.
+    ref.invalidate(characterDetailProvider(widget.characterId));
+    ref.invalidate(characterLayoutProvider(widget.characterId));
     super.dispose();
   }
 
-  void _scheduleSave() {
-    if (!_dirty) {
+  void _onControllerChanged() {
+    if (mounted) setState(() {});
+  }
+
+  void _onCharDirty() {
+    if (!_charDirty) {
       if (mounted) {
-        setState(() => _dirty = true);
+        setState(() => _charDirty = true);
       } else {
-        _dirty = true;
+        _charDirty = true;
+      }
+    }
+    _saveTimer?.cancel();
+    _saveTimer = Timer(_saveDebounce, _doSave);
+  }
+
+  void _scheduleSave() {
+    if (!_layoutDirty) {
+      if (mounted) {
+        setState(() => _layoutDirty = true);
+      } else {
+        _layoutDirty = true;
       }
     }
     _saveTimer?.cancel();
@@ -124,7 +159,7 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
 
   /// Flush sincrono prima del pop: cancella il timer di debounce e attende
   /// la fine del save. Evita data-loss se l'utente naviga via entro 1s da
-  /// un drag/resize.
+  /// un drag/resize o da un edit di un widget interno.
   Future<void> _flushAndPop(Object? result) async {
     _saveTimer?.cancel();
     if (_dirty) await _doSave();
@@ -141,16 +176,33 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
     try {
       final access = await ref.read(authStorageProvider).loadAccess();
       if (access == null) throw StateError('Utente non autenticato');
-      await ref.read(characterLayoutApiProvider).put(
-            access,
-            widget.characterId,
-            widgets: _widgets,
-          );
+
+      // 1. Salva i dati della scheda se modificati (sempre permesso, anche FREE).
+      if (_charDirty) {
+        await ref.read(charactersApiProvider).patch(
+              access,
+              widget.characterId,
+              _controller.buildPayload(),
+            );
+        // Aggiorna anche la lista (nome/livello/portrait possono essere cambiati).
+        await ref.read(charactersListProvider.notifier).refresh();
+        if (!mounted) return;
+        setState(() => _charDirty = false);
+      }
+
+      // 2. Salva il layout se modificato (gated PREMIUM lato backend).
+      if (_layoutDirty) {
+        await ref.read(characterLayoutApiProvider).put(
+              access,
+              widget.characterId,
+              widgets: _widgets,
+            );
+        if (!mounted) return;
+        setState(() => _layoutDirty = false);
+      }
+
       if (!mounted) return;
-      setState(() {
-        _dirty = false;
-        _lastSavedAt = DateTime.now();
-      });
+      setState(() => _lastSavedAt = DateTime.now());
     } on ApiError catch (e) {
       if (!mounted) return;
       final shown = await maybeShowPaywall(context, e);
@@ -241,7 +293,7 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
       if (!mounted) return;
       setState(() {
         _widgets = [];
-        _dirty = false;
+        _layoutDirty = false;
         _lastSavedAt = DateTime.now();
       });
       ref.invalidate(characterLayoutProvider(widget.characterId));
