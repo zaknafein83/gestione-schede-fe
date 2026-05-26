@@ -1345,6 +1345,67 @@ class AppL10nIt extends AppL10n {
   String get autosaveFormInvalid => 'Form non valido — non salvato';
 
   @override
+  String get editorExitDirtyTitle => 'Modifiche non salvate';
+
+  @override
+  String get editorExitDirtyBody =>
+      'Hai modifiche non salvate (alcuni campi non sono validi e non sono stati salvati). Uscire scartandole?';
+
+  @override
+  String get editorExitDirtyDiscard => 'Esci e scarta';
+
+  @override
+  String get editorLayoutTitle => 'Dashboard personalizzata';
+
+  @override
+  String get editorLayoutOpenButton => 'Modifica layout';
+
+  @override
+  String get editorLayoutEmpty =>
+      'Nessun widget. Aggiungine uno per iniziare a costruire la tua dashboard.';
+
+  @override
+  String get editorLayoutAddWidget => 'Aggiungi widget';
+
+  @override
+  String get editorLayoutReset => 'Ripristina default';
+
+  @override
+  String get editorLayoutSavedSnack => 'Layout salvato';
+
+  @override
+  String get editorLayoutResetConfirmTitle => 'Ripristinare il layout?';
+
+  @override
+  String get editorLayoutResetConfirmBody =>
+      'Il tuo layout custom verrà eliminato e tornerai alla vista classica a tab.';
+
+  @override
+  String get editorLayoutResetConfirmYes => 'Ripristina';
+
+  @override
+  String get editorLayoutRemoveWidget => 'Rimuovi widget';
+
+  @override
+  String get editorLayoutBringForward => 'Porta avanti';
+
+  @override
+  String get editorLayoutSendBackward => 'Porta indietro';
+
+  @override
+  String get editorLayoutWidgetHpTracker => 'Tracker PF';
+
+  @override
+  String get editorLayoutWidgetConditions => 'Condizioni';
+
+  @override
+  String get editorLayoutWidgetPortrait => 'Ritratto';
+
+  @override
+  String get editorLayoutPremiumRequired =>
+      'Il layout personalizzato è una funzionalità Premium.';
+
+  @override
   String get editorAnagraficaName => 'Nome';
 
   @override

@@ -1984,6 +1984,63 @@ abstract class AppL10n {
   /// No description provided for @autosaveFormInvalid.
   String get autosaveFormInvalid;
 
+  /// No description provided for @editorExitDirtyTitle.
+  String get editorExitDirtyTitle;
+
+  /// No description provided for @editorExitDirtyBody.
+  String get editorExitDirtyBody;
+
+  /// No description provided for @editorExitDirtyDiscard.
+  String get editorExitDirtyDiscard;
+
+  /// No description provided for @editorLayoutTitle.
+  String get editorLayoutTitle;
+
+  /// No description provided for @editorLayoutOpenButton.
+  String get editorLayoutOpenButton;
+
+  /// No description provided for @editorLayoutEmpty.
+  String get editorLayoutEmpty;
+
+  /// No description provided for @editorLayoutAddWidget.
+  String get editorLayoutAddWidget;
+
+  /// No description provided for @editorLayoutReset.
+  String get editorLayoutReset;
+
+  /// No description provided for @editorLayoutSavedSnack.
+  String get editorLayoutSavedSnack;
+
+  /// No description provided for @editorLayoutResetConfirmTitle.
+  String get editorLayoutResetConfirmTitle;
+
+  /// No description provided for @editorLayoutResetConfirmBody.
+  String get editorLayoutResetConfirmBody;
+
+  /// No description provided for @editorLayoutResetConfirmYes.
+  String get editorLayoutResetConfirmYes;
+
+  /// No description provided for @editorLayoutRemoveWidget.
+  String get editorLayoutRemoveWidget;
+
+  /// No description provided for @editorLayoutBringForward.
+  String get editorLayoutBringForward;
+
+  /// No description provided for @editorLayoutSendBackward.
+  String get editorLayoutSendBackward;
+
+  /// No description provided for @editorLayoutWidgetHpTracker.
+  String get editorLayoutWidgetHpTracker;
+
+  /// No description provided for @editorLayoutWidgetConditions.
+  String get editorLayoutWidgetConditions;
+
+  /// No description provided for @editorLayoutWidgetPortrait.
+  String get editorLayoutWidgetPortrait;
+
+  /// No description provided for @editorLayoutPremiumRequired.
+  String get editorLayoutPremiumRequired;
+
   /// No description provided for @editorAnagraficaName.
   String get editorAnagraficaName;
 
