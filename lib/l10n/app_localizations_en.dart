@@ -1346,6 +1346,67 @@ class AppL10nEn extends AppL10n {
   String get autosaveFormInvalid => 'Invalid form — not saved';
 
   @override
+  String get editorExitDirtyTitle => 'Unsaved changes';
+
+  @override
+  String get editorExitDirtyBody =>
+      'You have unsaved changes (some fields are invalid and were not saved). Exit and discard them?';
+
+  @override
+  String get editorExitDirtyDiscard => 'Discard and exit';
+
+  @override
+  String get editorLayoutTitle => 'Custom dashboard';
+
+  @override
+  String get editorLayoutOpenButton => 'Edit layout';
+
+  @override
+  String get editorLayoutEmpty =>
+      'No widgets yet. Add one to start building your custom dashboard.';
+
+  @override
+  String get editorLayoutAddWidget => 'Add widget';
+
+  @override
+  String get editorLayoutReset => 'Reset to default';
+
+  @override
+  String get editorLayoutSavedSnack => 'Layout saved';
+
+  @override
+  String get editorLayoutResetConfirmTitle => 'Reset the layout?';
+
+  @override
+  String get editorLayoutResetConfirmBody =>
+      'Your custom layout will be removed and the character returns to the classic tab view.';
+
+  @override
+  String get editorLayoutResetConfirmYes => 'Reset';
+
+  @override
+  String get editorLayoutRemoveWidget => 'Remove widget';
+
+  @override
+  String get editorLayoutBringForward => 'Bring forward';
+
+  @override
+  String get editorLayoutSendBackward => 'Send backward';
+
+  @override
+  String get editorLayoutWidgetHpTracker => 'HP tracker';
+
+  @override
+  String get editorLayoutWidgetConditions => 'Conditions';
+
+  @override
+  String get editorLayoutWidgetPortrait => 'Portrait';
+
+  @override
+  String get editorLayoutPremiumRequired =>
+      'Custom layouts are a Premium feature.';
+
+  @override
   String get editorAnagraficaName => 'Name';
 
   @override

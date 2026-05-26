@@ -13,6 +13,7 @@ import '../features/auth/presentation/reset_password_screen.dart';
 import '../features/auth/presentation/verify_email_screen.dart';
 import '../features/characters/presentation/character_editor_screen.dart';
 import '../features/characters/presentation/characters_list_screen.dart';
+import '../features/characters/presentation/layout_editor_screen.dart';
 import '../features/share/presentation/shared_character_screen.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/legal/presentation/account_deletion_info_screen.dart';
@@ -89,6 +90,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/characters/:id',
         builder: (_, state) => CharacterEditorScreen(id: state.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/characters/:id/layout',
+        builder: (_, state) => LayoutEditorScreen(id: state.pathParameters['id']!),
       ),
       GoRoute(
         path: '/share/:token',
