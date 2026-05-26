@@ -7,11 +7,90 @@ import '../../logic/character_catalog.dart';
 import '../character_editor_controller.dart';
 import '../character_editor_models.dart';
 
-/// Tab "Abilità": tiri salvezza + skill con calcolo automatico modificatore.
+/// Tab "Abilità": elenco skill con calcolo automatico del modificatore.
+/// I tiri salvezza sono in [SavesWidget] (widget separato).
 class AbilitiesWidget extends StatelessWidget {
   const AbilitiesWidget({super.key, required this.controller});
 
   final CharacterEditorController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return _AbilitiesScaffold(
+      controller: controller,
+      builder: (context, mods, profBonus) {
+        final l10n = AppL10n.of(context);
+        return [
+          Text(l10n.sheetSkillsLabel,
+              style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 8),
+          const _AbilitiesHeader(),
+          for (final e in skillsCatalog)
+            _FlagRowTile(
+              catalog:    e,
+              row:        controller.skills[e.key]!,
+              abilityMod: mods[e.abilityKey],
+              profBonus:  profBonus,
+              characterId: controller.characterId,
+              onProficientChanged: (v) => controller.setSkillProficient(e.key, v),
+              onExpertiseChanged:  (v) => controller.setSkillExpertise(e.key, v),
+              isSkill: true,
+            ),
+        ];
+      },
+    );
+  }
+}
+
+/// Tab/Widget "Tiri salvezza": una riga per ogni saving throw, con i due
+/// checkbox (competenza/maestria) e il totale calcolato. Stesso look del
+/// [AbilitiesWidget] per coerenza visiva fra i due.
+class SavesWidget extends StatelessWidget {
+  const SavesWidget({super.key, required this.controller});
+
+  final CharacterEditorController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return _AbilitiesScaffold(
+      controller: controller,
+      builder: (context, mods, profBonus) {
+        final l10n = AppL10n.of(context);
+        return [
+          Text(l10n.sheetSavingThrowsLabel,
+              style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 8),
+          const _AbilitiesHeader(),
+          for (final e in savingThrowsCatalog)
+            _FlagRowTile(
+              catalog:    e,
+              row:        controller.savingThrows[e.key]!,
+              abilityMod: mods[e.abilityKey],
+              profBonus:  profBonus,
+              characterId: controller.characterId,
+              onProficientChanged: (v) => controller.setSavingThrowProficient(e.key, v),
+              onExpertiseChanged:  (v) => controller.setSavingThrowExpertise(e.key, v),
+              isSkill: false,
+            ),
+        ];
+      },
+    );
+  }
+}
+
+/// Scaffolding condiviso fra [AbilitiesWidget] e [SavesWidget]: ascolta i
+/// controller delle stat, calcola modificatori e prof. bonus e mostra la chip
+/// del prof. bonus in alto. Il [builder] riceve mods e profBonus e produce le
+/// righe specifiche del widget.
+class _AbilitiesScaffold extends StatelessWidget {
+  const _AbilitiesScaffold({required this.controller, required this.builder});
+
+  final CharacterEditorController controller;
+  final List<Widget> Function(
+    BuildContext context,
+    Map<String, int?> mods,
+    int? profBonus,
+  ) builder;
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +110,10 @@ class AbilitiesWidget extends StatelessWidget {
           'wis': abilityMod(tryParseInt(controller.wis.text)),
           'cha': abilityMod(tryParseInt(controller.cha.text)),
         };
-        // Bonus competenza: override manuale se valorizzato, altrimenti calcolato dal livello
         final overrideProf = tryParseInt(controller.proficiencyBonus.text);
         final autoProf     = profBonusForLevel(tryParseInt(controller.level.text));
         final profBonus    = overrideProf ?? autoProf;
 
-        final l10n = AppL10n.of(context);
         return SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -44,42 +121,12 @@ class AbilitiesWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Expanded(
-                    child: Text(l10n.sheetSavingThrowsLabel,
-                        style: Theme.of(context).textTheme.titleMedium),
-                  ),
+                  const Spacer(),
                   _ProfBonusChip(profBonus: profBonus, fromOverride: overrideProf != null),
                 ],
               ),
               const SizedBox(height: 8),
-              const _AbilitiesHeader(),
-              for (final e in savingThrowsCatalog)
-                _FlagRowTile(
-                  catalog:    e,
-                  row:        controller.savingThrows[e.key]!,
-                  abilityMod: mods[e.abilityKey],
-                  profBonus:  profBonus,
-                  characterId: controller.characterId,
-                  onProficientChanged: (v) => controller.setSavingThrowProficient(e.key, v),
-                  onExpertiseChanged:  (v) => controller.setSavingThrowExpertise(e.key, v),
-                  isSkill: false,
-                ),
-              const SizedBox(height: 24),
-              Text(l10n.sheetSkillsLabel,
-                  style: Theme.of(context).textTheme.titleMedium),
-              const SizedBox(height: 8),
-              const _AbilitiesHeader(),
-              for (final e in skillsCatalog)
-                _FlagRowTile(
-                  catalog:    e,
-                  row:        controller.skills[e.key]!,
-                  abilityMod: mods[e.abilityKey],
-                  profBonus:  profBonus,
-                  characterId: controller.characterId,
-                  onProficientChanged: (v) => controller.setSkillProficient(e.key, v),
-                  onExpertiseChanged:  (v) => controller.setSkillExpertise(e.key, v),
-                  isSkill: true,
-                ),
+              ...builder(context, mods, profBonus),
             ],
           ),
         );
