@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:web/web.dart' as web;
@@ -8,18 +9,18 @@ import '../../../core/google_config.dart';
 
 /// Bridge fra Google Identity Services (GIS) e il nostro stato Riverpod.
 ///
-/// GIS espone {@code google.accounts.id.initialize/prompt/renderButton}. Il
-/// flusso e':
-///   1) {@link initialize} chiama {@code initialize} GIS passando una callback
-///      che, all'auth riuscita, riceve il JWT (campo {@code credential}).
-///   2) UI: si renderizza un bottone via {@link renderButton} dentro un
-///      {@code <div>} HTML embeddato con {@code HtmlElementView}.
+/// GIS espone `google.accounts.id.initialize/prompt/renderButton`. Il flusso:
+///   1) [initialize] chiama `initialize` GIS passando una callback che, al
+///      successo, riceve il JWT (campo `credential`).
+///   2) UI: si renderizza un bottone via [renderButton] dentro un `<div>`
+///      HTML embeddato con `HtmlElementView`.
 ///   3) Quando l'utente clicca, GIS apre il popup OAuth e ritorna il JWT
-///      sulla callback, che lo pusha sullo stream {@link credentials}.
+///      sulla callback, che lo pusha sullo stream [credentials].
 ///   4) Il controller ascolta lo stream e fa POST /auth/google.
 ///
 /// Tutto web-only: gli `external` JS sono no-op su mobile (verrebbe lanciato
-/// `Unsupported operation`). Il widget bottone si attiva solo se [isGoogleAuthEnabled].
+/// `Unsupported operation`). Il widget bottone si attiva solo se
+/// [isGoogleAuthEnabled].
 class GoogleAuthService {
   GoogleAuthService();
 
@@ -96,7 +97,8 @@ class GoogleAuthService {
   }
 
   bool _isGisLoaded() {
-    final google = web.window.getProperty<JSObject?>('google'.toJS);
+    // globalContext = window come JSObject (esposto da dart:js_interop).
+    final google = globalContext.getProperty<JSObject?>('google'.toJS);
     if (google == null) return false;
     final accounts = google.getProperty<JSObject?>('accounts'.toJS);
     if (accounts == null) return false;
