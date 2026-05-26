@@ -89,6 +89,7 @@ class _LayoutEditorScreenState extends ConsumerState<LayoutEditorScreen> {
 
 class _LayoutEditorBody extends ConsumerStatefulWidget {
   const _LayoutEditorBody({
+    super.key,
     required this.characterId,
     required this.initialChar,
     required this.initialLayout,
