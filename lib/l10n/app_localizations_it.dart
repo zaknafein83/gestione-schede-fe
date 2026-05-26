@@ -199,8 +199,7 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get landingHeroSubtitle =>
-      'Custodisci ogni scheda, lancia ogni dado, condividi le gesta del tuo personaggio — '
-      'un compagno digitale per le tue avventure di ruolo 5e.';
+      'Custodisci ogni scheda, lancia ogni dado, condividi le gesta del tuo personaggio — un compagno digitale per le tue avventure di ruolo 5e.';
 
   @override
   String get landingCtaOpenWeb => 'Entra nella tua biblioteca';
@@ -236,8 +235,7 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get landingFeatureSheetDesc =>
-      'Ogni campo del manuale 5e, otto sezioni dedicate, calcoli automatici. '
-      'Nessun dettaglio del tuo eroe va perduto.';
+      'Ogni campo del manuale 5e, otto sezioni dedicate, calcoli automatici. Nessun dettaglio del tuo eroe va perduto.';
 
   @override
   String get landingFeatureDiceTitle => 'Il fato dei dadi';
@@ -251,8 +249,7 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get landingFeatureShareDesc =>
-      'Un link in sola lettura per il tuo Dungeon Master e la compagnia. '
-      'Revocabile in un istante, sempre tuo.';
+      'Un link in sola lettura per il tuo Dungeon Master e la compagnia. Revocabile in un istante, sempre tuo.';
 
   @override
   String get landingFeatureSpellsTitle => 'Codex degli incantesimi';
@@ -1289,7 +1286,7 @@ class AppL10nIt extends AppL10n {
   String get spellPickerTitle => 'Catalogo SRD';
 
   @override
-  String get spellPickerSearchHint => 'Cerca per nome (es. "fire")';
+  String get spellPickerSearchHint => 'Cerca per nome (es. \"fire\")';
 
   @override
   String get spellFilterLevelHint => 'Livello';
@@ -1406,6 +1403,19 @@ class AppL10nIt extends AppL10n {
       'Il layout personalizzato è una funzionalità Premium.';
 
   @override
+  String get homeCustomDashboardBadge => 'NUOVO';
+
+  @override
+  String get homeCustomDashboardTitle => 'Dashboard personalizzata';
+
+  @override
+  String get homeCustomDashboardSubtitle =>
+      'Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove. Solo Premium.';
+
+  @override
+  String get homeCustomDashboardOpen => 'Vai alle schede';
+
+  @override
   String get editorAnagraficaName => 'Nome';
 
   @override
@@ -1437,7 +1447,8 @@ class AppL10nIt extends AppL10n {
       'Valori 1-30. Il modificatore (sotto al campo) si aggiorna automaticamente.';
 
   @override
-  String get editorAbilityTooltipNeedsValue => 'Inserisci la statistica per tirare';
+  String get editorAbilityTooltipNeedsValue =>
+      'Inserisci la statistica per tirare';
 
   @override
   String editorAbilityTooltipRoll(Object formula, Object ability) {
@@ -1533,56 +1544,6 @@ class AppL10nIt extends AppL10n {
       'Riposo breve: reset TS morte (e slot warlock se progressione warlock). Riposo lungo: HP=max, temp=0, slot pieni, dadi vita recuperati per metà.';
 
   @override
-  String get editorHpDialogTitle => 'Modifica HP';
-
-  @override
-  String get editorHpQuantityLabel => 'Quantità';
-
-  @override
-  String get editorHpQuantityHint => 'es. 8';
-
-  @override
-  String get editorHpHeal => 'Cura';
-
-  @override
-  String get editorHpDamage => 'Danno';
-
-  @override
-  String get editorHpTempLabel => 'PF temporanei';
-
-  @override
-  String get editorHpTempHelper => 'Non si stackano: vale il valore più alto';
-
-  @override
-  String get editorHpTempApply => 'Applica PF temporanei';
-
-  @override
-  String get editorRestLong => 'Riposo lungo';
-
-  @override
-  String get editorRestShort => 'Riposo breve';
-
-  @override
-  String get editorRestLongBody =>
-      'Verranno applicate: HP a max, PF temp a 0, slot incantesimi pieni, dadi vita recuperati per metà, tiri salvezza contro morte azzerati.';
-
-  @override
-  String get editorRestShortBody =>
-      'Verranno azzerati i tiri salvezza contro morte. Se la progressione è warlock, gli slot tornano pieni.';
-
-  @override
-  String get editorRestLongConfirmTitle => 'Riposo lungo?';
-
-  @override
-  String get editorRestShortConfirmTitle => 'Riposo breve?';
-
-  @override
-  String get editorRestLongApplied => 'Riposo lungo applicato';
-
-  @override
-  String get editorRestShortApplied => 'Riposo breve applicato';
-
-  @override
   String get editorSpellsCasterClassLabel => 'Classe incantatrice';
 
   @override
@@ -1641,7 +1602,7 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get editorSpellsFillConfirmBody =>
-      'I valori "Max" verranno sovrascritti dalla tabella PHB. Il numero corrente verrà allineato al nuovo max.';
+      'I valori \"Max\" verranno sovrascritti dalla tabella PHB. Il numero corrente verrà allineato al nuovo max.';
 
   @override
   String get editorSpellsFillConfirmYes => 'Compila';
@@ -1695,13 +1656,16 @@ class AppL10nIt extends AppL10n {
   String get editorSpellProgressionNone => 'Nessuna';
 
   @override
-  String get editorSpellProgressionFull => 'Incantatore pieno (Mago, Chierico, …)';
+  String get editorSpellProgressionFull =>
+      'Incantatore pieno (Mago, Chierico, …)';
 
   @override
-  String get editorSpellProgressionHalf => 'Mezzo incantatore (Paladino, Ranger)';
+  String get editorSpellProgressionHalf =>
+      'Mezzo incantatore (Paladino, Ranger)';
 
   @override
-  String get editorSpellProgressionThird => 'Terzo incantatore (Trickster, Eldritch)';
+  String get editorSpellProgressionThird =>
+      'Terzo incantatore (Trickster, Eldritch)';
 
   @override
   String get editorSpellProgressionWarlock => 'Warlock (Pact Magic)';
@@ -1762,6 +1726,56 @@ class AppL10nIt extends AppL10n {
   }
 
   @override
+  String get editorHpDialogTitle => 'Modifica HP';
+
+  @override
+  String get editorHpQuantityLabel => 'Quantità';
+
+  @override
+  String get editorHpQuantityHint => 'es. 8';
+
+  @override
+  String get editorHpHeal => 'Cura';
+
+  @override
+  String get editorHpDamage => 'Danno';
+
+  @override
+  String get editorHpTempLabel => 'PF temporanei';
+
+  @override
+  String get editorHpTempHelper => 'Non si stackano: vale il valore più alto';
+
+  @override
+  String get editorHpTempApply => 'Applica PF temporanei';
+
+  @override
+  String get editorRestLong => 'Riposo lungo';
+
+  @override
+  String get editorRestShort => 'Riposo breve';
+
+  @override
+  String get editorRestLongBody =>
+      'Verranno applicate: HP a max, PF temp a 0, slot incantesimi pieni, dadi vita recuperati per metà, tiri salvezza contro morte azzerati.';
+
+  @override
+  String get editorRestShortBody =>
+      'Verranno azzerati i tiri salvezza contro morte. Se la progressione è warlock, gli slot tornano pieni.';
+
+  @override
+  String get editorRestLongConfirmTitle => 'Riposo lungo?';
+
+  @override
+  String get editorRestShortConfirmTitle => 'Riposo breve?';
+
+  @override
+  String get editorRestLongApplied => 'Riposo lungo applicato';
+
+  @override
+  String get editorRestShortApplied => 'Riposo breve applicato';
+
+  @override
   String get comingSoonTitle => 'Lavori in corso';
 
   @override
@@ -1770,11 +1784,11 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get comingSoonIos =>
-      "L'app per iPhone e iPad arriverà presto sull'App Store.";
+      'L\'app per iPhone e iPad arriverà presto sull\'App Store.';
 
   @override
   String get comingSoonAndroid =>
-      "L'app per Android arriverà presto sul Google Play Store.";
+      'L\'app per Android arriverà presto sul Google Play Store.';
 
   @override
   String get comingSoonSpells =>
@@ -1799,7 +1813,9 @@ class AppL10nIt extends AppL10n {
   String get legalContactTitle => 'Contatti';
 
   @override
-  String legalLastUpdated(String date) => 'Ultimo aggiornamento: $date';
+  String legalLastUpdated(String date) {
+    return 'Ultimo aggiornamento: $date';
+  }
 
   @override
   String get legalOnlyItalianNotice =>
@@ -1844,7 +1860,9 @@ class AppL10nIt extends AppL10n {
   String get profileExportDone => 'Esportazione completata.';
 
   @override
-  String profileExportFailed(String error) => 'Esportazione fallita: $error';
+  String profileExportFailed(String error) {
+    return 'Esportazione fallita: $error';
+  }
 
   @override
   String get profileLegalPrivacyLink => 'Privacy Policy';
@@ -1860,47 +1878,67 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get deletionInfoTitle => 'Come cancellare il tuo account';
+
   @override
   String get deletionInfoIntro =>
-      'Puoi cancellare il tuo account e tutti i dati associati in qualsiasi momento. '
-      'La cancellazione è immediata e irreversibile.';
+      'Puoi cancellare il tuo account e tutti i dati associati in qualsiasi momento. La cancellazione è immediata e irreversibile.';
+
   @override
   String get deletionInfoStepsTitle => 'Procedura standard';
+
   @override
   String get deletionInfoStep1 => 'Accedi al tuo account.';
+
   @override
-  String get deletionInfoStep2 => 'Vai su Profilo → sezione "Danger zone" in fondo alla pagina.';
+  String get deletionInfoStep2 =>
+      'Vai su Profilo → sezione \"Danger zone\" in fondo alla pagina.';
+
   @override
-  String get deletionInfoStep3 => 'Premi "Cancella account".';
+  String get deletionInfoStep3 => 'Premi \"Cancella account\".';
+
   @override
   String get deletionInfoStep4 =>
       'Digita il tuo username e la password per conferma, poi premi il bottone rosso.';
+
   @override
   String get deletionInfoWhatRemovedTitle => 'Cosa viene cancellato';
+
   @override
   String get deletionInfoWhatRemoved =>
       'Tutti i seguenti dati vengono rimossi in modo definitivo, senza possibilità di recupero:';
+
   @override
-  String get deletionInfoBullet1 => 'Account, email, password (hash), foto del profilo.';
+  String get deletionInfoBullet1 =>
+      'Account, email, password (hash), foto del profilo.';
+
   @override
-  String get deletionInfoBullet2 => 'Tutte le tue schede personaggio e le immagini dei ritratti.';
+  String get deletionInfoBullet2 =>
+      'Tutte le tue schede personaggio e le immagini dei ritratti.';
+
   @override
   String get deletionInfoBullet3 => 'Cronologia dei tiri di dado.';
+
   @override
-  String get deletionInfoBullet4 => 'Tutti i link di condivisione attivi delle tue schede.';
+  String get deletionInfoBullet4 =>
+      'Tutti i link di condivisione attivi delle tue schede.';
+
   @override
-  String get deletionInfoBullet5 => 'Tutte le sessioni attive su qualsiasi dispositivo.';
+  String get deletionInfoBullet5 =>
+      'Tutte le sessioni attive su qualsiasi dispositivo.';
+
   @override
   String get deletionInfoCannotLoginTitle => 'Non riesci ad accedere?';
+
   @override
   String get deletionInfoCannotLogin =>
-      'Se hai perso le credenziali e non riesci a fare il reset password, scrivici '
-      "un'email all'indirizzo qui sotto specificando l'indirizzo email del tuo account. "
-      'Ti aiuteremo a procedere con la cancellazione dopo aver verificato la tua identità.';
+      'Se hai perso le credenziali e non riesci a fare il reset password, scrivici una email all\'indirizzo qui sotto specificando l\'indirizzo email del tuo account. Ti aiuteremo a procedere con la cancellazione dopo aver verificato la tua identità.';
+
   @override
   String get deletionInfoEmail => 'franksisca@gmail.com';
+
   @override
   String get deletionInfoLoginBtn => 'Accedi e cancella';
+
   @override
   String get deletionInfoBackHome => 'Torna alla home';
 }

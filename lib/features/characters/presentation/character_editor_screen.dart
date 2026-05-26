@@ -52,7 +52,7 @@ class CharacterEditorScreen extends ConsumerWidget {
         actions: [
           IconButton(
             tooltip: l10n.editorLayoutOpenButton,
-            icon: const Icon(Icons.dashboard_customize_outlined),
+            icon: const Icon(Icons.space_dashboard),
             onPressed: () {
               final user = ref.read(authControllerProvider).asData?.value;
               if (user != null && !user.isPremium && !user.isAdmin) {

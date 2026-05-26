@@ -504,6 +504,11 @@
   "editorLayoutWidgetPortrait":     "Portrait",
   "editorLayoutPremiumRequired":    "Custom layouts are a Premium feature.",
 
+  "homeCustomDashboardBadge":    "NEW",
+  "homeCustomDashboardTitle":    "Custom dashboard",
+  "homeCustomDashboardSubtitle": "Build your character sheet with drag-and-drop widgets — pick what to show and where. Premium only.",
+  "homeCustomDashboardOpen":     "Open characters",
+
   "editorAnagraficaName":      "Name",
   "editorAnagraficaLevel":     "Level",
   "editorAnagraficaRace":      "Race",
