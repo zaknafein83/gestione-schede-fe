@@ -60,7 +60,8 @@ class SavesWidget extends StatelessWidget {
           Text(l10n.sheetSavingThrowsLabel,
               style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 8),
-          const _AbilitiesHeader(),
+          // showExpertise=false: i TS in 5e non hanno la maestria.
+          const _AbilitiesHeader(showExpertise: false),
           for (final e in savingThrowsCatalog)
             _FlagRowTile(
               catalog:    e,
@@ -69,7 +70,7 @@ class SavesWidget extends StatelessWidget {
               profBonus:  profBonus,
               characterId: controller.characterId,
               onProficientChanged: (v) => controller.setSavingThrowProficient(e.key, v),
-              onExpertiseChanged:  (v) => controller.setSavingThrowExpertise(e.key, v),
+              onExpertiseChanged:  (_) {},  // no-op: nessun checkbox maestria sui TS
               isSkill: false,
             ),
         ];
@@ -159,10 +160,14 @@ class _ProfBonusChip extends StatelessWidget {
   }
 }
 
-/// Header colonne per le sezioni TS e Skill: allinea "Competenza" e
-/// "Maestria" sopra i due checkbox e "Totale" sopra il valore finale.
+/// Header colonne per le sezioni TS e Skill. Per i TS mostriamo solo
+/// "Competenza" e "Totale" (in D&D 5e i tiri salvezza non beneficiano di
+/// Maestria/Expertise — quella e' una feature delle skill, es. Rogue).
 class _AbilitiesHeader extends StatelessWidget {
-  const _AbilitiesHeader();
+  const _AbilitiesHeader({this.showExpertise = true});
+
+  /// Se false (sezione Tiri salvezza) la colonna "Maestria" e' nascosta.
+  final bool showExpertise;
 
   @override
   Widget build(BuildContext context) {
@@ -172,8 +177,9 @@ class _AbilitiesHeader extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         children: [
-          SizedBox(width: 48, child: Center(child: Text(l10n.editorColComp,   style: style))),
-          SizedBox(width: 48, child: Center(child: Text(l10n.editorColExpert, style: style))),
+          SizedBox(width: 48, child: Center(child: Text(l10n.editorColComp, style: style))),
+          if (showExpertise)
+            SizedBox(width: 48, child: Center(child: Text(l10n.editorColExpert, style: style))),
           const SizedBox(width: 8),
           const Expanded(child: SizedBox.shrink()),
           SizedBox(
@@ -211,15 +217,16 @@ class _FlagRowTile extends StatelessWidget {
   final bool          isSkill;
 
   /// Valore finale: customValue override → altrimenti
-  /// mod + (proficient ? prof : 0) + (expertise ? prof : 0).
-  /// Null se ability/profBonus non disponibili e nessun override.
+  /// mod + (proficient ? prof : 0) + (expertise && isSkill ? prof : 0).
+  /// Null se ability/profBonus non disponibili e nessun override. La maestria
+  /// (expertise) e' applicata solo per le skill: i TS in 5e non la prevedono.
   int? _finalValue() {
     if (row.customValue != null) return row.customValue;
     if (abilityMod == null) return null;
     var v = abilityMod!;
     if (row.proficient && profBonus != null) {
       v += profBonus!;
-      if (row.expertise) v += profBonus!;
+      if (isSkill && row.expertise) v += profBonus!;
     }
     return v;
   }
@@ -244,12 +251,14 @@ class _FlagRowTile extends StatelessWidget {
               value: row.proficient,
               onChanged: (b) => onProficientChanged(b ?? false),
             ),
-            Checkbox(
-              value: row.expertise && row.proficient,
-              onChanged: row.proficient
-                  ? (b) => onExpertiseChanged(b ?? false)
-                  : null,
-            ),
+            // Maestria/Expertise solo per le skill: in 5e i TS non la usano.
+            if (isSkill)
+              Checkbox(
+                value: row.expertise && row.proficient,
+                onChanged: row.proficient
+                    ? (b) => onExpertiseChanged(b ?? false)
+                    : null,
+              ),
             const SizedBox(width: 8),
             Expanded(
               child: Builder(builder: (ctx) {

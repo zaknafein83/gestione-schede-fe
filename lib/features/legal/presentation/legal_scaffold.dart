@@ -5,7 +5,7 @@ import '../../../l10n/app_localizations.dart';
 
 /// Data di ultima revisione dei testi legali. Va aggiornata a mano quando si
 /// modificano i contenuti delle 4 pagine (privacy, terms, cookies, contact).
-const String legalLastUpdatedDate = '25 maggio 2026';
+const String legalLastUpdatedDate = '26 maggio 2026';
 
 /// Scaffold condiviso per le pagine legali.
 ///
