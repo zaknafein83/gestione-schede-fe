@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/external_link.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_controller.dart';
 import '../../profile/presentation/avatar_widget.dart';
+
+const String _kBuyCoffeeUrl = 'https://buymeacoffee.com/franksisca';
 
 /// Schermata accessibile solo se loggati. Placeholder per ora — verra'
 /// ampliata nelle feature successive (lista personaggi, navigazione, ecc.).
@@ -19,6 +22,14 @@ class HomeScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(AppL10n.of(context).appTitle),
         actions: [
+          IconButton(
+            tooltip: AppL10n.of(context).homeBuyCoffeeTooltip,
+            icon: Icon(
+              Icons.local_cafe,
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
+            onPressed: () => openExternalUrl(_kBuyCoffeeUrl),
+          ),
           // Avatar cliccabile → profilo
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),

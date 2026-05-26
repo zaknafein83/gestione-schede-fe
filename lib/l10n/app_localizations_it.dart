@@ -450,6 +450,9 @@ class AppL10nIt extends AppL10n {
   }
 
   @override
+  String get homeBuyCoffeeTooltip => 'Offrimi un caffè ☕';
+
+  @override
   String get profileTitle => 'Il tuo profilo';
 
   @override
