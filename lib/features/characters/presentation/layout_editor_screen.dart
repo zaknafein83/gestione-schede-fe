@@ -356,45 +356,57 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
                     ),
                   ),
                 )
-              : SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: SizedBox(
-                      width:  _canvasWidth(),
-                      height: _canvasHeight(),
-                      child: Stack(
-                        children: [
-                          for (var i = 0; i < sorted.length; i++)
-                            _PositionedWidget(
-                              key: ValueKey(sorted[i].type),
-                              widget: sorted[i],
-                              gridUnit: _gridUnit,
-                              onRemove:       () => _removeWidget(_widgets.indexOf(sorted[i])),
-                              onBringForward: () => _bringForward(_widgets.indexOf(sorted[i])),
-                              onSendBackward: () => _sendBackward(_widgets.indexOf(sorted[i])),
-                              onMoved:        (x, y) => _moveWidget(_widgets.indexOf(sorted[i]), x, y),
-                              onResized:      (w, h) => _resizeWidget(_widgets.indexOf(sorted[i]), w, h),
-                              child: _renderWidget(sorted[i].type),
-                            ),
-                        ],
+              : LayoutBuilder(
+                  builder: (ctx, viewport) {
+                    final contentW = _contentWidth();
+                    final contentH = _contentHeight();
+                    // Il canvas riempie sempre il viewport; cresce oltre solo se
+                    // i widget si estendono oltre il viewport (allora compaiono scroll).
+                    final canvasW = contentW > viewport.maxWidth  ? contentW : viewport.maxWidth;
+                    final canvasH = contentH > viewport.maxHeight ? contentH : viewport.maxHeight;
+                    return SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: SizedBox(
+                          width:  canvasW,
+                          height: canvasH,
+                          child: Stack(
+                            children: [
+                              for (var i = 0; i < sorted.length; i++)
+                                _PositionedWidget(
+                                  key: ValueKey(sorted[i].type),
+                                  widget: sorted[i],
+                                  gridUnit: _gridUnit,
+                                  onRemove:       () => _removeWidget(_widgets.indexOf(sorted[i])),
+                                  onBringForward: () => _bringForward(_widgets.indexOf(sorted[i])),
+                                  onSendBackward: () => _sendBackward(_widgets.indexOf(sorted[i])),
+                                  onMoved:        (x, y) => _moveWidget(_widgets.indexOf(sorted[i]), x, y),
+                                  onResized:      (w, h) => _resizeWidget(_widgets.indexOf(sorted[i]), w, h),
+                                  child: _renderWidget(sorted[i].type),
+                                ),
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
         ),
       ],
     );
   }
 
-  double _canvasWidth() {
-    if (_widgets.isEmpty) return 800;
+  /// Larghezza minima del canvas per ospitare tutti i widget (in pixel).
+  /// Il canvas vero è max(viewport, contentWidth) per riempire la pagina.
+  double _contentWidth() {
+    if (_widgets.isEmpty) return 0;
     final maxX = _widgets.map((w) => w.x + w.w).reduce((a, b) => a > b ? a : b);
     return (maxX + 4) * _gridUnit;
   }
 
-  double _canvasHeight() {
-    if (_widgets.isEmpty) return 600;
+  double _contentHeight() {
+    if (_widgets.isEmpty) return 0;
     final maxY = _widgets.map((w) => w.y + w.h).reduce((a, b) => a > b ? a : b);
     return (maxY + 4) * _gridUnit;
   }
