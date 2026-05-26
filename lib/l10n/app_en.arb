@@ -511,6 +511,11 @@
   "charactersCardOpenClassic":   "Classic view",
   "charactersCardOpenLayout":    "Custom layout",
 
+  "landingDashboardSpotlightBadge":   "NEW",
+  "landingDashboardSpotlightPremium": "PREMIUM",
+  "landingDashboardSpotlightTitle":   "The Chronicler's atelier",
+  "landingDashboardSpotlightDesc":    "Build the sheet your way: drag, resize and arrange the parchment blocks of your hero. Make it truly yours.",
+
   "editorAnagraficaName":      "Name",
   "editorAnagraficaLevel":     "Level",
   "editorAnagraficaRace":      "Race",

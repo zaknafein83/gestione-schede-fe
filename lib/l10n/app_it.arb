@@ -511,6 +511,11 @@
   "charactersCardOpenClassic":   "Vista classica",
   "charactersCardOpenLayout":    "Layout personalizzato",
 
+  "landingDashboardSpotlightBadge":   "NUOVO",
+  "landingDashboardSpotlightPremium": "PREMIUM",
+  "landingDashboardSpotlightTitle":   "L'atelier del Cronista",
+  "landingDashboardSpotlightDesc":    "Costruisci la scheda come vuoi tu: trascina, ridimensiona e disponi i blocchi della pergamena del tuo eroe. Rendila davvero tua.",
+
   "editorAnagraficaName":      "Nome",
   "editorAnagraficaLevel":     "Livello",
   "editorAnagraficaRace":      "Razza",

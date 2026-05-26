@@ -2707,6 +2707,30 @@ abstract class AppL10n {
   /// **'Layout personalizzato'**
   String get charactersCardOpenLayout;
 
+  /// No description provided for @landingDashboardSpotlightBadge.
+  ///
+  /// In it, this message translates to:
+  /// **'NUOVO'**
+  String get landingDashboardSpotlightBadge;
+
+  /// No description provided for @landingDashboardSpotlightPremium.
+  ///
+  /// In it, this message translates to:
+  /// **'PREMIUM'**
+  String get landingDashboardSpotlightPremium;
+
+  /// No description provided for @landingDashboardSpotlightTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'L\'atelier del Cronista'**
+  String get landingDashboardSpotlightTitle;
+
+  /// No description provided for @landingDashboardSpotlightDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Costruisci la scheda come vuoi tu...'**
+  String get landingDashboardSpotlightDesc;
+
   /// No description provided for @editorAnagraficaName.
   ///
   /// In it, this message translates to:
