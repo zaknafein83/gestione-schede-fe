@@ -17,7 +17,13 @@ final dioProvider = Provider<Dio>((ref) {
     connectTimeout: const Duration(seconds: 10),
     receiveTimeout: const Duration(seconds: 15),
     contentType: 'application/json',
-    headers: {'Accept': 'application/json'},
+    headers: {
+      'Accept': 'application/json',
+      // Disabilita la cache HTTP del browser per le GET API: passando fra
+      // viste della stessa scheda (classico/layout) il browser ritornava
+      // response cached al posto di rifetchare.
+      'Cache-Control': 'no-cache',
+    },
     // Lasciamo che dio NON faccia throw automatico:
     // gestiamo i codici di errore nel parsing per estrarre il problem+json.
     validateStatus: (status) => status != null && status < 500,
