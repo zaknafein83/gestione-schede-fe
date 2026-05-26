@@ -171,6 +171,13 @@ class AppL10nEn extends AppL10n {
   String get authBtnRegister => 'Create account';
 
   @override
+  String get authOrDivider => 'or';
+
+  @override
+  String get loginGoogleNeedsRegister =>
+      'To sign in with Google the first time you need to register accepting the Terms.';
+
+  @override
   String get authCheckEmailTitle => 'Check your email';
 
   @override

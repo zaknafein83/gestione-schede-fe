@@ -403,6 +403,18 @@ abstract class AppL10n {
   /// **'Crea account'**
   String get authBtnRegister;
 
+  /// No description provided for @authOrDivider.
+  ///
+  /// In it, this message translates to:
+  /// **'oppure'**
+  String get authOrDivider;
+
+  /// No description provided for @loginGoogleNeedsRegister.
+  ///
+  /// In it, this message translates to:
+  /// **'Per accedere con Google la prima volta devi registrarti accettando i Termini.'**
+  String get loginGoogleNeedsRegister;
+
   /// No description provided for @authCheckEmailTitle.
   ///
   /// In it, this message translates to:

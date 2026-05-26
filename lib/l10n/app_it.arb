@@ -62,6 +62,8 @@
   "authHaveAccount":     "Hai già un account?",
   "authBtnLogin":        "Entra",
   "authBtnRegister":     "Crea account",
+  "authOrDivider":       "oppure",
+  "loginGoogleNeedsRegister":"Per accedere con Google la prima volta devi registrarti accettando i Termini.",
   "authCheckEmailTitle": "Controlla la tua email",
   "authCheckEmailBody":  "Ti abbiamo inviato un link di verifica a {email}.",
   "@authCheckEmailBody": { "placeholders": { "email": {} } },
