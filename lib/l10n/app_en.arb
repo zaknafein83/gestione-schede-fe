@@ -159,6 +159,7 @@
 
   "homeGreeting":        "Hi, {name}!",
   "@homeGreeting":       { "placeholders": { "name": {} } },
+  "homeBuyCoffeeTooltip":"Buy me a coffee ☕",
 
   "profileTitle":              "Your profile",
   "profileAvatarChange":       "Change avatar",

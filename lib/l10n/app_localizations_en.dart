@@ -451,6 +451,9 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get homeBuyCoffeeTooltip => 'Buy me a coffee ☕';
+
+  @override
   String get profileTitle => 'Your profile';
 
   @override
