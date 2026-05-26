@@ -799,6 +799,8 @@ class _FeaturesSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 36),
+              const _DashboardSpotlight(),
+              const SizedBox(height: 36),
               LayoutBuilder(
                 builder: (context, c) {
                   final cross = c.maxWidth >= 800 ? 4 : (c.maxWidth >= 520 ? 2 : 1);
@@ -815,6 +817,168 @@ class _FeaturesSection extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Banner enfatico per la feature di punta "Dashboard personalizzata".
+/// Sfondo viola carico, doppio badge (NUOVO + PREMIUM), icona grande,
+/// titolo Cinzel oro, descrizione. Layout row su desktop, column su mobile.
+class _DashboardSpotlight extends StatelessWidget {
+  const _DashboardSpotlight();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppL10n.of(context);
+    return LayoutBuilder(
+      builder: (context, c) {
+        final isWide = c.maxWidth >= 640;
+        final icon = Container(
+          width: isWide ? 120 : 88,
+          height: isWide ? 120 : 88,
+          decoration: BoxDecoration(
+            color: _Palette.gold.withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: _Palette.gold.withValues(alpha: 0.6), width: 1.5),
+            boxShadow: [
+              BoxShadow(
+                color: _Palette.goldSoft.withValues(alpha: 0.35),
+                blurRadius: 28,
+                spreadRadius: 2,
+              ),
+            ],
+          ),
+          child: Icon(
+            Icons.dashboard,
+            size: isWide ? 60 : 44,
+            color: _Palette.goldSoft,
+          ),
+        );
+
+        final badges = Wrap(
+          spacing: 8,
+          runSpacing: 6,
+          children: [
+            _SpotlightBadge(
+              text: l10n.landingDashboardSpotlightBadge,
+              filled: true,
+            ),
+            _SpotlightBadge(
+              text: l10n.landingDashboardSpotlightPremium,
+              filled: false,
+            ),
+          ],
+        );
+
+        final text = Column(
+          crossAxisAlignment:
+              isWide ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+          children: [
+            badges,
+            const SizedBox(height: 14),
+            Text(
+              l10n.landingDashboardSpotlightTitle,
+              textAlign: isWide ? TextAlign.left : TextAlign.center,
+              style: const TextStyle(
+                fontFamily: _fontDisplay,
+                color: Colors.white,
+                fontSize: 26,
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.5,
+                height: 1.2,
+                shadows: [
+                  Shadow(blurRadius: 14, color: Colors.black87, offset: Offset(0, 2)),
+                  Shadow(blurRadius: 28, color: Color(0x66D4AF37)),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              l10n.landingDashboardSpotlightDesc,
+              textAlign: isWide ? TextAlign.left : TextAlign.center,
+              style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.78),
+                fontSize: 15,
+                height: 1.55,
+              ),
+            ),
+          ],
+        );
+
+        return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                _Palette.violet.withValues(alpha: 0.85),
+                _Palette.violet2.withValues(alpha: 0.95),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: _Palette.gold.withValues(alpha: 0.55), width: 1.5),
+            boxShadow: [
+              BoxShadow(
+                color: _Palette.goldSoft.withValues(alpha: 0.18),
+                blurRadius: 32,
+                spreadRadius: 1,
+              ),
+            ],
+          ),
+          padding: EdgeInsets.symmetric(
+            horizontal: isWide ? 36 : 24,
+            vertical:   isWide ? 32 : 28,
+          ),
+          child: isWide
+              ? Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    icon,
+                    const SizedBox(width: 32),
+                    Expanded(child: text),
+                  ],
+                )
+              : Column(
+                  children: [
+                    icon,
+                    const SizedBox(height: 20),
+                    text,
+                  ],
+                ),
+        );
+      },
+    );
+  }
+}
+
+class _SpotlightBadge extends StatelessWidget {
+  const _SpotlightBadge({required this.text, required this.filled});
+  final String text;
+  /// true → fondo oro / testo viola (super enfatico "NUOVO").
+  /// false → outline oro / testo oro (più sobrio "PREMIUM").
+  final bool   filled;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        color: filled ? _Palette.gold : Colors.transparent,
+        borderRadius: BorderRadius.circular(4),
+        border: filled
+            ? null
+            : Border.all(color: _Palette.goldSoft, width: 1.2),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontFamily: _fontDisplay,
+          color: filled ? _Palette.ink : _Palette.goldSoft,
+          fontSize: 11,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 2.5,
         ),
       ),
     );

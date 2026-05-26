@@ -1424,6 +1424,19 @@ class AppL10nEn extends AppL10n {
   String get charactersCardOpenLayout => 'Custom layout';
 
   @override
+  String get landingDashboardSpotlightBadge => 'NEW';
+
+  @override
+  String get landingDashboardSpotlightPremium => 'PREMIUM';
+
+  @override
+  String get landingDashboardSpotlightTitle => 'The Chronicler\'s atelier';
+
+  @override
+  String get landingDashboardSpotlightDesc =>
+      'Build the sheet your way: drag, resize and arrange the parchment blocks of your hero. Make it truly yours.';
+
+  @override
   String get editorAnagraficaName => 'Name';
 
   @override

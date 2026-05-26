@@ -1422,6 +1422,19 @@ class AppL10nIt extends AppL10n {
   String get charactersCardOpenLayout => 'Layout personalizzato';
 
   @override
+  String get landingDashboardSpotlightBadge => 'NUOVO';
+
+  @override
+  String get landingDashboardSpotlightPremium => 'PREMIUM';
+
+  @override
+  String get landingDashboardSpotlightTitle => 'L\'atelier del Cronista';
+
+  @override
+  String get landingDashboardSpotlightDesc =>
+      'Costruisci la scheda come vuoi tu: trascina, ridimensiona e disponi i blocchi della pergamena del tuo eroe. Rendila davvero tua.';
+
+  @override
   String get editorAnagraficaName => 'Nome';
 
   @override
