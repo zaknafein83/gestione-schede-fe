@@ -111,9 +111,25 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
   }
 
   void _scheduleSave() {
-    _dirty = true;
+    if (!_dirty) {
+      if (mounted) {
+        setState(() => _dirty = true);
+      } else {
+        _dirty = true;
+      }
+    }
     _saveTimer?.cancel();
     _saveTimer = Timer(_saveDebounce, _doSave);
+  }
+
+  /// Flush sincrono prima del pop: cancella il timer di debounce e attende
+  /// la fine del save. Evita data-loss se l'utente naviga via entro 1s da
+  /// un drag/resize.
+  Future<void> _flushAndPop(Object? result) async {
+    _saveTimer?.cancel();
+    if (_dirty) await _doSave();
+    if (!mounted) return;
+    Navigator.of(context).pop(result);
   }
 
   Future<void> _doSave() async {
@@ -317,7 +333,13 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
     final scheme = Theme.of(context).colorScheme;
     final sorted = [..._widgets]..sort((a, b) => a.z.compareTo(b.z));
 
-    return Column(
+    return PopScope(
+      canPop: !_dirty,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
+        await _flushAndPop(result);
+      },
+      child: Column(
       children: [
         // Toolbar
         Material(
@@ -394,6 +416,7 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
                 ),
         ),
       ],
+      ),
     );
   }
 
