@@ -424,7 +424,7 @@ abstract class AppL10n {
   /// No description provided for @landingTagline.
   ///
   /// In it, this message translates to:
-  /// **'Gestisci le tue schede personaggio D&D 5e.'**
+  /// **'Gestisci le tue schede personaggio per giochi di ruolo fantasy 5e.'**
   String get landingTagline;
 
   /// No description provided for @landingCreateAccount.
@@ -440,84 +440,165 @@ abstract class AppL10n {
   String get landingSignIn;
 
   /// No description provided for @landingHeroEyebrow.
+  ///
+  /// In it, this message translates to:
+  /// **'Cronache di un avventuriero 5e'**
   String get landingHeroEyebrow;
 
   /// No description provided for @landingHeroTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Forgia il tuo eroe.\nVivi la tua leggenda.'**
   String get landingHeroTitle;
 
   /// No description provided for @landingHeroSubtitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Custodisci ogni scheda, lancia ogni dado, condividi le gesta del tuo personaggio — un compagno digitale per le tue avventure di ruolo 5e.'**
   String get landingHeroSubtitle;
 
   /// No description provided for @landingCtaOpenWeb.
+  ///
+  /// In it, this message translates to:
+  /// **'Entra nella tua biblioteca'**
   String get landingCtaOpenWeb;
 
   /// No description provided for @landingCtaOpenWebSub.
+  ///
+  /// In it, this message translates to:
+  /// **'Hai già un account? Accedi.'**
   String get landingCtaOpenWebSub;
 
   /// No description provided for @landingCtaAppStore.
+  ///
+  /// In it, this message translates to:
+  /// **'Scarica su App Store'**
   String get landingCtaAppStore;
 
   /// No description provided for @landingCtaGooglePlay.
+  ///
+  /// In it, this message translates to:
+  /// **'Disponibile su Google Play'**
   String get landingCtaGooglePlay;
 
   /// No description provided for @landingCtaStorePrefix.
+  ///
+  /// In it, this message translates to:
+  /// **'Presto'**
   String get landingCtaStorePrefix;
 
   /// No description provided for @landingCtaSpells.
+  ///
+  /// In it, this message translates to:
+  /// **'Sfoglia il codex degli incantesimi'**
   String get landingCtaSpells;
 
   /// No description provided for @landingCtaSpellsSub.
+  ///
+  /// In it, this message translates to:
+  /// **'Anteprima del catalogo pubblico (in arrivo)'**
   String get landingCtaSpellsSub;
 
   /// No description provided for @landingFeaturesTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Le arti del Cronista'**
   String get landingFeaturesTitle;
 
   /// No description provided for @landingFeaturesSubtitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Tutto quello che serve a un avventuriero, raccolto in un solo grimorio.'**
   String get landingFeaturesSubtitle;
 
   /// No description provided for @landingFeatureSheetTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Pergamena del PG'**
   String get landingFeatureSheetTitle;
 
   /// No description provided for @landingFeatureSheetDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Ogni campo del manuale 5e, otto sezioni dedicate, calcoli automatici. Nessun dettaglio del tuo eroe va perduto.'**
   String get landingFeatureSheetDesc;
 
   /// No description provided for @landingFeatureDiceTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Il fato dei dadi'**
   String get landingFeatureDiceTitle;
 
   /// No description provided for @landingFeatureDiceDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Dice roller integrato, gestione PF, slot incantesimi, condizioni e riposi a portata di mano.'**
   String get landingFeatureDiceDesc;
 
   /// No description provided for @landingFeatureShareTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Saghe condivise'**
   String get landingFeatureShareTitle;
 
   /// No description provided for @landingFeatureShareDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Un link in sola lettura per il tuo Dungeon Master e la compagnia. Revocabile in un istante, sempre tuo.'**
   String get landingFeatureShareDesc;
 
   /// No description provided for @landingFeatureSpellsTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Codex degli incantesimi'**
   String get landingFeatureSpellsTitle;
 
   /// No description provided for @landingFeatureSpellsDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'319 incantesimi del SRD 5.1, ricerca rapida, descrizioni complete in italiano e inglese.'**
   String get landingFeatureSpellsDesc;
 
   /// No description provided for @landingFooterLegal.
+  ///
+  /// In it, this message translates to:
+  /// **'Note legali'**
   String get landingFooterLegal;
 
   /// No description provided for @landingFooterPrivacy.
+  ///
+  /// In it, this message translates to:
+  /// **'Privacy'**
   String get landingFooterPrivacy;
 
   /// No description provided for @landingFooterTerms.
+  ///
+  /// In it, this message translates to:
+  /// **'Termini'**
   String get landingFooterTerms;
 
   /// No description provided for @landingFooterContact.
+  ///
+  /// In it, this message translates to:
+  /// **'Contatti'**
   String get landingFooterContact;
 
   /// No description provided for @landingImageCredit.
+  ///
+  /// In it, this message translates to:
+  /// **'Illustrazione di sfondo: Placidplace via Pixabay.'**
   String get landingImageCredit;
 
   /// No description provided for @landingMadeBy.
+  ///
+  /// In it, this message translates to:
+  /// **'Realizzato da Zaknafein'**
   String get landingMadeBy;
 
   /// No description provided for @commonBack.
+  ///
+  /// In it, this message translates to:
+  /// **'Indietro'**
   String get commonBack;
 
   /// No description provided for @loginAccessTitle.
@@ -1493,987 +1574,2067 @@ abstract class AppL10n {
   String get aboutSrdCredit;
 
   /// No description provided for @sheetSectionAbilities.
+  ///
+  /// In it, this message translates to:
+  /// **'Caratteristiche'**
   String get sheetSectionAbilities;
 
   /// No description provided for @sheetSectionSavesSkills.
+  ///
+  /// In it, this message translates to:
+  /// **'Tiri salvezza & abilità'**
   String get sheetSectionSavesSkills;
 
   /// No description provided for @sheetSectionCombat.
+  ///
+  /// In it, this message translates to:
+  /// **'Combattimento'**
   String get sheetSectionCombat;
 
   /// No description provided for @sheetSectionSpells.
+  ///
+  /// In it, this message translates to:
+  /// **'Incantesimi'**
   String get sheetSectionSpells;
 
   /// No description provided for @sheetSectionEquipment.
+  ///
+  /// In it, this message translates to:
+  /// **'Equipaggiamento'**
   String get sheetSectionEquipment;
 
   /// No description provided for @sheetSectionTraits.
+  ///
+  /// In it, this message translates to:
+  /// **'Tratti'**
   String get sheetSectionTraits;
 
   /// No description provided for @sheetSectionNotes.
+  ///
+  /// In it, this message translates to:
+  /// **'Note'**
   String get sheetSectionNotes;
 
   /// No description provided for @sheetHeaderBackground.
+  ///
+  /// In it, this message translates to:
+  /// **'Background'**
   String get sheetHeaderBackground;
 
   /// No description provided for @sheetHeaderAlignment.
+  ///
+  /// In it, this message translates to:
+  /// **'Allineamento'**
   String get sheetHeaderAlignment;
 
   /// No description provided for @sheetHpLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'HP'**
   String get sheetHpLabel;
 
   /// No description provided for @sheetAbilityStr.
+  ///
+  /// In it, this message translates to:
+  /// **'Forza'**
   String get sheetAbilityStr;
 
   /// No description provided for @sheetAbilityDex.
+  ///
+  /// In it, this message translates to:
+  /// **'Destrezza'**
   String get sheetAbilityDex;
 
   /// No description provided for @sheetAbilityCon.
+  ///
+  /// In it, this message translates to:
+  /// **'Costituzione'**
   String get sheetAbilityCon;
 
   /// No description provided for @sheetAbilityInt.
+  ///
+  /// In it, this message translates to:
+  /// **'Intelligenza'**
   String get sheetAbilityInt;
 
   /// No description provided for @sheetAbilityWis.
+  ///
+  /// In it, this message translates to:
+  /// **'Saggezza'**
   String get sheetAbilityWis;
 
   /// No description provided for @sheetAbilityCha.
+  ///
+  /// In it, this message translates to:
+  /// **'Carisma'**
   String get sheetAbilityCha;
 
   /// No description provided for @sheetSavingThrowsLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Tiri salvezza'**
   String get sheetSavingThrowsLabel;
 
   /// No description provided for @sheetSkillsLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Abilità'**
   String get sheetSkillsLabel;
 
   /// No description provided for @sheetCombatAc.
+  ///
+  /// In it, this message translates to:
+  /// **'Classe Armatura'**
   String get sheetCombatAc;
 
   /// No description provided for @sheetCombatInitiative.
+  ///
+  /// In it, this message translates to:
+  /// **'Iniziativa'**
   String get sheetCombatInitiative;
 
   /// No description provided for @sheetCombatSpeed.
+  ///
+  /// In it, this message translates to:
+  /// **'Velocità'**
   String get sheetCombatSpeed;
 
   /// No description provided for @sheetCombatProfBonus.
+  ///
+  /// In it, this message translates to:
+  /// **'Bonus comp.'**
   String get sheetCombatProfBonus;
 
   /// No description provided for @sheetCombatHitDice.
+  ///
+  /// In it, this message translates to:
+  /// **'Dadi vita'**
   String get sheetCombatHitDice;
 
   /// No description provided for @sheetCombatDeathSaves.
+  ///
+  /// In it, this message translates to:
+  /// **'TS morte'**
   String get sheetCombatDeathSaves;
 
   /// No description provided for @sheetCombatDeathSavesValue.
+  ///
+  /// In it, this message translates to:
+  /// **'OK {s} / KO {f}'**
   String sheetCombatDeathSavesValue(Object s, Object f);
 
   /// No description provided for @sheetSpellsClass.
+  ///
+  /// In it, this message translates to:
+  /// **'Classe'**
   String get sheetSpellsClass;
 
   /// No description provided for @sheetSpellsSaveDc.
+  ///
+  /// In it, this message translates to:
+  /// **'CD TS'**
   String get sheetSpellsSaveDc;
 
   /// No description provided for @sheetSpellsAttackBonus.
+  ///
+  /// In it, this message translates to:
+  /// **'Bonus attacco'**
   String get sheetSpellsAttackBonus;
 
   /// No description provided for @sheetSpellsSlotsByLevel.
+  ///
+  /// In it, this message translates to:
+  /// **'Slot per livello'**
   String get sheetSpellsSlotsByLevel;
 
   /// No description provided for @sheetSpellsKnown.
+  ///
+  /// In it, this message translates to:
+  /// **'Incantesimi conosciuti'**
   String get sheetSpellsKnown;
 
   /// No description provided for @sheetSpellCantrip.
+  ///
+  /// In it, this message translates to:
+  /// **'trucchetto'**
   String get sheetSpellCantrip;
 
   /// No description provided for @sheetSpellLevelShort.
+  ///
+  /// In it, this message translates to:
+  /// **'Liv {n}'**
   String sheetSpellLevelShort(Object n);
 
   /// No description provided for @sheetSpellAlwaysPrepared.
+  ///
+  /// In it, this message translates to:
+  /// **'Sempre preparato'**
   String get sheetSpellAlwaysPrepared;
 
   /// No description provided for @sheetSpellPrepared.
+  ///
+  /// In it, this message translates to:
+  /// **'Preparato'**
   String get sheetSpellPrepared;
 
   /// No description provided for @sheetEquipmentInventory.
+  ///
+  /// In it, this message translates to:
+  /// **'Inventario'**
   String get sheetEquipmentInventory;
 
   /// No description provided for @sheetTraitsPersonality.
+  ///
+  /// In it, this message translates to:
+  /// **'Tratti caratteriali'**
   String get sheetTraitsPersonality;
 
   /// No description provided for @sheetTraitsIdeals.
+  ///
+  /// In it, this message translates to:
+  /// **'Ideali'**
   String get sheetTraitsIdeals;
 
   /// No description provided for @sheetTraitsBonds.
+  ///
+  /// In it, this message translates to:
+  /// **'Legami'**
   String get sheetTraitsBonds;
 
   /// No description provided for @sheetTraitsFlaws.
+  ///
+  /// In it, this message translates to:
+  /// **'Difetti'**
   String get sheetTraitsFlaws;
 
   /// No description provided for @sheetTraitsLanguages.
+  ///
+  /// In it, this message translates to:
+  /// **'Lingue'**
   String get sheetTraitsLanguages;
 
   /// No description provided for @sheetTraitsArmor.
+  ///
+  /// In it, this message translates to:
+  /// **'Armature'**
   String get sheetTraitsArmor;
 
   /// No description provided for @sheetTraitsWeapons.
+  ///
+  /// In it, this message translates to:
+  /// **'Armi'**
   String get sheetTraitsWeapons;
 
   /// No description provided for @sheetTraitsTools.
+  ///
+  /// In it, this message translates to:
+  /// **'Strumenti'**
   String get sheetTraitsTools;
 
   /// No description provided for @sheetTraitsFeatures.
+  ///
+  /// In it, this message translates to:
+  /// **'Privilegi & tratti'**
   String get sheetTraitsFeatures;
 
   /// No description provided for @sheetNotesBackstory.
+  ///
+  /// In it, this message translates to:
+  /// **'Background'**
   String get sheetNotesBackstory;
 
   /// No description provided for @sheetNotesAllies.
+  ///
+  /// In it, this message translates to:
+  /// **'Alleati & organizzazioni'**
   String get sheetNotesAllies;
 
   /// No description provided for @sheetNotesSymbol.
+  ///
+  /// In it, this message translates to:
+  /// **'Simbolo'**
   String get sheetNotesSymbol;
 
   /// No description provided for @sheetNotesPhysical.
+  ///
+  /// In it, this message translates to:
+  /// **'Aspetto fisico'**
   String get sheetNotesPhysical;
 
   /// No description provided for @sheetNotesNotes.
+  ///
+  /// In it, this message translates to:
+  /// **'Note'**
   String get sheetNotesNotes;
 
   /// No description provided for @sharedInvalidLink.
+  ///
+  /// In it, this message translates to:
+  /// **'Link non valido o revocato.'**
   String get sharedInvalidLink;
 
   /// No description provided for @shareDialogTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Condividi scheda'**
   String get shareDialogTitle;
 
   /// No description provided for @shareDialogIntro.
+  ///
+  /// In it, this message translates to:
+  /// **'Genera un link pubblico read-only per mostrare la scheda al DM. Chiunque conosca il link può vederla (no login). Puoi revocarlo in ogni momento.'**
   String get shareDialogIntro;
 
   /// No description provided for @shareDialogPublicLink.
+  ///
+  /// In it, this message translates to:
+  /// **'Link pubblico:'**
   String get shareDialogPublicLink;
 
   /// No description provided for @shareDialogCopyHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Copia questo link ora — non sarà più visualizzabile dopo aver chiuso il dialog.'**
   String get shareDialogCopyHint;
 
   /// No description provided for @shareDialogCopiedSnack.
+  ///
+  /// In it, this message translates to:
+  /// **'Link copiato'**
   String get shareDialogCopiedSnack;
 
   /// No description provided for @shareDialogCopy.
+  ///
+  /// In it, this message translates to:
+  /// **'Copia'**
   String get shareDialogCopy;
 
   /// No description provided for @shareDialogRevoke.
+  ///
+  /// In it, this message translates to:
+  /// **'Revoca'**
   String get shareDialogRevoke;
 
   /// No description provided for @shareDialogActive.
+  ///
+  /// In it, this message translates to:
+  /// **'Link attivo'**
   String get shareDialogActive;
 
   /// No description provided for @shareDialogGeneratedAt.
+  ///
+  /// In it, this message translates to:
+  /// **'Generato il {date}.'**
   String shareDialogGeneratedAt(Object date);
 
   /// No description provided for @shareDialogLostHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Il link in chiaro non è recuperabile. Se l\'hai perso, rigenera un nuovo link (il vecchio viene revocato automaticamente).'**
   String get shareDialogLostHint;
 
   /// No description provided for @shareDialogRegenerate.
+  ///
+  /// In it, this message translates to:
+  /// **'Rigenera link'**
   String get shareDialogRegenerate;
 
   /// No description provided for @shareDialogGenerate.
+  ///
+  /// In it, this message translates to:
+  /// **'Genera link di condivisione'**
   String get shareDialogGenerate;
 
   /// No description provided for @customSpellDialogTitleNew.
+  ///
+  /// In it, this message translates to:
+  /// **'Nuovo incantesimo custom'**
   String get customSpellDialogTitleNew;
 
   /// No description provided for @customSpellDialogTitleEdit.
+  ///
+  /// In it, this message translates to:
+  /// **'Modifica incantesimo'**
   String get customSpellDialogTitleEdit;
 
   /// No description provided for @customSpellFieldName.
+  ///
+  /// In it, this message translates to:
+  /// **'Nome'**
   String get customSpellFieldName;
 
   /// No description provided for @customSpellFieldLevel.
+  ///
+  /// In it, this message translates to:
+  /// **'Livello'**
   String get customSpellFieldLevel;
 
   /// No description provided for @customSpellFieldLevelHelper.
+  ///
+  /// In it, this message translates to:
+  /// **'0 = trucchetto'**
   String get customSpellFieldLevelHelper;
 
   /// No description provided for @customSpellFieldSchool.
+  ///
+  /// In it, this message translates to:
+  /// **'Scuola'**
   String get customSpellFieldSchool;
 
   /// No description provided for @customSpellFieldCastingTime.
+  ///
+  /// In it, this message translates to:
+  /// **'Casting time'**
   String get customSpellFieldCastingTime;
 
   /// No description provided for @customSpellHintCastingTime.
+  ///
+  /// In it, this message translates to:
+  /// **'es. 1 action'**
   String get customSpellHintCastingTime;
 
   /// No description provided for @customSpellFieldRange.
+  ///
+  /// In it, this message translates to:
+  /// **'Range'**
   String get customSpellFieldRange;
 
   /// No description provided for @customSpellHintRange.
+  ///
+  /// In it, this message translates to:
+  /// **'es. 60 feet'**
   String get customSpellHintRange;
 
   /// No description provided for @customSpellFieldDuration.
+  ///
+  /// In it, this message translates to:
+  /// **'Duration'**
   String get customSpellFieldDuration;
 
   /// No description provided for @customSpellHintDuration.
+  ///
+  /// In it, this message translates to:
+  /// **'es. Instantaneous, 1 minute'**
   String get customSpellHintDuration;
 
   /// No description provided for @customSpellComponents.
+  ///
+  /// In it, this message translates to:
+  /// **'Componenti'**
   String get customSpellComponents;
 
   /// No description provided for @customSpellMaterials.
+  ///
+  /// In it, this message translates to:
+  /// **'Materiali'**
   String get customSpellMaterials;
 
   /// No description provided for @customSpellMaterialsHint.
+  ///
+  /// In it, this message translates to:
+  /// **'es. una piuma di phoenix'**
   String get customSpellMaterialsHint;
 
   /// No description provided for @customSpellConcentration.
+  ///
+  /// In it, this message translates to:
+  /// **'Concentration'**
   String get customSpellConcentration;
 
   /// No description provided for @customSpellRitual.
+  ///
+  /// In it, this message translates to:
+  /// **'Ritual'**
   String get customSpellRitual;
 
   /// No description provided for @customSpellClasses.
+  ///
+  /// In it, this message translates to:
+  /// **'Classi'**
   String get customSpellClasses;
 
   /// No description provided for @customSpellDescription.
+  ///
+  /// In it, this message translates to:
+  /// **'Descrizione'**
   String get customSpellDescription;
 
   /// No description provided for @customSpellHigherLevels.
+  ///
+  /// In it, this message translates to:
+  /// **'At Higher Levels'**
   String get customSpellHigherLevels;
 
   /// No description provided for @abilityShortStr.
+  ///
+  /// In it, this message translates to:
+  /// **'FOR'**
   String get abilityShortStr;
 
   /// No description provided for @abilityShortDex.
+  ///
+  /// In it, this message translates to:
+  /// **'DES'**
   String get abilityShortDex;
 
   /// No description provided for @abilityShortCon.
+  ///
+  /// In it, this message translates to:
+  /// **'COS'**
   String get abilityShortCon;
 
   /// No description provided for @abilityShortInt.
+  ///
+  /// In it, this message translates to:
+  /// **'INT'**
   String get abilityShortInt;
 
   /// No description provided for @abilityShortWis.
+  ///
+  /// In it, this message translates to:
+  /// **'SAG'**
   String get abilityShortWis;
 
   /// No description provided for @abilityShortCha.
+  ///
+  /// In it, this message translates to:
+  /// **'CAR'**
   String get abilityShortCha;
 
   /// No description provided for @skillAcrobatics.
+  ///
+  /// In it, this message translates to:
+  /// **'Acrobazia'**
   String get skillAcrobatics;
 
   /// No description provided for @skillAnimalHandling.
+  ///
+  /// In it, this message translates to:
+  /// **'Addestrare animali'**
   String get skillAnimalHandling;
 
   /// No description provided for @skillArcana.
+  ///
+  /// In it, this message translates to:
+  /// **'Arcano'**
   String get skillArcana;
 
   /// No description provided for @skillAthletics.
+  ///
+  /// In it, this message translates to:
+  /// **'Atletica'**
   String get skillAthletics;
 
   /// No description provided for @skillDeception.
+  ///
+  /// In it, this message translates to:
+  /// **'Inganno'**
   String get skillDeception;
 
   /// No description provided for @skillHistory.
+  ///
+  /// In it, this message translates to:
+  /// **'Storia'**
   String get skillHistory;
 
   /// No description provided for @skillInsight.
+  ///
+  /// In it, this message translates to:
+  /// **'Intuizione'**
   String get skillInsight;
 
   /// No description provided for @skillIntimidation.
+  ///
+  /// In it, this message translates to:
+  /// **'Intimidire'**
   String get skillIntimidation;
 
   /// No description provided for @skillInvestigation.
+  ///
+  /// In it, this message translates to:
+  /// **'Indagare'**
   String get skillInvestigation;
 
   /// No description provided for @skillMedicine.
+  ///
+  /// In it, this message translates to:
+  /// **'Medicina'**
   String get skillMedicine;
 
   /// No description provided for @skillNature.
+  ///
+  /// In it, this message translates to:
+  /// **'Natura'**
   String get skillNature;
 
   /// No description provided for @skillPerception.
+  ///
+  /// In it, this message translates to:
+  /// **'Percezione'**
   String get skillPerception;
 
   /// No description provided for @skillPerformance.
+  ///
+  /// In it, this message translates to:
+  /// **'Intrattenere'**
   String get skillPerformance;
 
   /// No description provided for @skillPersuasion.
+  ///
+  /// In it, this message translates to:
+  /// **'Persuasione'**
   String get skillPersuasion;
 
   /// No description provided for @skillReligion.
+  ///
+  /// In it, this message translates to:
+  /// **'Religione'**
   String get skillReligion;
 
   /// No description provided for @skillSleightOfHand.
+  ///
+  /// In it, this message translates to:
+  /// **'Rapidità di mano'**
   String get skillSleightOfHand;
 
   /// No description provided for @skillStealth.
+  ///
+  /// In it, this message translates to:
+  /// **'Furtività'**
   String get skillStealth;
 
   /// No description provided for @skillSurvival.
+  ///
+  /// In it, this message translates to:
+  /// **'Sopravvivenza'**
   String get skillSurvival;
 
   /// No description provided for @conditionBlinded.
+  ///
+  /// In it, this message translates to:
+  /// **'Accecato'**
   String get conditionBlinded;
 
   /// No description provided for @conditionBlindedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura accecata non può vedere e fallisce automaticamente qualsiasi prova di caratteristica che richieda la vista. I tiri per colpire contro di essa hanno vantaggio, i suoi tiri per colpire hanno svantaggio.'**
   String get conditionBlindedDesc;
 
   /// No description provided for @conditionCharmed.
+  ///
+  /// In it, this message translates to:
+  /// **'Affascinato'**
   String get conditionCharmed;
 
   /// No description provided for @conditionCharmedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura affascinata non può attaccare l\'incantatore né bersagliarlo con abilità o effetti magici dannosi. L\'incantatore ha vantaggio sulle prove di caratteristica sociali contro di essa.'**
   String get conditionCharmedDesc;
 
   /// No description provided for @conditionDeafened.
+  ///
+  /// In it, this message translates to:
+  /// **'Assordato'**
   String get conditionDeafened;
 
   /// No description provided for @conditionDeafenedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura assordata non può udire e fallisce automaticamente qualsiasi prova di caratteristica che richieda l\'udito.'**
   String get conditionDeafenedDesc;
 
   /// No description provided for @conditionFrightened.
+  ///
+  /// In it, this message translates to:
+  /// **'Spaventato'**
   String get conditionFrightened;
 
   /// No description provided for @conditionFrightenedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura spaventata ha svantaggio a prove di caratteristica e tiri per colpire mentre la fonte della paura è nella sua linea di vista. Non può volontariamente avvicinarsi alla fonte della paura.'**
   String get conditionFrightenedDesc;
 
   /// No description provided for @conditionGrappled.
+  ///
+  /// In it, this message translates to:
+  /// **'Afferrato'**
   String get conditionGrappled;
 
   /// No description provided for @conditionGrappledDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura afferrata ha velocità 0 e non può beneficiare di alcun bonus alla velocità. La condizione termina se chi afferra è incapacitato o se la creatura viene spostata fuori dalla portata.'**
   String get conditionGrappledDesc;
 
   /// No description provided for @conditionIncapacitated.
+  ///
+  /// In it, this message translates to:
+  /// **'Incapacitato'**
   String get conditionIncapacitated;
 
   /// No description provided for @conditionIncapacitatedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura incapacitata non può eseguire azioni né reazioni.'**
   String get conditionIncapacitatedDesc;
 
   /// No description provided for @conditionInvisible.
+  ///
+  /// In it, this message translates to:
+  /// **'Invisibile'**
   String get conditionInvisible;
 
   /// No description provided for @conditionInvisibleDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura invisibile è impossibile da vedere senza l\'aiuto di magia o senso speciale. Per nascondersi è considerata pesantemente nascosta. I tiri per colpire contro di essa hanno svantaggio, i suoi tiri per colpire hanno vantaggio.'**
   String get conditionInvisibleDesc;
 
   /// No description provided for @conditionParalyzed.
+  ///
+  /// In it, this message translates to:
+  /// **'Paralizzato'**
   String get conditionParalyzed;
 
   /// No description provided for @conditionParalyzedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura paralizzata è incapacitata, non può muoversi né parlare. Fallisce automaticamente i TS su Forza e Destrezza. I tiri per colpire contro di essa hanno vantaggio. Qualsiasi colpo entro 1,5 m è un colpo critico.'**
   String get conditionParalyzedDesc;
 
   /// No description provided for @conditionPetrified.
+  ///
+  /// In it, this message translates to:
+  /// **'Pietrificato'**
   String get conditionPetrified;
 
   /// No description provided for @conditionPetrifiedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura pietrificata è trasformata in solida sostanza inanimata. È incapacitata, peso x10, non invecchia. I tiri per colpire contro di essa hanno vantaggio. Resistenza a tutti i danni, immune a veleno e malattia.'**
   String get conditionPetrifiedDesc;
 
   /// No description provided for @conditionPoisoned.
+  ///
+  /// In it, this message translates to:
+  /// **'Avvelenato'**
   String get conditionPoisoned;
 
   /// No description provided for @conditionPoisonedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura avvelenata ha svantaggio a tiri per colpire e prove di caratteristica.'**
   String get conditionPoisonedDesc;
 
   /// No description provided for @conditionProne.
+  ///
+  /// In it, this message translates to:
+  /// **'Prono'**
   String get conditionProne;
 
   /// No description provided for @conditionProneDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura prona può solo strisciare. Ha svantaggio ai tiri per colpire. I tiri per colpire contro di essa hanno vantaggio se l\'attaccante è entro 1,5 m, svantaggio altrimenti.'**
   String get conditionProneDesc;
 
   /// No description provided for @conditionRestrained.
+  ///
+  /// In it, this message translates to:
+  /// **'Trattenuto'**
   String get conditionRestrained;
 
   /// No description provided for @conditionRestrainedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura trattenuta ha velocità 0 e non può beneficiare di alcun bonus alla velocità. I tiri per colpire contro di essa hanno vantaggio, i suoi tiri per colpire hanno svantaggio. Svantaggio ai TS di Destrezza.'**
   String get conditionRestrainedDesc;
 
   /// No description provided for @conditionStunned.
+  ///
+  /// In it, this message translates to:
+  /// **'Stordito'**
   String get conditionStunned;
 
   /// No description provided for @conditionStunnedDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura stordita è incapacitata, non può muoversi e può solo parlare a fatica. Fallisce automaticamente i TS su Forza e Destrezza. I tiri per colpire contro di essa hanno vantaggio.'**
   String get conditionStunnedDesc;
 
   /// No description provided for @conditionUnconscious.
+  ///
+  /// In it, this message translates to:
+  /// **'Privo di sensi'**
   String get conditionUnconscious;
 
   /// No description provided for @conditionUnconsciousDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'Una creatura priva di sensi è incapacitata, non può muoversi né parlare, e ignora l\'ambiente. Lascia cadere ciò che tiene e cade prona. Fallisce automaticamente i TS su Forza e Destrezza. I tiri per colpire contro di essa hanno vantaggio. Qualsiasi colpo entro 1,5 m è un colpo critico.'**
   String get conditionUnconsciousDesc;
 
   /// No description provided for @conditionExhaustion.
+  ///
+  /// In it, this message translates to:
+  /// **'Esausto'**
   String get conditionExhaustion;
 
   /// No description provided for @conditionExhaustionDesc.
+  ///
+  /// In it, this message translates to:
+  /// **'L\'esaurimento ha 6 livelli con effetti cumulativi. Livello 1: svantaggio alle prove di caratteristica. Livello 2: velocità dimezzata. Livello 3: svantaggio ai tiri per colpire e TS. Livello 4: HP massimi dimezzati. Livello 5: velocità 0. Livello 6: morte.'**
   String get conditionExhaustionDesc;
 
   /// No description provided for @diceTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Dice roller'**
   String get diceTitle;
 
   /// No description provided for @diceFormulaLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Formula (es. 1d20+5, 3d6+1d4)'**
   String get diceFormulaLabel;
 
   /// No description provided for @diceAdvantage.
+  ///
+  /// In it, this message translates to:
+  /// **'Vantaggio'**
   String get diceAdvantage;
 
   /// No description provided for @diceDisadvantage.
+  ///
+  /// In it, this message translates to:
+  /// **'Svantaggio'**
   String get diceDisadvantage;
 
   /// No description provided for @diceRollButton.
+  ///
+  /// In it, this message translates to:
+  /// **'Tira'**
   String get diceRollButton;
 
   /// No description provided for @diceHistory.
+  ///
+  /// In it, this message translates to:
+  /// **'Cronologia'**
   String get diceHistory;
 
   /// No description provided for @diceClear.
+  ///
+  /// In it, this message translates to:
+  /// **'Pulisci'**
   String get diceClear;
 
   /// No description provided for @diceNoRollsYet.
+  ///
+  /// In it, this message translates to:
+  /// **'— nessun tiro ancora —'**
   String get diceNoRollsYet;
 
   /// No description provided for @diceNoOtherRolls.
+  ///
+  /// In it, this message translates to:
+  /// **'— nessun altro tiro —'**
   String get diceNoOtherRolls;
 
   /// No description provided for @spellPickerTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Catalogo SRD'**
   String get spellPickerTitle;
 
   /// No description provided for @spellPickerSearchHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Cerca per nome (es. \"fire\")'**
   String get spellPickerSearchHint;
 
   /// No description provided for @spellFilterLevelHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Livello'**
   String get spellFilterLevelHint;
 
   /// No description provided for @spellFilterLevelAll.
+  ///
+  /// In it, this message translates to:
+  /// **'Livello: tutti'**
   String get spellFilterLevelAll;
 
   /// No description provided for @spellFilterCantrips.
+  ///
+  /// In it, this message translates to:
+  /// **'Trucchetti'**
   String get spellFilterCantrips;
 
   /// No description provided for @spellFilterLevelN.
+  ///
+  /// In it, this message translates to:
+  /// **'Liv. {n}'**
   String spellFilterLevelN(Object n);
 
   /// No description provided for @spellFilterSchoolHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Scuola'**
   String get spellFilterSchoolHint;
 
   /// No description provided for @spellFilterSchoolAll.
+  ///
+  /// In it, this message translates to:
+  /// **'Scuola: tutte'**
   String get spellFilterSchoolAll;
 
   /// No description provided for @spellFilterClassHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Classe'**
   String get spellFilterClassHint;
 
   /// No description provided for @spellFilterClassAll.
+  ///
+  /// In it, this message translates to:
+  /// **'Classe: tutte'**
   String get spellFilterClassAll;
 
   /// No description provided for @spellPickerNoResults.
+  ///
+  /// In it, this message translates to:
+  /// **'Nessun risultato'**
   String get spellPickerNoResults;
 
   /// No description provided for @spellPickerDetails.
+  ///
+  /// In it, this message translates to:
+  /// **'Dettagli'**
   String get spellPickerDetails;
 
   /// No description provided for @spellPickerAdd.
+  ///
+  /// In it, this message translates to:
+  /// **'Aggiungi alla scheda'**
   String get spellPickerAdd;
 
   /// No description provided for @editorToolbarShare.
+  ///
+  /// In it, this message translates to:
+  /// **'Condividi (link read-only)'**
   String get editorToolbarShare;
 
   /// No description provided for @editorPortraitChange.
+  ///
+  /// In it, this message translates to:
+  /// **'Cambia ritratto'**
   String get editorPortraitChange;
 
   /// No description provided for @editorPortraitUpload.
+  ///
+  /// In it, this message translates to:
+  /// **'Carica ritratto'**
   String get editorPortraitUpload;
 
   /// No description provided for @editorPortraitUpdatedSnack.
+  ///
+  /// In it, this message translates to:
+  /// **'Ritratto aggiornato'**
   String get editorPortraitUpdatedSnack;
 
   /// No description provided for @editorPortraitRemovedSnack.
+  ///
+  /// In it, this message translates to:
+  /// **'Ritratto rimosso'**
   String get editorPortraitRemovedSnack;
 
   /// No description provided for @autosaveFormInvalid.
+  ///
+  /// In it, this message translates to:
+  /// **'Form non valido — non salvato'**
   String get autosaveFormInvalid;
 
   /// No description provided for @editorExitDirtyTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Modifiche non salvate'**
   String get editorExitDirtyTitle;
 
   /// No description provided for @editorExitDirtyBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Hai modifiche non salvate (alcuni campi non sono validi e non sono stati salvati). Uscire scartandole?'**
   String get editorExitDirtyBody;
 
   /// No description provided for @editorExitDirtyDiscard.
+  ///
+  /// In it, this message translates to:
+  /// **'Esci e scarta'**
   String get editorExitDirtyDiscard;
 
   /// No description provided for @editorLayoutTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Dashboard personalizzata'**
   String get editorLayoutTitle;
 
   /// No description provided for @editorLayoutOpenButton.
+  ///
+  /// In it, this message translates to:
+  /// **'Modifica layout'**
   String get editorLayoutOpenButton;
 
   /// No description provided for @editorLayoutEmpty.
+  ///
+  /// In it, this message translates to:
+  /// **'Nessun widget. Aggiungine uno per iniziare a costruire la tua dashboard.'**
   String get editorLayoutEmpty;
 
   /// No description provided for @editorLayoutAddWidget.
+  ///
+  /// In it, this message translates to:
+  /// **'Aggiungi widget'**
   String get editorLayoutAddWidget;
 
   /// No description provided for @editorLayoutReset.
+  ///
+  /// In it, this message translates to:
+  /// **'Ripristina default'**
   String get editorLayoutReset;
 
   /// No description provided for @editorLayoutSavedSnack.
+  ///
+  /// In it, this message translates to:
+  /// **'Layout salvato'**
   String get editorLayoutSavedSnack;
 
   /// No description provided for @editorLayoutResetConfirmTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Ripristinare il layout?'**
   String get editorLayoutResetConfirmTitle;
 
   /// No description provided for @editorLayoutResetConfirmBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Il tuo layout custom verrà eliminato e tornerai alla vista classica a tab.'**
   String get editorLayoutResetConfirmBody;
 
   /// No description provided for @editorLayoutResetConfirmYes.
+  ///
+  /// In it, this message translates to:
+  /// **'Ripristina'**
   String get editorLayoutResetConfirmYes;
 
   /// No description provided for @editorLayoutRemoveWidget.
+  ///
+  /// In it, this message translates to:
+  /// **'Rimuovi widget'**
   String get editorLayoutRemoveWidget;
 
   /// No description provided for @editorLayoutBringForward.
+  ///
+  /// In it, this message translates to:
+  /// **'Porta avanti'**
   String get editorLayoutBringForward;
 
   /// No description provided for @editorLayoutSendBackward.
+  ///
+  /// In it, this message translates to:
+  /// **'Porta indietro'**
   String get editorLayoutSendBackward;
 
   /// No description provided for @editorLayoutWidgetHpTracker.
+  ///
+  /// In it, this message translates to:
+  /// **'Tracker PF'**
   String get editorLayoutWidgetHpTracker;
 
   /// No description provided for @editorLayoutWidgetConditions.
+  ///
+  /// In it, this message translates to:
+  /// **'Condizioni'**
   String get editorLayoutWidgetConditions;
 
   /// No description provided for @editorLayoutWidgetPortrait.
+  ///
+  /// In it, this message translates to:
+  /// **'Ritratto'**
   String get editorLayoutWidgetPortrait;
 
   /// No description provided for @editorLayoutPremiumRequired.
+  ///
+  /// In it, this message translates to:
+  /// **'Il layout personalizzato è una funzionalità Premium.'**
   String get editorLayoutPremiumRequired;
 
+  /// No description provided for @homeCustomDashboardBadge.
+  ///
+  /// In it, this message translates to:
+  /// **'NUOVO'**
+  String get homeCustomDashboardBadge;
+
+  /// No description provided for @homeCustomDashboardTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Dashboard personalizzata'**
+  String get homeCustomDashboardTitle;
+
+  /// No description provided for @homeCustomDashboardSubtitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove. Solo Premium.'**
+  String get homeCustomDashboardSubtitle;
+
+  /// No description provided for @homeCustomDashboardOpen.
+  ///
+  /// In it, this message translates to:
+  /// **'Vai alle schede'**
+  String get homeCustomDashboardOpen;
+
   /// No description provided for @editorAnagraficaName.
+  ///
+  /// In it, this message translates to:
+  /// **'Nome'**
   String get editorAnagraficaName;
 
   /// No description provided for @editorAnagraficaLevel.
+  ///
+  /// In it, this message translates to:
+  /// **'Livello'**
   String get editorAnagraficaLevel;
 
   /// No description provided for @editorAnagraficaRace.
+  ///
+  /// In it, this message translates to:
+  /// **'Razza'**
   String get editorAnagraficaRace;
 
   /// No description provided for @editorAnagraficaSubrace.
+  ///
+  /// In it, this message translates to:
+  /// **'Sotto-razza'**
   String get editorAnagraficaSubrace;
 
   /// No description provided for @editorAnagraficaClass.
+  ///
+  /// In it, this message translates to:
+  /// **'Classe'**
   String get editorAnagraficaClass;
 
   /// No description provided for @editorAnagraficaSubclass.
+  ///
+  /// In it, this message translates to:
+  /// **'Sotto-classe'**
   String get editorAnagraficaSubclass;
 
   /// No description provided for @editorAnagraficaExperience.
+  ///
+  /// In it, this message translates to:
+  /// **'Esperienza (XP)'**
   String get editorAnagraficaExperience;
 
   /// No description provided for @editorAnagraficaInspiration.
+  ///
+  /// In it, this message translates to:
+  /// **'Ispirazione'**
   String get editorAnagraficaInspiration;
 
   /// No description provided for @editorStatsTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Punteggi caratteristica'**
   String get editorStatsTitle;
 
   /// No description provided for @editorStatsHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Valori 1-30. Il modificatore (sotto al campo) si aggiorna automaticamente.'**
   String get editorStatsHint;
 
   /// No description provided for @editorAbilityTooltipNeedsValue.
+  ///
+  /// In it, this message translates to:
+  /// **'Inserisci la statistica per tirare'**
   String get editorAbilityTooltipNeedsValue;
 
   /// No description provided for @editorAbilityTooltipRoll.
+  ///
+  /// In it, this message translates to:
+  /// **'Tira {formula} ({ability})'**
   String editorAbilityTooltipRoll(Object formula, Object ability);
 
   /// No description provided for @editorColComp.
+  ///
+  /// In it, this message translates to:
+  /// **'Comp.'**
   String get editorColComp;
 
   /// No description provided for @editorColExpert.
+  ///
+  /// In it, this message translates to:
+  /// **'Maest.'**
   String get editorColExpert;
 
   /// No description provided for @editorColTotal.
+  ///
+  /// In it, this message translates to:
+  /// **'Tot.'**
   String get editorColTotal;
 
   /// No description provided for @editorFlagOverrideTag.
+  ///
+  /// In it, this message translates to:
+  /// **'override'**
   String get editorFlagOverrideTag;
 
   /// No description provided for @editorProfBonusOverrideTooltip.
+  ///
+  /// In it, this message translates to:
+  /// **'Override manuale (Combat)'**
   String get editorProfBonusOverrideTooltip;
 
   /// No description provided for @editorProfBonusAutoTooltip.
+  ///
+  /// In it, this message translates to:
+  /// **'Calcolato dal livello'**
   String get editorProfBonusAutoTooltip;
 
   /// No description provided for @editorProfBonusChipLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Comp {value}'**
   String editorProfBonusChipLabel(Object value);
 
   /// No description provided for @editorCombatDefenseMovement.
+  ///
+  /// In it, this message translates to:
+  /// **'Difesa & movimento'**
   String get editorCombatDefenseMovement;
 
   /// No description provided for @editorCombatArmorClassLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Classe Armatura (CA)'**
   String get editorCombatArmorClassLabel;
 
   /// No description provided for @editorCombatHintAcAuto.
+  ///
+  /// In it, this message translates to:
+  /// **'auto: {value} (10 + {ability})'**
   String editorCombatHintAcAuto(Object value, Object ability);
 
   /// No description provided for @editorCombatHintInitAuto.
+  ///
+  /// In it, this message translates to:
+  /// **'auto: {value} (mod {ability})'**
   String editorCombatHintInitAuto(Object value, Object ability);
 
   /// No description provided for @editorCombatSpeedLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Velocità (ft)'**
   String get editorCombatSpeedLabel;
 
   /// No description provided for @editorCombatProfBonusLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Bonus competenza'**
   String get editorCombatProfBonusLabel;
 
   /// No description provided for @editorCombatHintProfAuto.
+  ///
+  /// In it, this message translates to:
+  /// **'auto: {value} (dal livello)'**
   String editorCombatHintProfAuto(Object value);
 
   /// No description provided for @editorCombatHpSectionTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Punti ferita'**
   String get editorCombatHpSectionTitle;
 
   /// No description provided for @editorCombatHpMaxLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'PF max'**
   String get editorCombatHpMaxLabel;
 
   /// No description provided for @editorCombatHpCurrentLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'PF attuali'**
   String get editorCombatHpCurrentLabel;
 
   /// No description provided for @editorCombatHitDiceTotalLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Totali'**
   String get editorCombatHitDiceTotalLabel;
 
   /// No description provided for @editorCombatHitDiceUsedLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Usati'**
   String get editorCombatHitDiceUsedLabel;
 
   /// No description provided for @editorCombatDeathSavesSectionTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Tiri salvezza contro morte'**
   String get editorCombatDeathSavesSectionTitle;
 
   /// No description provided for @editorCombatDeathSavesSuccLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Successi (0-3)'**
   String get editorCombatDeathSavesSuccLabel;
 
   /// No description provided for @editorCombatDeathSavesFailLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Fallimenti (0-3)'**
   String get editorCombatDeathSavesFailLabel;
 
   /// No description provided for @editorCombatConditionsTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Condizioni'**
   String get editorCombatConditionsTitle;
 
   /// No description provided for @editorCombatConditionsHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Tocca il chip per attivare/disattivare. Tocca l\'icona ⓘ per la descrizione PHB.'**
   String get editorCombatConditionsHint;
 
   /// No description provided for @editorCombatRestsTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Riposi'**
   String get editorCombatRestsTitle;
 
   /// No description provided for @editorCombatRestsHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Riposo breve: reset TS morte (e slot warlock se progressione warlock). Riposo lungo: HP=max, temp=0, slot pieni, dadi vita recuperati per metà.'**
   String get editorCombatRestsHint;
 
-  /// No description provided for @editorHpDialogTitle.
-  String get editorHpDialogTitle;
-
-  /// No description provided for @editorHpQuantityLabel.
-  String get editorHpQuantityLabel;
-
-  /// No description provided for @editorHpQuantityHint.
-  String get editorHpQuantityHint;
-
-  /// No description provided for @editorHpHeal.
-  String get editorHpHeal;
-
-  /// No description provided for @editorHpDamage.
-  String get editorHpDamage;
-
-  /// No description provided for @editorHpTempLabel.
-  String get editorHpTempLabel;
-
-  /// No description provided for @editorHpTempHelper.
-  String get editorHpTempHelper;
-
-  /// No description provided for @editorHpTempApply.
-  String get editorHpTempApply;
-
-  /// No description provided for @editorRestLong.
-  String get editorRestLong;
-
-  /// No description provided for @editorRestShort.
-  String get editorRestShort;
-
-  /// No description provided for @editorRestLongBody.
-  String get editorRestLongBody;
-
-  /// No description provided for @editorRestShortBody.
-  String get editorRestShortBody;
-
-  /// No description provided for @editorRestLongConfirmTitle.
-  String get editorRestLongConfirmTitle;
-
-  /// No description provided for @editorRestShortConfirmTitle.
-  String get editorRestShortConfirmTitle;
-
-  /// No description provided for @editorRestLongApplied.
-  String get editorRestLongApplied;
-
-  /// No description provided for @editorRestShortApplied.
-  String get editorRestShortApplied;
-
   /// No description provided for @editorSpellsCasterClassLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Classe incantatrice'**
   String get editorSpellsCasterClassLabel;
 
   /// No description provided for @editorSpellsSaveDcLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'CD tiro salvezza'**
   String get editorSpellsSaveDcLabel;
 
   /// No description provided for @editorSpellsAttackLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Bonus attacco'**
   String get editorSpellsAttackLabel;
 
   /// No description provided for @editorSpellsSlotsHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Lascia vuoti i livelli che non hai (non vengono inviati). Puoi precompilare dalla tabella PHB.'**
   String get editorSpellsSlotsHint;
 
   /// No description provided for @editorSpellsListTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Lista incantesimi'**
   String get editorSpellsListTitle;
 
   /// No description provided for @editorSpellsListHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Aggiungi dal catalogo SRD (319 spell) o crea una custom homebrew.'**
   String get editorSpellsListHint;
 
   /// No description provided for @editorSpellsAddFromCatalog.
+  ///
+  /// In it, this message translates to:
+  /// **'Aggiungi dal catalogo'**
   String get editorSpellsAddFromCatalog;
 
   /// No description provided for @editorSpellsCustomSpell.
+  ///
+  /// In it, this message translates to:
+  /// **'Custom spell'**
   String get editorSpellsCustomSpell;
 
   /// No description provided for @editorSpellsConvertTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Personalizza incantesimo'**
   String get editorSpellsConvertTitle;
 
   /// No description provided for @editorSpellsConvertBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Verrà copiato dal catalogo e diventerà una custom modificabile. La connessione al catalogo SRD viene persa.'**
   String get editorSpellsConvertBody;
 
   /// No description provided for @editorSpellsConvertConfirm.
+  ///
+  /// In it, this message translates to:
+  /// **'Personalizza'**
   String get editorSpellsConvertConfirm;
 
   /// No description provided for @editorSpellsProgressionLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Progressione (PHB)'**
   String get editorSpellsProgressionLabel;
 
   /// No description provided for @editorSpellsFillFromPhb.
+  ///
+  /// In it, this message translates to:
+  /// **'Compila da PHB'**
   String get editorSpellsFillFromPhb;
 
   /// No description provided for @editorSpellsPrefillerPreview.
+  ///
+  /// In it, this message translates to:
+  /// **'Anteprima a livello {level}: {slots}'**
   String editorSpellsPrefillerPreview(Object level, Object slots);
 
   /// No description provided for @editorSpellsNoSlotsAtLevel.
+  ///
+  /// In it, this message translates to:
+  /// **'nessuno slot a questo livello'**
   String get editorSpellsNoSlotsAtLevel;
 
   /// No description provided for @editorSpellsSetLevelFirst.
+  ///
+  /// In it, this message translates to:
+  /// **'Imposta prima il livello del personaggio nella tab Anagrafica.'**
   String get editorSpellsSetLevelFirst;
 
   /// No description provided for @editorSpellsFillConfirmTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Compilare gli slot?'**
   String get editorSpellsFillConfirmTitle;
 
   /// No description provided for @editorSpellsFillConfirmBody.
+  ///
+  /// In it, this message translates to:
+  /// **'I valori \"Max\" verranno sovrascritti dalla tabella PHB. Il numero corrente verrà allineato al nuovo max.'**
   String get editorSpellsFillConfirmBody;
 
   /// No description provided for @editorSpellsFillConfirmYes.
+  ///
+  /// In it, this message translates to:
+  /// **'Compila'**
   String get editorSpellsFillConfirmYes;
 
   /// No description provided for @editorSpellsFillSnack.
+  ///
+  /// In it, this message translates to:
+  /// **'Slot precompilati'**
   String get editorSpellsFillSnack;
 
   /// No description provided for @editorSpellsSlotLevel.
+  ///
+  /// In it, this message translates to:
+  /// **'Livello {n}'**
   String editorSpellsSlotLevel(Object n);
 
   /// No description provided for @editorSpellsSlotMax.
+  ///
+  /// In it, this message translates to:
+  /// **'Max'**
   String get editorSpellsSlotMax;
 
   /// No description provided for @editorSpellsNoSlotsLine.
+  ///
+  /// In it, this message translates to:
+  /// **'— nessuno slot —'**
   String get editorSpellsNoSlotsLine;
 
   /// No description provided for @editorSpellsConsumeSlot.
+  ///
+  /// In it, this message translates to:
+  /// **'Consuma slot'**
   String get editorSpellsConsumeSlot;
 
   /// No description provided for @editorSpellsRestoreSlot.
+  ///
+  /// In it, this message translates to:
+  /// **'Ripristina slot'**
   String get editorSpellsRestoreSlot;
 
   /// No description provided for @editorSpellsLevelChipCantrip.
+  ///
+  /// In it, this message translates to:
+  /// **'Trucc.'**
   String get editorSpellsLevelChipCantrip;
 
   /// No description provided for @editorSpellsLevelChipLvl.
+  ///
+  /// In it, this message translates to:
+  /// **'L{n}'**
   String editorSpellsLevelChipLvl(Object n);
 
   /// No description provided for @editorSpellsFromCatalog.
+  ///
+  /// In it, this message translates to:
+  /// **'Dal catalogo ({source})'**
   String editorSpellsFromCatalog(Object source);
 
   /// No description provided for @editorSpellsCustomHomebrewTooltip.
+  ///
+  /// In it, this message translates to:
+  /// **'Custom homebrew'**
   String get editorSpellsCustomHomebrewTooltip;
 
   /// No description provided for @editorSpellsActionsTooltip.
+  ///
+  /// In it, this message translates to:
+  /// **'Azioni'**
   String get editorSpellsActionsTooltip;
 
   /// No description provided for @editorSpellsAlwaysPreparedShort.
+  ///
+  /// In it, this message translates to:
+  /// **'Sempre prep.'**
   String get editorSpellsAlwaysPreparedShort;
 
   /// No description provided for @editorSpellsNotesLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Note (per la scheda)'**
   String get editorSpellsNotesLabel;
 
   /// No description provided for @editorSpellProgressionNone.
+  ///
+  /// In it, this message translates to:
+  /// **'Nessuna'**
   String get editorSpellProgressionNone;
 
   /// No description provided for @editorSpellProgressionFull.
+  ///
+  /// In it, this message translates to:
+  /// **'Incantatore pieno (Mago, Chierico, …)'**
   String get editorSpellProgressionFull;
 
   /// No description provided for @editorSpellProgressionHalf.
+  ///
+  /// In it, this message translates to:
+  /// **'Mezzo incantatore (Paladino, Ranger)'**
   String get editorSpellProgressionHalf;
 
   /// No description provided for @editorSpellProgressionThird.
+  ///
+  /// In it, this message translates to:
+  /// **'Terzo incantatore (Trickster, Eldritch)'**
   String get editorSpellProgressionThird;
 
   /// No description provided for @editorSpellProgressionWarlock.
+  ///
+  /// In it, this message translates to:
+  /// **'Warlock (Pact Magic)'**
   String get editorSpellProgressionWarlock;
 
   /// No description provided for @editorEquipCoinsTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Monete'**
   String get editorEquipCoinsTitle;
 
   /// No description provided for @editorEquipAddItem.
+  ///
+  /// In it, this message translates to:
+  /// **'Aggiungi oggetto'**
   String get editorEquipAddItem;
 
   /// No description provided for @editorEquipItemName.
+  ///
+  /// In it, this message translates to:
+  /// **'Oggetto'**
   String get editorEquipItemName;
 
   /// No description provided for @editorEquipItemQty.
+  ///
+  /// In it, this message translates to:
+  /// **'Quantità'**
   String get editorEquipItemQty;
 
   /// No description provided for @editorEquipItemWeight.
+  ///
+  /// In it, this message translates to:
+  /// **'Peso (lb)'**
   String get editorEquipItemWeight;
 
   /// No description provided for @editorEquipItemNotes.
+  ///
+  /// In it, this message translates to:
+  /// **'Note'**
   String get editorEquipItemNotes;
 
   /// No description provided for @editorTraitsProficienciesTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Competenze'**
   String get editorTraitsProficienciesTitle;
 
   /// No description provided for @editorTraitsFeaturesFieldLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Privilegi/tratti'**
   String get editorTraitsFeaturesFieldLabel;
 
   /// No description provided for @editorTraitsLanguagesNone.
+  ///
+  /// In it, this message translates to:
+  /// **'— nessuna —'**
   String get editorTraitsLanguagesNone;
 
   /// No description provided for @editorTraitsAddLanguageLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Aggiungi lingua'**
   String get editorTraitsAddLanguageLabel;
 
   /// No description provided for @editorNotesBackstoryLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Background storia'**
   String get editorNotesBackstoryLabel;
 
   /// No description provided for @editorNotesNotesLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Note libere'**
   String get editorNotesNotesLabel;
 
   /// No description provided for @editorNotAuthError.
+  ///
+  /// In it, this message translates to:
+  /// **'Utente non autenticato'**
   String get editorNotAuthError;
 
   /// No description provided for @editorValidatorEnterNumber.
+  ///
+  /// In it, this message translates to:
+  /// **'Inserisci un numero'**
   String get editorValidatorEnterNumber;
 
   /// No description provided for @editorValidatorMinZero.
+  ///
+  /// In it, this message translates to:
+  /// **'Deve essere ≥ 0'**
   String get editorValidatorMinZero;
 
   /// No description provided for @editorValidatorMinN.
+  ///
+  /// In it, this message translates to:
+  /// **'Min {n}'**
   String editorValidatorMinN(Object n);
 
   /// No description provided for @editorValidatorMaxN.
+  ///
+  /// In it, this message translates to:
+  /// **'Max {n}'**
   String editorValidatorMaxN(Object n);
 
+  /// No description provided for @editorHpDialogTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Modifica HP'**
+  String get editorHpDialogTitle;
+
+  /// No description provided for @editorHpQuantityLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'Quantità'**
+  String get editorHpQuantityLabel;
+
+  /// No description provided for @editorHpQuantityHint.
+  ///
+  /// In it, this message translates to:
+  /// **'es. 8'**
+  String get editorHpQuantityHint;
+
+  /// No description provided for @editorHpHeal.
+  ///
+  /// In it, this message translates to:
+  /// **'Cura'**
+  String get editorHpHeal;
+
+  /// No description provided for @editorHpDamage.
+  ///
+  /// In it, this message translates to:
+  /// **'Danno'**
+  String get editorHpDamage;
+
+  /// No description provided for @editorHpTempLabel.
+  ///
+  /// In it, this message translates to:
+  /// **'PF temporanei'**
+  String get editorHpTempLabel;
+
+  /// No description provided for @editorHpTempHelper.
+  ///
+  /// In it, this message translates to:
+  /// **'Non si stackano: vale il valore più alto'**
+  String get editorHpTempHelper;
+
+  /// No description provided for @editorHpTempApply.
+  ///
+  /// In it, this message translates to:
+  /// **'Applica PF temporanei'**
+  String get editorHpTempApply;
+
+  /// No description provided for @editorRestLong.
+  ///
+  /// In it, this message translates to:
+  /// **'Riposo lungo'**
+  String get editorRestLong;
+
+  /// No description provided for @editorRestShort.
+  ///
+  /// In it, this message translates to:
+  /// **'Riposo breve'**
+  String get editorRestShort;
+
+  /// No description provided for @editorRestLongBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Verranno applicate: HP a max, PF temp a 0, slot incantesimi pieni, dadi vita recuperati per metà, tiri salvezza contro morte azzerati.'**
+  String get editorRestLongBody;
+
+  /// No description provided for @editorRestShortBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Verranno azzerati i tiri salvezza contro morte. Se la progressione è warlock, gli slot tornano pieni.'**
+  String get editorRestShortBody;
+
+  /// No description provided for @editorRestLongConfirmTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Riposo lungo?'**
+  String get editorRestLongConfirmTitle;
+
+  /// No description provided for @editorRestShortConfirmTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Riposo breve?'**
+  String get editorRestShortConfirmTitle;
+
+  /// No description provided for @editorRestLongApplied.
+  ///
+  /// In it, this message translates to:
+  /// **'Riposo lungo applicato'**
+  String get editorRestLongApplied;
+
+  /// No description provided for @editorRestShortApplied.
+  ///
+  /// In it, this message translates to:
+  /// **'Riposo breve applicato'**
+  String get editorRestShortApplied;
+
   /// No description provided for @comingSoonTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Lavori in corso'**
   String get comingSoonTitle;
 
   /// No description provided for @comingSoonStayTuned.
+  ///
+  /// In it, this message translates to:
+  /// **'Stiamo lavorando per renderla disponibile a breve. Torna a trovarci.'**
   String get comingSoonStayTuned;
 
   /// No description provided for @comingSoonIos.
+  ///
+  /// In it, this message translates to:
+  /// **'L\'app per iPhone e iPad arriverà presto sull\'App Store.'**
   String get comingSoonIos;
 
   /// No description provided for @comingSoonAndroid.
+  ///
+  /// In it, this message translates to:
+  /// **'L\'app per Android arriverà presto sul Google Play Store.'**
   String get comingSoonAndroid;
 
   /// No description provided for @comingSoonSpells.
+  ///
+  /// In it, this message translates to:
+  /// **'Il catalogo pubblico degli incantesimi sarà presto consultabile senza account.'**
   String get comingSoonSpells;
 
   /// No description provided for @comingSoonGeneric.
+  ///
+  /// In it, this message translates to:
+  /// **'Questa sezione è in lavorazione.'**
   String get comingSoonGeneric;
 
   /// No description provided for @comingSoonBack.
+  ///
+  /// In it, this message translates to:
+  /// **'Torna alla home'**
   String get comingSoonBack;
 
   /// No description provided for @legalPrivacyTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Privacy Policy'**
   String get legalPrivacyTitle;
 
   /// No description provided for @legalTermsTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Termini di Servizio'**
   String get legalTermsTitle;
 
   /// No description provided for @legalCookiesTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Politica sui Cookie'**
   String get legalCookiesTitle;
 
   /// No description provided for @legalContactTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Contatti'**
   String get legalContactTitle;
 
   /// No description provided for @legalLastUpdated.
+  ///
+  /// In it, this message translates to:
+  /// **'Ultimo aggiornamento: {date}'**
   String legalLastUpdated(String date);
 
   /// No description provided for @legalOnlyItalianNotice.
+  ///
+  /// In it, this message translates to:
+  /// **'I testi legali sono pubblicati in italiano. La versione in lingua italiana è quella ufficiale.'**
   String get legalOnlyItalianNotice;
 
   /// No description provided for @legalBackToHome.
+  ///
+  /// In it, this message translates to:
+  /// **'Torna alla home'**
   String get legalBackToHome;
 
   /// No description provided for @registerAcceptPart1.
+  ///
+  /// In it, this message translates to:
+  /// **'Ho letto e accetto la '**
   String get registerAcceptPart1;
 
   /// No description provided for @registerAcceptPart2.
+  ///
+  /// In it, this message translates to:
+  /// **' e i '**
   String get registerAcceptPart2;
 
   /// No description provided for @registerAcceptPart3.
+  ///
+  /// In it, this message translates to:
+  /// **'.'**
   String get registerAcceptPart3;
 
   /// No description provided for @registerPrivacyLink.
+  ///
+  /// In it, this message translates to:
+  /// **'Privacy Policy'**
   String get registerPrivacyLink;
 
   /// No description provided for @registerTermsLink.
+  ///
+  /// In it, this message translates to:
+  /// **'Termini di Servizio'**
   String get registerTermsLink;
 
   /// No description provided for @registerAcceptRequired.
+  ///
+  /// In it, this message translates to:
+  /// **'Devi accettare la Privacy Policy e i Termini di Servizio per registrarti'**
   String get registerAcceptRequired;
 
   /// No description provided for @profilePrivacySectionTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Privacy e dati'**
   String get profilePrivacySectionTitle;
 
   /// No description provided for @profilePrivacyHint.
+  ///
+  /// In it, this message translates to:
+  /// **'Scarica una copia completa dei tuoi dati personali in formato JSON, oppure consulta la nostra Privacy Policy.'**
   String get profilePrivacyHint;
 
   /// No description provided for @profileExportButton.
+  ///
+  /// In it, this message translates to:
+  /// **'Esporta i miei dati'**
   String get profileExportButton;
 
   /// No description provided for @profileExportInProgress.
+  ///
+  /// In it, this message translates to:
+  /// **'Preparazione export in corso…'**
   String get profileExportInProgress;
 
   /// No description provided for @profileExportDone.
+  ///
+  /// In it, this message translates to:
+  /// **'Esportazione completata.'**
   String get profileExportDone;
 
   /// No description provided for @profileExportFailed.
+  ///
+  /// In it, this message translates to:
+  /// **'Esportazione fallita: {error}'**
   String profileExportFailed(String error);
 
   /// No description provided for @profileLegalPrivacyLink.
+  ///
+  /// In it, this message translates to:
+  /// **'Privacy Policy'**
   String get profileLegalPrivacyLink;
 
   /// No description provided for @profileLegalTermsLink.
+  ///
+  /// In it, this message translates to:
+  /// **'Termini di Servizio'**
   String get profileLegalTermsLink;
 
   /// No description provided for @profileLegalCookiesLink.
+  ///
+  /// In it, this message translates to:
+  /// **'Cookie'**
   String get profileLegalCookiesLink;
 
   /// No description provided for @profileLegalContactLink.
+  ///
+  /// In it, this message translates to:
+  /// **'Contatti'**
   String get profileLegalContactLink;
 
   /// No description provided for @deletionInfoTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Come cancellare il tuo account'**
   String get deletionInfoTitle;
+
+  /// No description provided for @deletionInfoIntro.
+  ///
+  /// In it, this message translates to:
+  /// **'Puoi cancellare il tuo account e tutti i dati associati in qualsiasi momento. La cancellazione è immediata e irreversibile.'**
   String get deletionInfoIntro;
+
+  /// No description provided for @deletionInfoStepsTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Procedura standard'**
   String get deletionInfoStepsTitle;
+
+  /// No description provided for @deletionInfoStep1.
+  ///
+  /// In it, this message translates to:
+  /// **'Accedi al tuo account.'**
   String get deletionInfoStep1;
+
+  /// No description provided for @deletionInfoStep2.
+  ///
+  /// In it, this message translates to:
+  /// **'Vai su Profilo → sezione \"Danger zone\" in fondo alla pagina.'**
   String get deletionInfoStep2;
+
+  /// No description provided for @deletionInfoStep3.
+  ///
+  /// In it, this message translates to:
+  /// **'Premi \"Cancella account\".'**
   String get deletionInfoStep3;
+
+  /// No description provided for @deletionInfoStep4.
+  ///
+  /// In it, this message translates to:
+  /// **'Digita il tuo username e la password per conferma, poi premi il bottone rosso.'**
   String get deletionInfoStep4;
+
+  /// No description provided for @deletionInfoWhatRemovedTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Cosa viene cancellato'**
   String get deletionInfoWhatRemovedTitle;
+
+  /// No description provided for @deletionInfoWhatRemoved.
+  ///
+  /// In it, this message translates to:
+  /// **'Tutti i seguenti dati vengono rimossi in modo definitivo, senza possibilità di recupero:'**
   String get deletionInfoWhatRemoved;
+
+  /// No description provided for @deletionInfoBullet1.
+  ///
+  /// In it, this message translates to:
+  /// **'Account, email, password (hash), foto del profilo.'**
   String get deletionInfoBullet1;
+
+  /// No description provided for @deletionInfoBullet2.
+  ///
+  /// In it, this message translates to:
+  /// **'Tutte le tue schede personaggio e le immagini dei ritratti.'**
   String get deletionInfoBullet2;
+
+  /// No description provided for @deletionInfoBullet3.
+  ///
+  /// In it, this message translates to:
+  /// **'Cronologia dei tiri di dado.'**
   String get deletionInfoBullet3;
+
+  /// No description provided for @deletionInfoBullet4.
+  ///
+  /// In it, this message translates to:
+  /// **'Tutti i link di condivisione attivi delle tue schede.'**
   String get deletionInfoBullet4;
+
+  /// No description provided for @deletionInfoBullet5.
+  ///
+  /// In it, this message translates to:
+  /// **'Tutte le sessioni attive su qualsiasi dispositivo.'**
   String get deletionInfoBullet5;
+
+  /// No description provided for @deletionInfoCannotLoginTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Non riesci ad accedere?'**
   String get deletionInfoCannotLoginTitle;
+
+  /// No description provided for @deletionInfoCannotLogin.
+  ///
+  /// In it, this message translates to:
+  /// **'Se hai perso le credenziali e non riesci a fare il reset password, scrivici una email all\'indirizzo qui sotto specificando l\'indirizzo email del tuo account. Ti aiuteremo a procedere con la cancellazione dopo aver verificato la tua identità.'**
   String get deletionInfoCannotLogin;
+
+  /// No description provided for @deletionInfoEmail.
+  ///
+  /// In it, this message translates to:
+  /// **'franksisca@gmail.com'**
   String get deletionInfoEmail;
+
+  /// No description provided for @deletionInfoLoginBtn.
+  ///
+  /// In it, this message translates to:
+  /// **'Accedi e cancella'**
   String get deletionInfoLoginBtn;
+
+  /// No description provided for @deletionInfoBackHome.
+  ///
+  /// In it, this message translates to:
+  /// **'Torna alla home'**
   String get deletionInfoBackHome;
 }
 

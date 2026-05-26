@@ -41,6 +41,8 @@ dependencies:
 
   # Generazione PDF (pure Dart, web-compatibile)
   pdf: ^3.11.3
+  purchases_flutter: ^10.1.1
+  purchases_ui_flutter: ^10.1.1
 
 dev_dependencies:
   flutter_test:

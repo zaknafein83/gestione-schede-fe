@@ -504,6 +504,11 @@
   "editorLayoutWidgetPortrait":     "Ritratto",
   "editorLayoutPremiumRequired":    "Il layout personalizzato è una funzionalità Premium.",
 
+  "homeCustomDashboardBadge":    "NUOVO",
+  "homeCustomDashboardTitle":    "Dashboard personalizzata",
+  "homeCustomDashboardSubtitle": "Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove. Solo Premium.",
+  "homeCustomDashboardOpen":     "Vai alle schede",
+
   "editorAnagraficaName":      "Nome",
   "editorAnagraficaLevel":     "Livello",
   "editorAnagraficaRace":      "Razza",

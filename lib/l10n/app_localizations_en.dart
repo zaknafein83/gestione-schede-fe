@@ -199,8 +199,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get landingHeroSubtitle =>
-      'Keep every sheet, roll every die, share the deeds of your character — '
-      'a digital companion for your 5e role-playing adventures.';
+      'Keep every sheet, roll every die, share the deeds of your character — a digital companion for your 5e role-playing adventures.';
 
   @override
   String get landingCtaOpenWeb => 'Enter your library';
@@ -225,7 +224,7 @@ class AppL10nEn extends AppL10n {
       'Preview the public spell catalog (coming soon)';
 
   @override
-  String get landingFeaturesTitle => "The Chronicler's arts";
+  String get landingFeaturesTitle => 'The Chronicler\'s arts';
 
   @override
   String get landingFeaturesSubtitle =>
@@ -236,8 +235,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get landingFeatureSheetDesc =>
-      'Every field from the 5e core rulebook, eight dedicated sections, automatic calculations. '
-      'No detail of your hero gets lost.';
+      'Every field from the 5e core rulebook, eight dedicated sections, automatic calculations. No detail of your hero gets lost.';
 
   @override
   String get landingFeatureDiceTitle => 'Fate of the dice';
@@ -1290,7 +1288,7 @@ class AppL10nEn extends AppL10n {
   String get spellPickerTitle => 'SRD catalog';
 
   @override
-  String get spellPickerSearchHint => 'Search by name (e.g. "fire")';
+  String get spellPickerSearchHint => 'Search by name (e.g. \"fire\")';
 
   @override
   String get spellFilterLevelHint => 'Level';
@@ -1405,6 +1403,19 @@ class AppL10nEn extends AppL10n {
   @override
   String get editorLayoutPremiumRequired =>
       'Custom layouts are a Premium feature.';
+
+  @override
+  String get homeCustomDashboardBadge => 'NEW';
+
+  @override
+  String get homeCustomDashboardTitle => 'Custom dashboard';
+
+  @override
+  String get homeCustomDashboardSubtitle =>
+      'Build your character sheet with drag-and-drop widgets — pick what to show and where. Premium only.';
+
+  @override
+  String get homeCustomDashboardOpen => 'Open characters';
 
   @override
   String get editorAnagraficaName => 'Name';
@@ -1534,56 +1545,6 @@ class AppL10nEn extends AppL10n {
       'Short rest: reset death saves (and warlock slots if warlock progression). Long rest: HP=max, temp=0, full slots, hit dice recovered by half.';
 
   @override
-  String get editorHpDialogTitle => 'Edit HP';
-
-  @override
-  String get editorHpQuantityLabel => 'Amount';
-
-  @override
-  String get editorHpQuantityHint => 'e.g. 8';
-
-  @override
-  String get editorHpHeal => 'Heal';
-
-  @override
-  String get editorHpDamage => 'Damage';
-
-  @override
-  String get editorHpTempLabel => 'Temp HP';
-
-  @override
-  String get editorHpTempHelper => 'Do not stack: the highest value applies';
-
-  @override
-  String get editorHpTempApply => 'Apply temp HP';
-
-  @override
-  String get editorRestLong => 'Long rest';
-
-  @override
-  String get editorRestShort => 'Short rest';
-
-  @override
-  String get editorRestLongBody =>
-      'Will apply: HP to max, temp HP to 0, spell slots full, hit dice recovered by half, death saves reset.';
-
-  @override
-  String get editorRestShortBody =>
-      'Death saves will be reset. If warlock progression, spell slots refill.';
-
-  @override
-  String get editorRestLongConfirmTitle => 'Long rest?';
-
-  @override
-  String get editorRestShortConfirmTitle => 'Short rest?';
-
-  @override
-  String get editorRestLongApplied => 'Long rest applied';
-
-  @override
-  String get editorRestShortApplied => 'Short rest applied';
-
-  @override
   String get editorSpellsCasterClassLabel => 'Spellcasting class';
 
   @override
@@ -1642,7 +1603,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get editorSpellsFillConfirmBody =>
-      'The "Max" values will be overwritten from the PHB table. The current count will be clamped to the new max.';
+      'The \"Max\" values will be overwritten from the PHB table. The current count will be clamped to the new max.';
 
   @override
   String get editorSpellsFillConfirmYes => 'Fill';
@@ -1702,7 +1663,8 @@ class AppL10nEn extends AppL10n {
   String get editorSpellProgressionHalf => 'Half caster (Paladin, Ranger)';
 
   @override
-  String get editorSpellProgressionThird => 'Third caster (Trickster, Eldritch)';
+  String get editorSpellProgressionThird =>
+      'Third caster (Trickster, Eldritch)';
 
   @override
   String get editorSpellProgressionWarlock => 'Warlock (Pact Magic)';
@@ -1763,11 +1725,61 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get editorHpDialogTitle => 'Edit HP';
+
+  @override
+  String get editorHpQuantityLabel => 'Amount';
+
+  @override
+  String get editorHpQuantityHint => 'e.g. 8';
+
+  @override
+  String get editorHpHeal => 'Heal';
+
+  @override
+  String get editorHpDamage => 'Damage';
+
+  @override
+  String get editorHpTempLabel => 'Temp HP';
+
+  @override
+  String get editorHpTempHelper => 'Do not stack: the highest value applies';
+
+  @override
+  String get editorHpTempApply => 'Apply temp HP';
+
+  @override
+  String get editorRestLong => 'Long rest';
+
+  @override
+  String get editorRestShort => 'Short rest';
+
+  @override
+  String get editorRestLongBody =>
+      'Will apply: HP to max, temp HP to 0, spell slots full, hit dice recovered by half, death saves reset.';
+
+  @override
+  String get editorRestShortBody =>
+      'Death saves will be reset. If warlock progression, spell slots refill.';
+
+  @override
+  String get editorRestLongConfirmTitle => 'Long rest?';
+
+  @override
+  String get editorRestShortConfirmTitle => 'Short rest?';
+
+  @override
+  String get editorRestLongApplied => 'Long rest applied';
+
+  @override
+  String get editorRestShortApplied => 'Short rest applied';
+
+  @override
   String get comingSoonTitle => 'Coming soon';
 
   @override
   String get comingSoonStayTuned =>
-      "We're working to make this available soon. Stay tuned.";
+      'We\'re working to make this available soon. Stay tuned.';
 
   @override
   String get comingSoonIos =>
@@ -1800,7 +1812,9 @@ class AppL10nEn extends AppL10n {
   String get legalContactTitle => 'Contact';
 
   @override
-  String legalLastUpdated(String date) => 'Last updated: $date';
+  String legalLastUpdated(String date) {
+    return 'Last updated: $date';
+  }
 
   @override
   String get legalOnlyItalianNotice =>
@@ -1845,7 +1859,9 @@ class AppL10nEn extends AppL10n {
   String get profileExportDone => 'Export completed.';
 
   @override
-  String profileExportFailed(String error) => 'Export failed: $error';
+  String profileExportFailed(String error) {
+    return 'Export failed: $error';
+  }
 
   @override
   String get profileLegalPrivacyLink => 'Privacy Policy';
@@ -1861,47 +1877,65 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get deletionInfoTitle => 'How to delete your account';
+
   @override
   String get deletionInfoIntro =>
-      'You can delete your account and all associated data at any time. '
-      'Deletion is immediate and irreversible.';
+      'You can delete your account and all associated data at any time. Deletion is immediate and irreversible.';
+
   @override
   String get deletionInfoStepsTitle => 'Standard procedure';
+
   @override
   String get deletionInfoStep1 => 'Sign in to your account.';
+
   @override
-  String get deletionInfoStep2 => 'Go to Profile → "Danger zone" at the bottom of the page.';
+  String get deletionInfoStep2 =>
+      'Go to Profile → \"Danger zone\" at the bottom of the page.';
+
   @override
-  String get deletionInfoStep3 => 'Press "Delete account".';
+  String get deletionInfoStep3 => 'Press \"Delete account\".';
+
   @override
   String get deletionInfoStep4 =>
       'Type your username and password to confirm, then press the red button.';
+
   @override
   String get deletionInfoWhatRemovedTitle => 'What gets deleted';
+
   @override
   String get deletionInfoWhatRemoved =>
       'All of the following data is permanently removed, with no possibility of recovery:';
+
   @override
-  String get deletionInfoBullet1 => 'Account, email, password (hash), profile picture.';
+  String get deletionInfoBullet1 =>
+      'Account, email, password (hash), profile picture.';
+
   @override
-  String get deletionInfoBullet2 => 'All your character sheets and portrait images.';
+  String get deletionInfoBullet2 =>
+      'All your character sheets and portrait images.';
+
   @override
   String get deletionInfoBullet3 => 'Dice roll history.';
+
   @override
   String get deletionInfoBullet4 => 'All active sharing links of your sheets.';
+
   @override
   String get deletionInfoBullet5 => 'All active sessions on every device.';
+
   @override
-  String get deletionInfoCannotLoginTitle => "Can't sign in?";
+  String get deletionInfoCannotLoginTitle => 'Can\'t sign in?';
+
   @override
   String get deletionInfoCannotLogin =>
-      "If you have lost your credentials and can't reset your password, write us "
-      'at the email below, specifying the email address of your account. '
-      "We'll help you complete the deletion after verifying your identity.";
+      'If you have lost your credentials and can\'t reset your password, write us at the email below, specifying the email address of your account. We\'ll help you complete the deletion after verifying your identity.';
+
   @override
   String get deletionInfoEmail => 'franksisca@gmail.com';
+
   @override
   String get deletionInfoLoginBtn => 'Sign in and delete';
+
   @override
   String get deletionInfoBackHome => 'Back to home';
 }
