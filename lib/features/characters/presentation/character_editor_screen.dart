@@ -116,7 +116,7 @@ class _EditorBodyState extends ConsumerState<_EditorBody>
   @override
   void initState() {
     super.initState();
-    _tab = TabController(length: 8, vsync: this);
+    _tab = TabController(length: 9, vsync: this);
     controller = CharacterEditorController(initial: widget.initial);
     controller.addListener(_onControllerChanged);
     controller.dirtyVersion.addListener(_scheduleAutosave);
@@ -167,14 +167,15 @@ class _EditorBodyState extends ConsumerState<_EditorBody>
               controller: _tab,
               isScrollable: true,
               tabs: [
-                Tab(text: l10n.editorTabAnagrafica, icon: const Icon(Icons.badge_outlined)),
-                Tab(text: l10n.editorTabStats,      icon: const Icon(Icons.fitness_center_outlined)),
-                Tab(text: l10n.editorTabAbilities,  icon: const Icon(Icons.checklist_outlined)),
-                Tab(text: l10n.editorTabCombat,     icon: const Icon(Icons.shield_outlined)),
-                Tab(text: l10n.editorTabSpells,     icon: const Icon(Icons.auto_awesome_outlined)),
-                Tab(text: l10n.editorTabEquip,      icon: const Icon(Icons.inventory_2_outlined)),
-                Tab(text: l10n.editorTabTraits,     icon: const Icon(Icons.psychology_outlined)),
-                Tab(text: l10n.editorTabNotes,      icon: const Icon(Icons.note_alt_outlined)),
+                Tab(text: l10n.editorTabAnagrafica,    icon: const Icon(Icons.badge_outlined)),
+                Tab(text: l10n.editorTabStats,         icon: const Icon(Icons.fitness_center_outlined)),
+                Tab(text: l10n.sheetSavingThrowsLabel, icon: const Icon(Icons.security_outlined)),
+                Tab(text: l10n.editorTabAbilities,     icon: const Icon(Icons.checklist_outlined)),
+                Tab(text: l10n.editorTabCombat,        icon: const Icon(Icons.shield_outlined)),
+                Tab(text: l10n.editorTabSpells,        icon: const Icon(Icons.auto_awesome_outlined)),
+                Tab(text: l10n.editorTabEquip,         icon: const Icon(Icons.inventory_2_outlined)),
+                Tab(text: l10n.editorTabTraits,        icon: const Icon(Icons.psychology_outlined)),
+                Tab(text: l10n.editorTabNotes,         icon: const Icon(Icons.note_alt_outlined)),
               ],
             );
           }),
@@ -187,6 +188,7 @@ class _EditorBodyState extends ConsumerState<_EditorBody>
               children: [
                 AnagraficaWidget(controller: controller),
                 StatsWidget(controller: controller),
+                SavesWidget(controller: controller),
                 AbilitiesWidget(controller: controller),
                 CombatWidget(controller: controller),
                 SpellcastingWidget(controller: controller),

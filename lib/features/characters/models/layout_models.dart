@@ -9,6 +9,7 @@ enum LayoutWidgetType {
   anagrafica('ANAGRAFICA'),
   stats('STATS'),
   abilities('ABILITIES'),
+  saves('SAVES'),
   combat('COMBAT'),
   conditions('CONDITIONS'),
   spellcasting('SPELLCASTING'),

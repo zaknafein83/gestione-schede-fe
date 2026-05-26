@@ -356,6 +356,7 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
       case LayoutWidgetType.anagrafica:   return Icons.badge_outlined;
       case LayoutWidgetType.stats:        return Icons.fitness_center_outlined;
       case LayoutWidgetType.abilities:    return Icons.checklist_outlined;
+      case LayoutWidgetType.saves:        return Icons.security_outlined;
       case LayoutWidgetType.combat:       return Icons.shield_outlined;
       case LayoutWidgetType.conditions:   return Icons.warning_amber_rounded;
       case LayoutWidgetType.spellcasting: return Icons.auto_awesome_outlined;
@@ -372,6 +373,7 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
       case LayoutWidgetType.anagrafica:   return l10n.editorTabAnagrafica;
       case LayoutWidgetType.stats:        return l10n.editorTabStats;
       case LayoutWidgetType.abilities:    return l10n.editorTabAbilities;
+      case LayoutWidgetType.saves:        return l10n.sheetSavingThrowsLabel;
       case LayoutWidgetType.combat:       return l10n.editorTabCombat;
       case LayoutWidgetType.conditions:   return l10n.editorLayoutWidgetConditions;
       case LayoutWidgetType.spellcasting: return l10n.editorTabSpells;
@@ -388,6 +390,7 @@ class _LayoutEditorBodyState extends ConsumerState<_LayoutEditorBody> {
       case LayoutWidgetType.anagrafica:   return AnagraficaWidget(controller: _controller);
       case LayoutWidgetType.stats:        return StatsWidget(controller: _controller);
       case LayoutWidgetType.abilities:    return AbilitiesWidget(controller: _controller);
+      case LayoutWidgetType.saves:        return SavesWidget(controller: _controller);
       case LayoutWidgetType.combat:       return CombatWidget(controller: _controller);
       case LayoutWidgetType.spellcasting: return SpellcastingWidget(controller: _controller);
       case LayoutWidgetType.equip:        return EquipWidget(controller: _controller);
