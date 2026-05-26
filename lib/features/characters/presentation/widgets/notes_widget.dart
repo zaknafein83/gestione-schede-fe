@@ -18,6 +18,8 @@ class NotesWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          editorTextField(controller.notes,                  label: l10n.editorNotesNotesLabel,     maxLines: 8),
+          const SizedBox(height: 12),
           editorTextField(controller.backstory,              label: l10n.editorNotesBackstoryLabel, maxLines: 8),
           const SizedBox(height: 12),
           editorTextField(controller.alliesAndOrganizations, label: l10n.sheetNotesAllies,          maxLines: 5),
@@ -25,8 +27,6 @@ class NotesWidget extends StatelessWidget {
           editorTextField(controller.symbol,                 label: l10n.sheetNotesSymbol),
           const SizedBox(height: 12),
           editorTextField(controller.physicalDescription,    label: l10n.sheetNotesPhysical,        maxLines: 5),
-          const SizedBox(height: 12),
-          editorTextField(controller.notes,                  label: l10n.editorNotesNotesLabel,     maxLines: 8),
         ],
       ),
     );

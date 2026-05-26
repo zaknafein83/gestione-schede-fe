@@ -5,13 +5,17 @@ import 'legal_scaffold.dart';
 
 /// Politica sui Cookie.
 ///
-/// PG 5e non utilizza cookie HTTP né tecnologie di tracciamento di terze parti.
-/// Le credenziali di sessione (token JWT + refresh token) sono memorizzate in
-/// storage sicuro lato client (flutter_secure_storage) e sono "strettamente
-/// necessarie" all\'erogazione del Servizio: in base al Provvedimento del
-/// Garante 10/06/2021 ("Linee guida cookie") e all\'art. 5(3) Direttiva
-/// 2002/58/CE (e-Privacy) come modificata, NON è richiesto consenso
-/// preventivo per questo tipo di storage.
+/// PG 5e non utilizza cookie HTTP né tecnologie di tracciamento sul proprio
+/// dominio. Le credenziali di sessione (token JWT + refresh token) sono
+/// memorizzate in storage sicuro lato client (flutter_secure_storage) e sono
+/// "strettamente necessarie" all\'erogazione del Servizio: in base al
+/// Provvedimento del Garante 10/06/2021 e all\'art. 5(3) Direttiva 2002/58/CE
+/// non è richiesto consenso preventivo.
+///
+/// Se l\'utente sceglie di registrarsi/accedere via "Continua con Google",
+/// il Servizio carica la libreria Google Identity Services che può scrivere
+/// cookie sul dominio accounts.google.com: sono cookie funzionali al meccanismo
+/// di autenticazione richiesto dall\'utente, gestiti da Google.
 class CookiesScreen extends StatelessWidget {
   const CookiesScreen({super.key});
 
@@ -64,9 +68,23 @@ class CookiesScreen extends StatelessWidget {
         // ------------------------------------------------------------------
         legalH1('3. Cookie di terze parti'),
         legalP(
-          'Il Servizio non incorpora cookie di terze parti, non utilizza piattaforme di analytics '
-          '(es. Google Analytics, Meta Pixel), non integra widget social, non visualizza annunci '
-          'pubblicitari.',
+          'Il Servizio non utilizza piattaforme di analytics (es. Google Analytics, Meta Pixel), non '
+          'integra widget social, non visualizza annunci pubblicitari.',
+        ),
+        legalH2('3.1 Google Identity Services (login con Google)'),
+        legalP(
+          'Per offrire l\'opzione "Continua con Google" il Servizio integra la libreria JavaScript '
+          'Google Identity Services (file pubblicato da Google su accounts.google.com/gsi/client). Tale '
+          'libreria viene caricata da Google LLC e può comportare lettura/scrittura di cookie sul dominio '
+          'accounts.google.com nel momento in cui l\'utente avvia il flusso OAuth (clic sul pulsante '
+          '"Continua con Google" o prompt One-Tap). Si tratta di cookie funzionalmente necessari al '
+          'meccanismo di autenticazione richiesto dall\'utente: il Servizio non ne legge il contenuto e '
+          'non riceve identificativi pubblicitari da Google. L\'eventuale gestione di tali cookie è '
+          'regolata dalla cookie policy di Google.',
+        ),
+        legalP(
+          'L\'utente che non desideri caricare la libreria di Google può comunque registrarsi e accedere '
+          'al Servizio con la modalità email + password.',
         ),
         legalP(
           'Qualora in futuro vengano introdotte tecnologie che richiedono il consenso (es. analytics di '

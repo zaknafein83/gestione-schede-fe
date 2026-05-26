@@ -43,12 +43,19 @@ class TermsScreen extends StatelessWidget {
         // ------------------------------------------------------------------
         legalH1('2. Account e registrazione'),
         legalP(
-          'Per accedere alle funzionalità complete del Servizio è necessario registrare un account '
-          'fornendo un indirizzo email valido e una password. L\'utente è responsabile di:',
+          'Per accedere alle funzionalità complete del Servizio è necessario registrare un account. La '
+          'registrazione è possibile con due modalità alternative:',
+        ),
+        legalUl([
+          'Tramite indirizzo email + password scelta dall\'utente (il Fornitore non vede mai la password in chiaro: viene salvata solo come hash crittografico Argon2id).',
+          'Tramite l\'opzione "Continua con Google" (OAuth 2.0 / OpenID Connect), che permette di accedere usando il proprio account Google esistente. Per questa modalità si applicano i Termini di Servizio e l\'Informativa Privacy di Google LLC, oltre ai presenti Termini. Il Servizio riceve da Google solo identificativo univoco, indirizzo email e nome dell\'account, come descritto nell\'Informativa Privacy.',
+        ]),
+        legalP(
+          'In entrambi i casi l\'utente è responsabile di:',
         ),
         legalUl([
           'Fornire informazioni veritiere al momento della registrazione.',
-          'Mantenere riservate le proprie credenziali di accesso.',
+          'Mantenere riservate le proprie credenziali di accesso (sia la password del Servizio sia la password dell\'eventuale account Google associato).',
           'Comunicare tempestivamente al Fornitore ogni utilizzo non autorizzato dell\'account.',
           'Avere un\'età sufficiente per stipulare un contratto secondo la legge italiana (almeno 14 anni con consenso dei genitori per il trattamento dati, o 16 anni in autonomia ex art. 8 GDPR e art. 2-quinquies Codice Privacy).',
         ]),
