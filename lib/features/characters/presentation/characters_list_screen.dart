@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/api_error.dart';
 import '../../../core/smart_back_button.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../auth/data/auth_controller.dart';
 import '../../paywall/presentation/paywall_dialog.dart';
 import '../../share/logic/file_download.dart';
 import '../data/characters_controller.dart';
@@ -189,7 +190,7 @@ class _CharactersGrid extends ConsumerWidget {
             crossAxisCount: cols,
             mainAxisSpacing: 16,
             crossAxisSpacing: 16,
-            childAspectRatio: 1.6,
+            childAspectRatio: 1.35,
           ),
           itemCount: items.length,
           itemBuilder: (_, i) => _CharacterCard(c: items[i]),
@@ -209,52 +210,91 @@ class _CharacterCard extends ConsumerWidget {
     final subtitle = _buildSubtitle(context, c);
     return Card(
       clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () => context.push('/characters/${c.id}'),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-              CharacterPortraitWidget(id: c.id, size: 64),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      c.name?.isNotEmpty == true ? c.name! : l10n.charactersNoName,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      subtitle,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                CharacterPortraitWidget(id: c.id, size: 56),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        c.name?.isNotEmpty == true ? c.name! : l10n.charactersNoName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        subtitle,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuButton<String>(
+                  tooltip: l10n.charactersActionsTooltip,
+                  onSelected: (v) => _onAction(context, ref, v),
+                  itemBuilder: (_) => [
+                    PopupMenuItem(value: 'rename',         child: Text(l10n.charactersActionRename)),
+                    PopupMenuItem(value: 'duplicate',      child: Text(l10n.charactersActionDuplicate)),
+                    PopupMenuItem(value: 'export',         child: Text(l10n.charactersActionExportJson)),
+                    PopupMenuItem(value: 'export-foundry', child: Text(l10n.charactersActionExportFoundry)),
+                    PopupMenuItem(value: 'export-pdf',     child: Text(l10n.charactersActionExportPdf)),
+                    PopupMenuItem(value: 'delete',         child: Text(l10n.charactersActionDelete)),
                   ],
                 ),
-              ),
-              PopupMenuButton<String>(
-                tooltip: l10n.charactersActionsTooltip,
-                onSelected: (v) => _onAction(context, ref, v),
-                itemBuilder: (_) => [
-                  PopupMenuItem(value: 'rename',         child: Text(l10n.charactersActionRename)),
-                  PopupMenuItem(value: 'duplicate',      child: Text(l10n.charactersActionDuplicate)),
-                  PopupMenuItem(value: 'export',         child: Text(l10n.charactersActionExportJson)),
-                  PopupMenuItem(value: 'export-foundry', child: Text(l10n.charactersActionExportFoundry)),
-                  PopupMenuItem(value: 'export-pdf',     child: Text(l10n.charactersActionExportPdf)),
-                  PopupMenuItem(value: 'delete',         child: Text(l10n.charactersActionDelete)),
-                ],
-              ),
-            ],
-          ),
+              ],
+            ),
+            const Spacer(),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: () => context.push('/characters/${c.id}'),
+                    icon: const Icon(Icons.menu_book_outlined, size: 18),
+                    label: Text(
+                      l10n.charactersCardOpenClassic,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: FilledButton.tonalIcon(
+                    onPressed: () => _openLayout(context, ref),
+                    icon: const Icon(Icons.dashboard, size: 18),
+                    label: Text(
+                      l10n.charactersCardOpenLayout,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  void _openLayout(BuildContext context, WidgetRef ref) {
+    final user = ref.read(authControllerProvider).asData?.value;
+    if (user != null && !user.isPremium && !user.isAdmin) {
+      showPaywallDialog(context);
+      return;
+    }
+    context.push('/characters/${c.id}/layout');
   }
 
   static String _safeFileName(String? name) {

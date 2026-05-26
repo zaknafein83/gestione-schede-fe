@@ -508,6 +508,8 @@
   "homeCustomDashboardTitle":    "Dashboard personalizzata",
   "homeCustomDashboardSubtitle": "Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove. Solo Premium.",
   "homeCustomDashboardOpen":     "Vai alle schede",
+  "charactersCardOpenClassic":   "Vista classica",
+  "charactersCardOpenLayout":    "Layout personalizzato",
 
   "editorAnagraficaName":      "Nome",
   "editorAnagraficaLevel":     "Livello",

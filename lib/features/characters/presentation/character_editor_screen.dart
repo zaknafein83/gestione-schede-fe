@@ -3,15 +3,12 @@ import 'dart:async';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../core/api_error.dart';
 import '../../../core/smart_back_button.dart';
 import '../../../l10n/app_localizations.dart';
-import '../../auth/data/auth_controller.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../dice/presentation/dice_roller_dialog.dart';
-import '../../paywall/presentation/paywall_dialog.dart';
 import '../../share/presentation/share_dialog.dart';
 import '../data/character_detail_providers.dart';
 import '../data/characters_api.dart';
@@ -50,18 +47,6 @@ class CharacterEditorScreen extends ConsumerWidget {
         title: Text(l10n.navCharacterEditor),
         leading: smartBackButton(context, fallback: '/characters'),
         actions: [
-          IconButton(
-            tooltip: l10n.editorLayoutOpenButton,
-            icon: const Icon(Icons.dashboard),
-            onPressed: () {
-              final user = ref.read(authControllerProvider).asData?.value;
-              if (user != null && !user.isPremium && !user.isAdmin) {
-                showPaywallDialog(context);
-                return;
-              }
-              context.push('/characters/$id/layout');
-            },
-          ),
           IconButton(
             tooltip: l10n.editorToolbarShare,
             icon: const Icon(Icons.share_outlined),
