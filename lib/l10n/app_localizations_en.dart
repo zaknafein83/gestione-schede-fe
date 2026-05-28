@@ -823,7 +823,7 @@ class AppL10nEn extends AppL10n {
   String get paywallClose => 'Cancel';
 
   @override
-  String get billingAlreadyPremium => "You're already Premium!";
+  String get billingAlreadyPremium => 'You\'re already Premium!';
 
   @override
   String get billingSuccessTitle => 'Payment received';
@@ -835,7 +835,7 @@ class AppL10nEn extends AppL10n {
   String get billingSuccessPollAttempt => 'Just a few seconds';
 
   @override
-  String get billingSuccessConfirmedTitle => "You're Premium!";
+  String get billingSuccessConfirmedTitle => 'You\'re Premium!';
 
   @override
   String get billingSuccessConfirmedBody =>
@@ -858,7 +858,7 @@ class AppL10nEn extends AppL10n {
   String get billingCancelTitle => 'Payment cancelled';
 
   @override
-  String get billingCancelHeading => "You didn't complete the payment";
+  String get billingCancelHeading => 'You didn\'t complete the payment';
 
   @override
   String get billingCancelBody =>

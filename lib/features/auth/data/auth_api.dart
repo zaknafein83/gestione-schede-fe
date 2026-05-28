@@ -36,8 +36,8 @@ class AuthApi {
     throw ApiError.fromResponseData(res.statusCode ?? 0, res.data);
   }
 
-  /// POST /auth/google — login o registrazione OIDC. {@code acceptPrivacy} e
-  /// {@code declareMinAge} sono richiesti a true solo al primo accesso
+  /// POST /auth/google — login o registrazione OIDC. `acceptPrivacy` e
+  /// `declareMinAge` sono richiesti a true solo al primo accesso
   /// (utente nuovo); per i login successivi il backend li ignora.
   Future<LoginResponse> googleLogin({
     required String idToken,
