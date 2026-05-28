@@ -81,8 +81,9 @@
   "landingCtaAppStore":     "Download on the App Store",
   "landingCtaGooglePlay":   "Get it on Google Play",
   "landingCtaStorePrefix":  "Soon",
+  "landingCtaSpellsPrefix": "Open",
   "landingCtaSpells":       "Browse the spell codex",
-  "landingCtaSpellsSub":    "Preview the public spell catalog (coming soon)",
+  "landingCtaSpellsSub":    "Public SRD catalog, 319 spells translated into Italian",
 
   "landingFeaturesTitle":      "The Chronicler's arts",
   "landingFeaturesSubtitle":   "Everything an adventurer needs, gathered in a single grimoire.",
@@ -479,6 +480,10 @@
   "diceClear":                 "Clear",
   "diceNoRollsYet":            "— no rolls yet —",
   "diceNoOtherRolls":          "— no other rolls —",
+
+  "spellCatalogTitle":         "Spell codex",
+  "spellCatalogResultsCount":  "{shown} of {total} spells",
+  "@spellCatalogResultsCount": { "placeholders": { "shown": { "type": "int" }, "total": { "type": "int" } } },
 
   "spellPickerTitle":          "SRD catalog",
   "spellPickerSearchHint":     "Search by name (e.g. \"fire\")",

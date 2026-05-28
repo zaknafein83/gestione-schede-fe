@@ -81,8 +81,9 @@
   "landingCtaAppStore":     "Scarica su App Store",
   "landingCtaGooglePlay":   "Disponibile su Google Play",
   "landingCtaStorePrefix":  "Presto",
+  "landingCtaSpellsPrefix": "Apri",
   "landingCtaSpells":       "Sfoglia il codex degli incantesimi",
-  "landingCtaSpellsSub":    "Anteprima del catalogo pubblico (in arrivo)",
+  "landingCtaSpellsSub":    "Catalogo SRD pubblico, 319 incantesimi tradotti in italiano",
 
   "landingFeaturesTitle":      "Le arti del Cronista",
   "landingFeaturesSubtitle":   "Tutto quello che serve a un avventuriero, raccolto in un solo grimorio.",
@@ -479,6 +480,10 @@
   "diceClear":                 "Pulisci",
   "diceNoRollsYet":            "— nessun tiro ancora —",
   "diceNoOtherRolls":          "— nessun altro tiro —",
+
+  "spellCatalogTitle":         "Codex degli incantesimi",
+  "spellCatalogResultsCount":  "{shown} di {total} incantesimi",
+  "@spellCatalogResultsCount": { "placeholders": { "shown": { "type": "int" }, "total": { "type": "int" } } },
 
   "spellPickerTitle":          "Catalogo SRD",
   "spellPickerSearchHint":     "Cerca per nome (es. \"fire\")",

@@ -613,10 +613,10 @@ class _StoreCtaSection extends StatelessWidget {
       ),
       _StoreTile(
         icon: Icons.auto_stories,
-        prefix: l10n.landingCtaStorePrefix,
+        prefix: l10n.landingCtaSpellsPrefix,
         label: l10n.landingCtaSpells,
         sublabel: l10n.landingCtaSpellsSub,
-        onTap: () => context.push('/coming-soon?for=spells'),
+        onTap: () => context.push('/spells'),
       ),
     ];
 

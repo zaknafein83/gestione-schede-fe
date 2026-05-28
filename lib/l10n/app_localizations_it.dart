@@ -224,11 +224,14 @@ class AppL10nIt extends AppL10n {
   String get landingCtaStorePrefix => 'Presto';
 
   @override
+  String get landingCtaSpellsPrefix => 'Apri';
+
+  @override
   String get landingCtaSpells => 'Sfoglia il codex degli incantesimi';
 
   @override
   String get landingCtaSpellsSub =>
-      'Anteprima del catalogo pubblico (in arrivo)';
+      'Catalogo SRD pubblico, 319 incantesimi tradotti in italiano';
 
   @override
   String get landingFeaturesTitle => 'Le arti del Cronista';
@@ -1340,6 +1343,13 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get diceNoOtherRolls => '— nessun altro tiro —';
+
+  @override
+  String get spellCatalogTitle => 'Codex degli incantesimi';
+
+  @override
+  String spellCatalogResultsCount(int shown, int total) =>
+      '$shown di $total incantesimi';
 
   @override
   String get spellPickerTitle => 'Catalogo SRD';

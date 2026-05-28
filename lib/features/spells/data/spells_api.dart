@@ -6,16 +6,21 @@ import '../../../core/api_error.dart';
 import '../models/spell_models.dart';
 
 /// Client per gli endpoint /spells del backend (catalogo SRD).
+///
+/// Gli endpoint sono pubblici: `accessToken` è opzionale. Se passato viene
+/// allegato (utile per future feature di auth-aware: bookmark, ecc.); se
+/// null la chiamata parte senza header Authorization.
 class SpellsApi {
   SpellsApi(this._dio);
   final Dio _dio;
 
-  Options _auth(String accessToken) =>
-      Options(headers: {'Authorization': 'Bearer $accessToken'});
+  Options? _auth(String? accessToken) => accessToken == null
+      ? null
+      : Options(headers: {'Authorization': 'Bearer $accessToken'});
 
   /// GET /spells — search/list paginato con filtri opzionali.
   Future<List<SpellSummary>> search(
-    String accessToken, {
+    String? accessToken, {
     String? q,
     int?    level,
     String? school,
@@ -45,7 +50,7 @@ class SpellsApi {
 
   /// GET /spells/count — conteggio totale per i filtri dati.
   Future<int> count(
-    String accessToken, {
+    String? accessToken, {
     String? q,
     int?    level,
     String? school,
@@ -68,7 +73,7 @@ class SpellsApi {
   }
 
   /// GET /spells/{slug} — dettaglio completo.
-  Future<SpellDetail> get(String accessToken, String slug) async {
+  Future<SpellDetail> get(String? accessToken, String slug) async {
     final res = await _dio.get('/spells/$slug', options: _auth(accessToken));
     if (res.statusCode == 200) {
       return SpellDetail.fromJson(res.data as Map<String, dynamic>);

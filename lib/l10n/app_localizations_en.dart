@@ -224,11 +224,14 @@ class AppL10nEn extends AppL10n {
   String get landingCtaStorePrefix => 'Soon';
 
   @override
+  String get landingCtaSpellsPrefix => 'Open';
+
+  @override
   String get landingCtaSpells => 'Browse the spell codex';
 
   @override
   String get landingCtaSpellsSub =>
-      'Preview the public spell catalog (coming soon)';
+      'Public SRD catalog, 319 spells translated into Italian';
 
   @override
   String get landingFeaturesTitle => 'The Chronicler\'s arts';
@@ -1342,6 +1345,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get diceNoOtherRolls => '— no other rolls —';
+
+  @override
+  String get spellCatalogTitle => 'Spell codex';
+
+  @override
+  String spellCatalogResultsCount(int shown, int total) =>
+      '$shown of $total spells';
 
   @override
   String get spellPickerTitle => 'SRD catalog';

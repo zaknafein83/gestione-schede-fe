@@ -54,8 +54,9 @@ class _SpellDetailBodyState extends ConsumerState<_SpellDetailBody> {
   }
 
   Future<SpellDetail> _load() async {
+    // accessToken opzionale: l'endpoint è pubblico. Lo allego se l'utente è
+    // loggato, ma il dialog funziona anche senza (chiamata dalla landing).
     final access = await ref.read(authStorageProvider).loadAccess();
-    if (access == null) throw StateError('Utente non autenticato');
     return ref.read(spellsApiProvider).get(access, widget.spellId);
   }
 
