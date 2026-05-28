@@ -1577,7 +1577,7 @@ abstract class AppL10n {
   String get billingSuccessWaiting;
 
   /// No description provided for @billingSuccessPollAttempt.
-  String billingSuccessPollAttempt(Object count);
+  String get billingSuccessPollAttempt;
 
   /// No description provided for @billingSuccessConfirmedTitle.
   String get billingSuccessConfirmedTitle;

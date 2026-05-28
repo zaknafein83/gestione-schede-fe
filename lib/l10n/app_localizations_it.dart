@@ -830,7 +830,7 @@ class AppL10nIt extends AppL10n {
   String get billingSuccessWaiting => 'Stiamo confermando il tuo pagamento…';
 
   @override
-  String billingSuccessPollAttempt(Object count) => 'Attendi qualche secondo';
+  String get billingSuccessPollAttempt => 'Attendi qualche secondo';
 
   @override
   String get billingSuccessConfirmedTitle => 'Sei Premium!';

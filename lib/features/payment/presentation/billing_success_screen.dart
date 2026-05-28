@@ -114,7 +114,7 @@ class _BillingSuccessScreenState extends ConsumerState<BillingSuccessScreen> {
           ),
           const SizedBox(height: 8),
           Text(
-            l10n.billingSuccessPollAttempt(_polls),
+            l10n.billingSuccessPollAttempt,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodySmall,
           ),
