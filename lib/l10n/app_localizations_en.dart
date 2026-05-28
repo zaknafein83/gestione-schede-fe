@@ -1408,10 +1408,6 @@ class AppL10nEn extends AppL10n {
   String get editorLayoutWidgetPortrait => 'Portrait';
 
   @override
-  String get editorLayoutPremiumRequired =>
-      'Custom layouts are a Premium feature.';
-
-  @override
   String get homeCustomDashboardBadge => 'NEW';
 
   @override
@@ -1419,7 +1415,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homeCustomDashboardSubtitle =>
-      'Build your character sheet with drag-and-drop widgets — pick what to show and where. Premium only.';
+      'Build your character sheet with drag-and-drop widgets — pick what to show and where.';
 
   @override
   String get homeCustomDashboardOpen => 'Open characters';
@@ -1432,9 +1428,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get landingDashboardSpotlightBadge => 'NEW';
-
-  @override
-  String get landingDashboardSpotlightPremium => 'PREMIUM';
 
   @override
   String get landingDashboardSpotlightTitle => 'The Chronicler\'s atelier';

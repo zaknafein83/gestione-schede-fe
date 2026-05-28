@@ -2677,12 +2677,6 @@ abstract class AppL10n {
   /// **'Ritratto'**
   String get editorLayoutWidgetPortrait;
 
-  /// No description provided for @editorLayoutPremiumRequired.
-  ///
-  /// In it, this message translates to:
-  /// **'Il layout personalizzato è una funzionalità Premium.'**
-  String get editorLayoutPremiumRequired;
-
   /// No description provided for @homeCustomDashboardBadge.
   ///
   /// In it, this message translates to:
@@ -2698,7 +2692,7 @@ abstract class AppL10n {
   /// No description provided for @homeCustomDashboardSubtitle.
   ///
   /// In it, this message translates to:
-  /// **'Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove. Solo Premium.'**
+  /// **'Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove.'**
   String get homeCustomDashboardSubtitle;
 
   /// No description provided for @homeCustomDashboardOpen.
@@ -2724,12 +2718,6 @@ abstract class AppL10n {
   /// In it, this message translates to:
   /// **'NUOVO'**
   String get landingDashboardSpotlightBadge;
-
-  /// No description provided for @landingDashboardSpotlightPremium.
-  ///
-  /// In it, this message translates to:
-  /// **'PREMIUM'**
-  String get landingDashboardSpotlightPremium;
 
   /// No description provided for @landingDashboardSpotlightTitle.
   ///

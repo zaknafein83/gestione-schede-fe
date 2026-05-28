@@ -504,17 +504,15 @@
   "editorLayoutWidgetHpTracker":    "Tracker PF",
   "editorLayoutWidgetConditions":   "Condizioni",
   "editorLayoutWidgetPortrait":     "Ritratto",
-  "editorLayoutPremiumRequired":    "Il layout personalizzato è una funzionalità Premium.",
 
   "homeCustomDashboardBadge":    "NUOVO",
   "homeCustomDashboardTitle":    "Dashboard personalizzata",
-  "homeCustomDashboardSubtitle": "Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove. Solo Premium.",
+  "homeCustomDashboardSubtitle": "Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove.",
   "homeCustomDashboardOpen":     "Vai alle schede",
   "charactersCardOpenClassic":   "Vista classica",
   "charactersCardOpenLayout":    "Layout personalizzato",
 
   "landingDashboardSpotlightBadge":   "NUOVO",
-  "landingDashboardSpotlightPremium": "PREMIUM",
   "landingDashboardSpotlightTitle":   "L'atelier del Cronista",
   "landingDashboardSpotlightDesc":    "Costruisci la scheda come vuoi tu: trascina, ridimensiona e disponi i blocchi della pergamena del tuo eroe. Rendila davvero tua.",
 

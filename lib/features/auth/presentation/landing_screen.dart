@@ -857,19 +857,9 @@ class _DashboardSpotlight extends StatelessWidget {
           ),
         );
 
-        final badges = Wrap(
-          spacing: 8,
-          runSpacing: 6,
-          children: [
-            _SpotlightBadge(
-              text: l10n.landingDashboardSpotlightBadge,
-              filled: true,
-            ),
-            _SpotlightBadge(
-              text: l10n.landingDashboardSpotlightPremium,
-              filled: false,
-            ),
-          ],
+        final badges = _SpotlightBadge(
+          text: l10n.landingDashboardSpotlightBadge,
+          filled: true,
         );
 
         final text = Column(

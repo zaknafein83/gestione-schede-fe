@@ -289,11 +289,8 @@ class _CharacterCard extends ConsumerWidget {
   }
 
   void _openLayout(BuildContext context, WidgetRef ref) {
-    final user = ref.read(authControllerProvider).asData?.value;
-    if (user != null && !user.isPremium && !user.isAdmin) {
-      showPaywallDialog(context);
-      return;
-    }
+    // Il layout dinamico è incluso nel piano gratuito sulla 1ª scheda;
+    // il paywall scatta solo sulla creazione della seconda scheda.
     context.push('/characters/${c.id}/layout');
   }
 
