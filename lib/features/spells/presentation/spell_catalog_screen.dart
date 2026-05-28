@@ -11,6 +11,7 @@ import '../../auth/data/auth_storage.dart';
 import '../data/spells_api.dart';
 import '../models/spell_models.dart';
 import 'spell_detail_dialog.dart';
+import 'spell_filters.dart';
 
 /// Schermata pubblica del catalogo SRD. Accessibile sia da loggati che da
 /// non-loggati (route `/spells`). Riutilizza lo stesso pattern del picker
@@ -143,28 +144,28 @@ class _SpellCatalogScreenState extends ConsumerState<SpellCatalogScreen> {
                       spacing: 8,
                       runSpacing: 8,
                       children: [
-                        _LevelFilter(
+                        SpellLevelFilter(
                           value: _level,
                           onChanged: (v) {
                             setState(() => _level = v);
                             _fetch();
                           },
                         ),
-                        _SchoolFilter(
+                        SpellSchoolFilter(
                           value: _school,
                           onChanged: (v) {
                             setState(() => _school = v);
                             _fetch();
                           },
                         ),
-                        _ClassFilter(
+                        SpellClassFilter(
                           value: _className,
                           onChanged: (v) {
                             setState(() => _className = v);
                             _fetch();
                           },
                         ),
-                        _BoolFilterChip(
+                        SpellBoolFilterChip(
                           label: l10n.spellFilterRitualOnly,
                           avatarText: 'R',
                           selected: _ritualOnly == true,
@@ -173,7 +174,7 @@ class _SpellCatalogScreenState extends ConsumerState<SpellCatalogScreen> {
                             _fetch();
                           },
                         ),
-                        _BoolFilterChip(
+                        SpellBoolFilterChip(
                           label: l10n.spellFilterConcentrationOnly,
                           avatarText: 'C',
                           selected: _concentrationOnly == true,
@@ -232,123 +233,6 @@ class _SpellCatalogScreenState extends ConsumerState<SpellCatalogScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Widget locali — duplicati dal picker dialog (vedi TODO refactor).
-// ---------------------------------------------------------------------------
-
-class _LevelFilter extends StatelessWidget {
-  const _LevelFilter({required this.value, required this.onChanged});
-  final int? value;
-  final ValueChanged<int?> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppL10n.of(context);
-    return DropdownButton<int?>(
-      value: value,
-      hint: Text(l10n.spellFilterLevelHint),
-      items: <DropdownMenuItem<int?>>[
-        DropdownMenuItem(value: null, child: Text(l10n.spellFilterLevelAll)),
-        DropdownMenuItem(value: 0,    child: Text(l10n.spellFilterCantrips)),
-        for (var l = 1; l <= 9; l++)
-          DropdownMenuItem(value: l, child: Text(l10n.spellFilterLevelN(l))),
-      ],
-      onChanged: onChanged,
-    );
-  }
-}
-
-class _SchoolFilter extends StatelessWidget {
-  const _SchoolFilter({required this.value, required this.onChanged});
-  final String? value;
-  final ValueChanged<String?> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppL10n.of(context);
-    return DropdownButton<String?>(
-      value: value,
-      hint: Text(l10n.spellFilterSchoolHint),
-      items: [
-        DropdownMenuItem(value: null, child: Text(l10n.spellFilterSchoolAll)),
-        for (final s in spellSchools)
-          DropdownMenuItem(value: s, child: Text(s)),
-      ],
-      onChanged: onChanged,
-    );
-  }
-}
-
-/// FilterChip tri-state per ritual/concentration con styling esplicito
-/// che funziona col theme fantasy scuro (default chip color non bilanciato
-/// rispetto allo sfondo: il default labelStyle aveva contrasto pessimo).
-class _BoolFilterChip extends StatelessWidget {
-  const _BoolFilterChip({
-    required this.label,
-    required this.avatarText,
-    required this.selected,
-    required this.onChanged,
-  });
-
-  final String           label;
-  final String           avatarText;
-  final bool             selected;
-  final ValueChanged<bool> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    final selBg  = scheme.tertiary;       // gold
-    final selFg  = scheme.onTertiary;
-    final unselBg = scheme.surfaceContainerHighest;
-    final unselFg = scheme.onSurface;
-    return FilterChip(
-      label: Text(
-        label,
-        style: TextStyle(
-          color: selected ? selFg : unselFg,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      avatar: CircleAvatar(
-        backgroundColor: selected ? selFg.withValues(alpha: 0.18) : selBg.withValues(alpha: 0.18),
-        foregroundColor: selected ? selFg : selBg,
-        child: Text(avatarText, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
-      ),
-      selected: selected,
-      selectedColor: selBg,
-      backgroundColor: unselBg,
-      checkmarkColor: selFg,
-      side: BorderSide(
-        color: selected ? selBg : scheme.outlineVariant,
-        width: 1,
-      ),
-      onSelected: onChanged,
-    );
-  }
-}
-
-class _ClassFilter extends StatelessWidget {
-  const _ClassFilter({required this.value, required this.onChanged});
-  final String? value;
-  final ValueChanged<String?> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppL10n.of(context);
-    return DropdownButton<String?>(
-      value: value,
-      hint: Text(l10n.spellFilterClassHint),
-      items: [
-        DropdownMenuItem(value: null, child: Text(l10n.spellFilterClassAll)),
-        for (final c in spellcasterClasses)
-          DropdownMenuItem(value: c, child: Text(c)),
-      ],
-      onChanged: onChanged,
     );
   }
 }

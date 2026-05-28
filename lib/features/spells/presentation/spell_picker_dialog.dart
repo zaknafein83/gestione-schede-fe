@@ -10,6 +10,7 @@ import '../../auth/data/auth_storage.dart';
 import '../data/spells_api.dart';
 import '../models/spell_models.dart';
 import 'spell_detail_dialog.dart';
+import 'spell_filters.dart';
 
 /// Dialog di ricerca nel catalogo SRD. Restituisce uno [SpellSummary]
 /// quando l'utente seleziona un incantesimo, null se annulla.
@@ -154,21 +155,21 @@ class _SpellPickerBodyState extends ConsumerState<_SpellPickerBody> {
                 spacing: 8,
                 runSpacing: 8,
                 children: [
-                  _LevelFilter(
+                  SpellLevelFilter(
                     value: _level,
                     onChanged: (v) {
                       setState(() => _level = v);
                       _fetch();
                     },
                   ),
-                  _SchoolFilter(
+                  SpellSchoolFilter(
                     value: _school,
                     onChanged: (v) {
                       setState(() => _school = v);
                       _fetch();
                     },
                   ),
-                  _ClassFilter(
+                  SpellClassFilter(
                     value: _className,
                     onChanged: (v) {
                       setState(() => _className = v);
@@ -217,70 +218,6 @@ class _SpellPickerBodyState extends ConsumerState<_SpellPickerBody> {
         if (_loading && _results.isNotEmpty)
           const LinearProgressIndicator(minHeight: 2),
       ],
-    );
-  }
-}
-
-class _LevelFilter extends StatelessWidget {
-  const _LevelFilter({required this.value, required this.onChanged});
-  final int? value;
-  final ValueChanged<int?> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppL10n.of(context);
-    return DropdownButton<int?>(
-      value: value,
-      hint: Text(l10n.spellFilterLevelHint),
-      items: <DropdownMenuItem<int?>>[
-        DropdownMenuItem(value: null, child: Text(l10n.spellFilterLevelAll)),
-        DropdownMenuItem(value: 0,    child: Text(l10n.spellFilterCantrips)),
-        for (var l = 1; l <= 9; l++)
-          DropdownMenuItem(value: l, child: Text(l10n.spellFilterLevelN(l))),
-      ],
-      onChanged: onChanged,
-    );
-  }
-}
-
-class _SchoolFilter extends StatelessWidget {
-  const _SchoolFilter({required this.value, required this.onChanged});
-  final String? value;
-  final ValueChanged<String?> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppL10n.of(context);
-    return DropdownButton<String?>(
-      value: value,
-      hint: Text(l10n.spellFilterSchoolHint),
-      items: [
-        DropdownMenuItem(value: null, child: Text(l10n.spellFilterSchoolAll)),
-        for (final s in spellSchools)
-          DropdownMenuItem(value: s, child: Text(s)),
-      ],
-      onChanged: onChanged,
-    );
-  }
-}
-
-class _ClassFilter extends StatelessWidget {
-  const _ClassFilter({required this.value, required this.onChanged});
-  final String? value;
-  final ValueChanged<String?> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppL10n.of(context);
-    return DropdownButton<String?>(
-      value: value,
-      hint: Text(l10n.spellFilterClassHint),
-      items: [
-        DropdownMenuItem(value: null, child: Text(l10n.spellFilterClassAll)),
-        for (final c in spellcasterClasses)
-          DropdownMenuItem(value: c, child: Text(c)),
-      ],
-      onChanged: onChanged,
     );
   }
 }

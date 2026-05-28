@@ -13,7 +13,7 @@ class _UnauthenticatedAuthController extends AuthController {
 }
 
 void main() {
-  testWidgets('Landing renderizza "Benvenuto" quando non autenticato', (tester) async {
+  testWidgets('Landing render: hero e CTA visibili senza auth', (tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
@@ -24,8 +24,9 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Benvenuto'), findsOneWidget);
-    expect(find.text('Crea un account'), findsOneWidget);
-    expect(find.text('Accedi'), findsOneWidget);
+    // Eyebrow del hero — testo univoco della landing fantasy attuale.
+    expect(find.text('Cronache di un avventuriero 5e'), findsOneWidget);
+    // CTA primaria "Entra nella tua biblioteca" (l10n: landingCtaOpenWeb).
+    expect(find.text('Entra nella tua biblioteca'), findsOneWidget);
   });
 }

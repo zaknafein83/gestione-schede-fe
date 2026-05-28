@@ -119,6 +119,11 @@ extension type _GoogleAccountsId._(JSObject _) implements JSObject {
   external void renderButton(web.HTMLElement element, _ButtonOptions options);
 }
 
+// I campi snake_case sono richiesti dall'API JS di Google Identity Services
+// (`google.accounts.id.initialize`, `renderButton`): non possono essere
+// rinominati in lowerCamelCase senza rompere il binding.
+// ignore_for_file: non_constant_identifier_names
+
 @JS()
 @anonymous
 extension type _IdConfig._(JSObject _) implements JSObject {
