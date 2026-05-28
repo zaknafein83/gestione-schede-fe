@@ -8,7 +8,6 @@ import 'package:go_router/go_router.dart';
 import '../../../core/api_error.dart';
 import '../../../core/smart_back_button.dart';
 import '../../../l10n/app_localizations.dart';
-import '../../auth/data/auth_controller.dart';
 import '../../paywall/presentation/paywall_dialog.dart';
 import '../../share/logic/file_download.dart';
 import '../data/characters_controller.dart';
