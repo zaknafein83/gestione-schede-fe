@@ -25,6 +25,7 @@ import '../features/misc/presentation/coming_soon_screen.dart';
 import '../features/payment/presentation/billing_cancel_screen.dart';
 import '../features/payment/presentation/billing_success_screen.dart';
 import '../features/profile/presentation/profile_screen.dart';
+import '../features/spells/presentation/spell_catalog_screen.dart';
 
 /// Path raggiungibili senza essere autenticati.
 const _publicPaths = {
@@ -43,6 +44,7 @@ const _publicPaths = {
   '/account-deletion-info',
   '/billing/success',
   '/billing/cancel',
+  '/spells',
 };
 
 /// Path prefix che restano pubblici anche senza login (es. /share/...).
@@ -152,6 +154,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/billing/cancel',
         builder: (_, _) => const BillingCancelScreen(),
+      ),
+      // Catalogo SRD pubblico — consultabile anche da non loggati.
+      GoRoute(
+        path: '/spells',
+        builder: (_, _) => const SpellCatalogScreen(),
       ),
     ],
   );

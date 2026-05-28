@@ -499,6 +499,12 @@ abstract class AppL10n {
   /// **'Presto'**
   String get landingCtaStorePrefix;
 
+  /// No description provided for @landingCtaSpellsPrefix.
+  ///
+  /// In it, this message translates to:
+  /// **'Apri'**
+  String get landingCtaSpellsPrefix;
+
   /// No description provided for @landingCtaSpells.
   ///
   /// In it, this message translates to:
@@ -2550,6 +2556,15 @@ abstract class AppL10n {
   /// In it, this message translates to:
   /// **'— nessun altro tiro —'**
   String get diceNoOtherRolls;
+
+  /// No description provided for @spellCatalogTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Codex degli incantesimi'**
+  String get spellCatalogTitle;
+
+  /// No description provided for @spellCatalogResultsCount.
+  String spellCatalogResultsCount(int shown, int total);
 
   /// No description provided for @spellPickerTitle.
   ///
