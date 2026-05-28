@@ -28,10 +28,11 @@ import 'widgets/spellcasting_widget.dart';
 import 'widgets/stats_widget.dart';
 import 'widgets/traits_widget.dart';
 
-/// Editor del layout dashboard custom. Premium-only (verifica via 402 dal
-/// backend). Mostra i widget posizionati nel canvas; tap apre popup con
-/// azioni (rimuovi, z-order). Drag & resize verranno aggiunti nella
-/// prossima iterazione.
+/// Editor del layout dashboard custom. Disponibile a tutti gli utenti sulle
+/// proprie schede. Mostra i widget posizionati nel canvas; tap apre popup
+/// con azioni (rimuovi, z-order). Il `maybeShowPaywall` su 402 è una safety
+/// net: oggi il backend non emette 402 sul save layout, ma se in futuro
+/// venisse aggiunto un cap, il dialog scatta in automatico.
 class LayoutEditorScreen extends ConsumerStatefulWidget {
   const LayoutEditorScreen({super.key, required this.id});
 

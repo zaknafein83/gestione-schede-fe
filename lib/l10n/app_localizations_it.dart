@@ -1406,10 +1406,6 @@ class AppL10nIt extends AppL10n {
   String get editorLayoutWidgetPortrait => 'Ritratto';
 
   @override
-  String get editorLayoutPremiumRequired =>
-      'Il layout personalizzato è una funzionalità Premium.';
-
-  @override
   String get homeCustomDashboardBadge => 'NUOVO';
 
   @override
@@ -1417,7 +1413,7 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get homeCustomDashboardSubtitle =>
-      'Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove. Solo Premium.';
+      'Costruisci la tua scheda con widget drag & drop — scegli cosa mostrare e dove.';
 
   @override
   String get homeCustomDashboardOpen => 'Vai alle schede';
@@ -1430,9 +1426,6 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get landingDashboardSpotlightBadge => 'NUOVO';
-
-  @override
-  String get landingDashboardSpotlightPremium => 'PREMIUM';
 
   @override
   String get landingDashboardSpotlightTitle => 'L\'atelier del Cronista';

@@ -504,17 +504,15 @@
   "editorLayoutWidgetHpTracker":    "HP tracker",
   "editorLayoutWidgetConditions":   "Conditions",
   "editorLayoutWidgetPortrait":     "Portrait",
-  "editorLayoutPremiumRequired":    "Custom layouts are a Premium feature.",
 
   "homeCustomDashboardBadge":    "NEW",
   "homeCustomDashboardTitle":    "Custom dashboard",
-  "homeCustomDashboardSubtitle": "Build your character sheet with drag-and-drop widgets — pick what to show and where. Premium only.",
+  "homeCustomDashboardSubtitle": "Build your character sheet with drag-and-drop widgets — pick what to show and where.",
   "homeCustomDashboardOpen":     "Open characters",
   "charactersCardOpenClassic":   "Classic view",
   "charactersCardOpenLayout":    "Custom layout",
 
   "landingDashboardSpotlightBadge":   "NEW",
-  "landingDashboardSpotlightPremium": "PREMIUM",
   "landingDashboardSpotlightTitle":   "The Chronicler's atelier",
   "landingDashboardSpotlightDesc":    "Build the sheet your way: drag, resize and arrange the parchment blocks of your hero. Make it truly yours.",
 
