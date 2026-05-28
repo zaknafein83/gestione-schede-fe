@@ -1568,45 +1568,87 @@ abstract class AppL10n {
   String get paywallClose;
 
   /// No description provided for @billingAlreadyPremium.
+  ///
+  /// In it, this message translates to:
+  /// **'Sei già Premium!'**
   String get billingAlreadyPremium;
 
   /// No description provided for @billingSuccessTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Pagamento ricevuto'**
   String get billingSuccessTitle;
 
   /// No description provided for @billingSuccessWaiting.
+  ///
+  /// In it, this message translates to:
+  /// **'Stiamo confermando il tuo pagamento…'**
   String get billingSuccessWaiting;
 
   /// No description provided for @billingSuccessPollAttempt.
+  ///
+  /// In it, this message translates to:
+  /// **'Attendi qualche secondo'**
   String get billingSuccessPollAttempt;
 
   /// No description provided for @billingSuccessConfirmedTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Sei Premium!'**
   String get billingSuccessConfirmedTitle;
 
   /// No description provided for @billingSuccessConfirmedBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Ora puoi creare schede senza limiti.'**
   String get billingSuccessConfirmedBody;
 
   /// No description provided for @billingSuccessCtaCharacters.
+  ///
+  /// In it, this message translates to:
+  /// **'Vai alle schede'**
   String get billingSuccessCtaCharacters;
 
   /// No description provided for @billingSuccessPendingTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Pagamento in elaborazione'**
   String get billingSuccessPendingTitle;
 
   /// No description provided for @billingSuccessPendingBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Il pagamento sta arrivando ai nostri server. Ricontrolla tra qualche minuto: l\'acquisto è andato a buon fine, il tuo account verrà aggiornato a breve.'**
   String get billingSuccessPendingBody;
 
   /// No description provided for @billingSuccessCtaHome.
+  ///
+  /// In it, this message translates to:
+  /// **'Torna alla home'**
   String get billingSuccessCtaHome;
 
   /// No description provided for @billingCancelTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Pagamento annullato'**
   String get billingCancelTitle;
 
   /// No description provided for @billingCancelHeading.
+  ///
+  /// In it, this message translates to:
+  /// **'Non hai completato il pagamento'**
   String get billingCancelHeading;
 
   /// No description provided for @billingCancelBody.
+  ///
+  /// In it, this message translates to:
+  /// **'Niente è stato addebitato. Puoi riprovare in qualsiasi momento dal paywall.'**
   String get billingCancelBody;
 
   /// No description provided for @billingCancelCtaHome.
+  ///
+  /// In it, this message translates to:
+  /// **'Torna alla home'**
   String get billingCancelCtaHome;
 
   /// No description provided for @aboutSectionTitle.
@@ -1618,7 +1660,7 @@ abstract class AppL10n {
   /// No description provided for @aboutPlanFree.
   ///
   /// In it, this message translates to:
-  /// **'Piano attuale: Gratuito (fino a 2 schede)'**
+  /// **'Piano attuale: Gratuito (1 scheda)'**
   String get aboutPlanFree;
 
   /// No description provided for @aboutPlanPremium.
@@ -2782,7 +2824,7 @@ abstract class AppL10n {
   /// No description provided for @landingDashboardSpotlightDesc.
   ///
   /// In it, this message translates to:
-  /// **'Costruisci la scheda come vuoi tu...'**
+  /// **'Costruisci la scheda come vuoi tu: trascina, ridimensiona e disponi i blocchi della pergamena del tuo eroe. Rendila davvero tua.'**
   String get landingDashboardSpotlightDesc;
 
   /// No description provided for @editorAnagraficaName.

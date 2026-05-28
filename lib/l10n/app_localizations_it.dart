@@ -847,7 +847,7 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get billingSuccessPendingBody =>
-      "Il pagamento sta arrivando ai nostri server. Ricontrolla tra qualche minuto: l'acquisto è andato a buon fine, il tuo account verrà aggiornato a breve.";
+      'Il pagamento sta arrivando ai nostri server. Ricontrolla tra qualche minuto: l\'acquisto è andato a buon fine, il tuo account verrà aggiornato a breve.';
 
   @override
   String get billingSuccessCtaHome => 'Torna alla home';
