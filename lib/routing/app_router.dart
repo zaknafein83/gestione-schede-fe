@@ -22,6 +22,8 @@ import '../features/legal/presentation/cookies_screen.dart';
 import '../features/legal/presentation/privacy_screen.dart';
 import '../features/legal/presentation/terms_screen.dart';
 import '../features/misc/presentation/coming_soon_screen.dart';
+import '../features/payment/presentation/billing_cancel_screen.dart';
+import '../features/payment/presentation/billing_success_screen.dart';
 import '../features/profile/presentation/profile_screen.dart';
 
 /// Path raggiungibili senza essere autenticati.
@@ -39,6 +41,8 @@ const _publicPaths = {
   '/cookies',
   '/contact',
   '/account-deletion-info',
+  '/billing/success',
+  '/billing/cancel',
 };
 
 /// Path prefix che restano pubblici anche senza login (es. /share/...).
@@ -137,6 +141,17 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/account-deletion-info',
         builder: (_, _) => const AccountDeletionInfoScreen(),
+      ),
+      // Atterraggio post-checkout Stripe. Pubbliche perche' Stripe puo'
+      // redirigere prima che il refresh del token JWT vada a buon fine.
+      GoRoute(
+        path: '/billing/success',
+        builder: (_, state) =>
+            BillingSuccessScreen(sessionId: state.uri.queryParameters['session_id']),
+      ),
+      GoRoute(
+        path: '/billing/cancel',
+        builder: (_, _) => const BillingCancelScreen(),
       ),
     ],
   );
