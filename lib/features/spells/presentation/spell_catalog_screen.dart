@@ -164,20 +164,20 @@ class _SpellCatalogScreenState extends ConsumerState<SpellCatalogScreen> {
                             _fetch();
                           },
                         ),
-                        FilterChip(
-                          label: Text(l10n.spellFilterRitualOnly),
-                          avatar: const Text('R'),
+                        _BoolFilterChip(
+                          label: l10n.spellFilterRitualOnly,
+                          avatarText: 'R',
                           selected: _ritualOnly == true,
-                          onSelected: (sel) {
+                          onChanged: (sel) {
                             setState(() => _ritualOnly = sel ? true : null);
                             _fetch();
                           },
                         ),
-                        FilterChip(
-                          label: Text(l10n.spellFilterConcentrationOnly),
-                          avatar: const Text('C'),
+                        _BoolFilterChip(
+                          label: l10n.spellFilterConcentrationOnly,
+                          avatarText: 'C',
                           selected: _concentrationOnly == true,
-                          onSelected: (sel) {
+                          onChanged: (sel) {
                             setState(() => _concentrationOnly = sel ? true : null);
                             _fetch();
                           },
@@ -188,7 +188,7 @@ class _SpellCatalogScreenState extends ConsumerState<SpellCatalogScreen> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        l10n.spellCatalogResultsCount(_total, _results.length),
+                        l10n.spellCatalogResultsCount(_results.length, _total),
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
@@ -279,6 +279,55 @@ class _SchoolFilter extends StatelessWidget {
           DropdownMenuItem(value: s, child: Text(s)),
       ],
       onChanged: onChanged,
+    );
+  }
+}
+
+/// FilterChip tri-state per ritual/concentration con styling esplicito
+/// che funziona col theme fantasy scuro (default chip color non bilanciato
+/// rispetto allo sfondo: il default labelStyle aveva contrasto pessimo).
+class _BoolFilterChip extends StatelessWidget {
+  const _BoolFilterChip({
+    required this.label,
+    required this.avatarText,
+    required this.selected,
+    required this.onChanged,
+  });
+
+  final String           label;
+  final String           avatarText;
+  final bool             selected;
+  final ValueChanged<bool> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final selBg  = scheme.tertiary;       // gold
+    final selFg  = scheme.onTertiary;
+    final unselBg = scheme.surfaceContainerHighest;
+    final unselFg = scheme.onSurface;
+    return FilterChip(
+      label: Text(
+        label,
+        style: TextStyle(
+          color: selected ? selFg : unselFg,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      avatar: CircleAvatar(
+        backgroundColor: selected ? selFg.withValues(alpha: 0.18) : selBg.withValues(alpha: 0.18),
+        foregroundColor: selected ? selFg : selBg,
+        child: Text(avatarText, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+      ),
+      selected: selected,
+      selectedColor: selBg,
+      backgroundColor: unselBg,
+      checkmarkColor: selFg,
+      side: BorderSide(
+        color: selected ? selBg : scheme.outlineVariant,
+        width: 1,
+      ),
+      onSelected: onChanged,
     );
   }
 }
