@@ -1546,14 +1546,68 @@ abstract class AppL10n {
   /// No description provided for @paywallPriceHint.
   ///
   /// In it, this message translates to:
-  /// **'Premium 4,99€ una tantum — disponibile presto su mobile e web.'**
+  /// **'Pagamento sicuro Stripe. Lifetime: paghi una volta, è tuo per sempre.'**
   String get paywallPriceHint;
 
-  /// No description provided for @paywallOk.
+  /// No description provided for @paywallPriceHintComingSoon.
   ///
   /// In it, this message translates to:
-  /// **'Ho capito'**
-  String get paywallOk;
+  /// **'Pagamenti presto disponibili — il bottone diventerà attivo a breve.'**
+  String get paywallPriceHintComingSoon;
+
+  /// No description provided for @paywallBuy.
+  ///
+  /// In it, this message translates to:
+  /// **'Acquista 4,99€'**
+  String get paywallBuy;
+
+  /// No description provided for @paywallClose.
+  ///
+  /// In it, this message translates to:
+  /// **'Annulla'**
+  String get paywallClose;
+
+  /// No description provided for @billingAlreadyPremium.
+  String get billingAlreadyPremium;
+
+  /// No description provided for @billingSuccessTitle.
+  String get billingSuccessTitle;
+
+  /// No description provided for @billingSuccessWaiting.
+  String get billingSuccessWaiting;
+
+  /// No description provided for @billingSuccessPollAttempt.
+  String billingSuccessPollAttempt(Object count);
+
+  /// No description provided for @billingSuccessConfirmedTitle.
+  String get billingSuccessConfirmedTitle;
+
+  /// No description provided for @billingSuccessConfirmedBody.
+  String get billingSuccessConfirmedBody;
+
+  /// No description provided for @billingSuccessCtaCharacters.
+  String get billingSuccessCtaCharacters;
+
+  /// No description provided for @billingSuccessPendingTitle.
+  String get billingSuccessPendingTitle;
+
+  /// No description provided for @billingSuccessPendingBody.
+  String get billingSuccessPendingBody;
+
+  /// No description provided for @billingSuccessCtaHome.
+  String get billingSuccessCtaHome;
+
+  /// No description provided for @billingCancelTitle.
+  String get billingCancelTitle;
+
+  /// No description provided for @billingCancelHeading.
+  String get billingCancelHeading;
+
+  /// No description provided for @billingCancelBody.
+  String get billingCancelBody;
+
+  /// No description provided for @billingCancelCtaHome.
+  String get billingCancelCtaHome;
 
   /// No description provided for @aboutSectionTitle.
   ///

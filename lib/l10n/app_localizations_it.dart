@@ -808,16 +808,68 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get paywallPriceHint =>
-      'Premium 4,99€ una tantum — disponibile presto su mobile e web.';
+      'Pagamento sicuro Stripe. Lifetime: paghi una volta, è tuo per sempre.';
 
   @override
-  String get paywallOk => 'Ho capito';
+  String get paywallPriceHintComingSoon =>
+      'Pagamenti presto disponibili — il bottone diventerà attivo a breve.';
+
+  @override
+  String get paywallBuy => 'Acquista 4,99€';
+
+  @override
+  String get paywallClose => 'Annulla';
+
+  @override
+  String get billingAlreadyPremium => 'Sei già Premium!';
+
+  @override
+  String get billingSuccessTitle => 'Pagamento ricevuto';
+
+  @override
+  String get billingSuccessWaiting => 'Stiamo confermando il tuo pagamento…';
+
+  @override
+  String billingSuccessPollAttempt(Object count) => 'Attendi qualche secondo';
+
+  @override
+  String get billingSuccessConfirmedTitle => 'Sei Premium!';
+
+  @override
+  String get billingSuccessConfirmedBody =>
+      'Ora puoi creare schede senza limiti.';
+
+  @override
+  String get billingSuccessCtaCharacters => 'Vai alle schede';
+
+  @override
+  String get billingSuccessPendingTitle => 'Pagamento in elaborazione';
+
+  @override
+  String get billingSuccessPendingBody =>
+      "Il pagamento sta arrivando ai nostri server. Ricontrolla tra qualche minuto: l'acquisto è andato a buon fine, il tuo account verrà aggiornato a breve.";
+
+  @override
+  String get billingSuccessCtaHome => 'Torna alla home';
+
+  @override
+  String get billingCancelTitle => 'Pagamento annullato';
+
+  @override
+  String get billingCancelHeading => 'Non hai completato il pagamento';
+
+  @override
+  String get billingCancelBody =>
+      'Niente è stato addebitato. Puoi riprovare in qualsiasi momento dal paywall.';
+
+  @override
+  String get billingCancelCtaHome => 'Torna alla home';
 
   @override
   String get aboutSectionTitle => 'Informazioni';
 
   @override
-  String get aboutPlanFree => 'Piano attuale: Gratuito (fino a 2 schede)';
+  String get aboutPlanFree => 'Piano attuale: Gratuito (1 scheda)';
 
   @override
   String get aboutPlanPremium => 'Piano attuale: Premium';

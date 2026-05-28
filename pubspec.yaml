@@ -39,6 +39,9 @@ dependencies:
   # API browser (Web) — usato per scaricare i file JSON (Blob + anchor)
   web: ^1.1.0
 
+  # Apre URL esterni (redirect a Stripe Checkout hosted page).
+  url_launcher: ^6.3.1
+
   # Generazione PDF (pure Dart, web-compatibile)
   pdf: ^3.11.3
   purchases_flutter: ^10.1.1

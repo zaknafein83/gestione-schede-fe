@@ -1,36 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/api_error.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../auth/data/auth_storage.dart';
+import '../../payment/data/payment_api.dart';
 
-/// Mostra il paywall placeholder. Per ora nessuna CTA di pagamento — i
-/// pagamenti reali arriveranno con MVP-6 (IAP mobile + Stripe web).
+/// Mostra il dialog di paywall.
+///
+/// Comportamento del bottone "Acquista":
+///   1. Chiama `POST /me/stripe/checkout-session`.
+///   2. Se Stripe e' configurato, ritorna {sessionId, url} → apriamo la
+///      pagina hosted di Stripe (sullo stesso tab in web — Stripe vuole
+///      redirect, non popup, per gestire bene 3DS / Apple Pay).
+///   3. Se Stripe NON e' configurato (503 STRIPE_NOT_CONFIGURED), restiamo
+///      sul dialog e cambiamo il sottotitolo a "presto disponibile" — il
+///      flusso e' graceful: codice già live ma feature OFF finche' l'utente
+///      proprietario non popola le env vars.
+///   4. Errori generici Stripe → snackbar.
+///
+/// Per renderlo riusabile dai vari call site senza dover passare ref
+/// ovunque, lo wrappiamo in un ConsumerStatefulWidget interno.
 Future<void> showPaywallDialog(BuildContext context) {
-  final l10n = AppL10n.of(context);
   return showDialog<void>(
     context: context,
-    builder: (ctx) => AlertDialog(
-      icon: const Icon(Icons.workspace_premium_outlined, size: 40),
-      title: Text(l10n.paywallTitle),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(l10n.paywallBody),
-          const SizedBox(height: 12),
-          Text(
-            l10n.paywallPriceHint,
-            style: Theme.of(ctx).textTheme.bodySmall,
-          ),
-        ],
-      ),
-      actions: [
-        FilledButton(
-          onPressed: () => Navigator.of(ctx).pop(),
-          child: Text(l10n.paywallOk),
-        ),
-      ],
-    ),
+    builder: (_) => const _PaywallDialog(),
   );
 }
 
@@ -42,4 +37,102 @@ Future<bool> maybeShowPaywall(BuildContext context, Object error) async {
     return true;
   }
   return false;
+}
+
+class _PaywallDialog extends ConsumerStatefulWidget {
+  const _PaywallDialog();
+
+  @override
+  ConsumerState<_PaywallDialog> createState() => _PaywallDialogState();
+}
+
+class _PaywallDialogState extends ConsumerState<_PaywallDialog> {
+  bool _submitting = false;
+  bool _stripeUnavailable = false;
+
+  Future<void> _onBuy() async {
+    if (_submitting) return;
+    setState(() => _submitting = true);
+    final l10n = AppL10n.of(context);
+    try {
+      final access = await ref.read(authStorageProvider).loadAccess();
+      if (access == null) {
+        // L'utente dovrebbe essere loggato per arrivare al paywall;
+        // se non lo e' chiudiamo silenziosamente.
+        if (mounted) Navigator.of(context).pop();
+        return;
+      }
+      final session = await ref.read(paymentApiProvider).createCheckoutSession(access);
+      // Redirect alla pagina hosted Stripe. url_launcher con
+      // LaunchMode.externalApplication su web equivale a window.location.
+      final uri = Uri.parse(session.url);
+      await launchUrl(uri, webOnlyWindowName: '_self');
+      // Non chiudiamo il dialog: in web la pagina viene rimpiazzata,
+      // su mobile l'app resta e il dialog tornerà visibile quando l'utente
+      // chiude il browser esterno.
+    } on ApiError catch (e) {
+      if (!mounted) return;
+      if (e.status == 503 && e.code == 'STRIPE_NOT_CONFIGURED') {
+        setState(() => _stripeUnavailable = true);
+      } else if (e.status == 400 && e.code == 'ALREADY_PREMIUM') {
+        // Edge case: l'utente e' gia' Premium ma per qualche motivo vede
+        // ancora il paywall (cache stale). Chiudiamo + suggerimento refresh.
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.billingAlreadyPremium)),
+        );
+        Navigator.of(context).pop();
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.detail)),
+        );
+      }
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.commonNetworkError(e.toString()))),
+      );
+    } finally {
+      if (mounted) setState(() => _submitting = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppL10n.of(context);
+    return AlertDialog(
+      icon: const Icon(Icons.workspace_premium_outlined, size: 40),
+      title: Text(l10n.paywallTitle),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(l10n.paywallBody),
+          const SizedBox(height: 12),
+          Text(
+            _stripeUnavailable
+                ? l10n.paywallPriceHintComingSoon
+                : l10n.paywallPriceHint,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: _submitting ? null : () => Navigator.of(context).pop(),
+          child: Text(l10n.paywallClose),
+        ),
+        if (!_stripeUnavailable)
+          FilledButton.icon(
+            onPressed: _submitting ? null : _onBuy,
+            icon: _submitting
+                ? const SizedBox(
+                    width: 16, height: 16,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : const Icon(Icons.lock_outlined, size: 18),
+            label: Text(l10n.paywallBuy),
+          ),
+      ],
+    );
+  }
 }

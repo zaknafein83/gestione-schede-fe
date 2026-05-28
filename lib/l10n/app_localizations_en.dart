@@ -810,16 +810,68 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get paywallPriceHint =>
-      'Premium €4.99 one-time — coming soon on mobile and web.';
+      'Secure Stripe payment. Lifetime: pay once, keep it forever.';
 
   @override
-  String get paywallOk => 'Got it';
+  String get paywallPriceHintComingSoon =>
+      'Payments coming soon — the button will be enabled shortly.';
+
+  @override
+  String get paywallBuy => 'Buy €4.99';
+
+  @override
+  String get paywallClose => 'Cancel';
+
+  @override
+  String get billingAlreadyPremium => "You're already Premium!";
+
+  @override
+  String get billingSuccessTitle => 'Payment received';
+
+  @override
+  String get billingSuccessWaiting => 'Confirming your payment…';
+
+  @override
+  String billingSuccessPollAttempt(Object count) => 'Just a few seconds';
+
+  @override
+  String get billingSuccessConfirmedTitle => "You're Premium!";
+
+  @override
+  String get billingSuccessConfirmedBody =>
+      'You can now create unlimited sheets.';
+
+  @override
+  String get billingSuccessCtaCharacters => 'Go to characters';
+
+  @override
+  String get billingSuccessPendingTitle => 'Payment processing';
+
+  @override
+  String get billingSuccessPendingBody =>
+      'The payment is on its way to our servers. Check back in a few minutes: the purchase succeeded, your account will be updated soon.';
+
+  @override
+  String get billingSuccessCtaHome => 'Back to home';
+
+  @override
+  String get billingCancelTitle => 'Payment cancelled';
+
+  @override
+  String get billingCancelHeading => "You didn't complete the payment";
+
+  @override
+  String get billingCancelBody =>
+      'Nothing was charged. You can try again any time from the paywall.';
+
+  @override
+  String get billingCancelCtaHome => 'Back to home';
 
   @override
   String get aboutSectionTitle => 'About';
 
   @override
-  String get aboutPlanFree => 'Current plan: Free (up to 2 sheets)';
+  String get aboutPlanFree => 'Current plan: Free (1 sheet)';
 
   @override
   String get aboutPlanPremium => 'Current plan: Premium';
