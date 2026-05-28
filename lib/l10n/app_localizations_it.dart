@@ -1384,6 +1384,12 @@ class AppL10nIt extends AppL10n {
   String get spellFilterClassAll => 'Classe: tutte';
 
   @override
+  String get spellFilterRitualOnly => 'Solo rituali';
+
+  @override
+  String get spellFilterConcentrationOnly => 'Solo concentrazione';
+
+  @override
   String get spellPickerNoResults => 'Nessun risultato';
 
   @override

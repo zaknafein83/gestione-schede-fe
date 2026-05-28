@@ -2626,6 +2626,18 @@ abstract class AppL10n {
   /// **'Classe: tutte'**
   String get spellFilterClassAll;
 
+  /// No description provided for @spellFilterRitualOnly.
+  ///
+  /// In it, this message translates to:
+  /// **'Solo rituali'**
+  String get spellFilterRitualOnly;
+
+  /// No description provided for @spellFilterConcentrationOnly.
+  ///
+  /// In it, this message translates to:
+  /// **'Solo concentrazione'**
+  String get spellFilterConcentrationOnly;
+
   /// No description provided for @spellPickerNoResults.
   ///
   /// In it, this message translates to:

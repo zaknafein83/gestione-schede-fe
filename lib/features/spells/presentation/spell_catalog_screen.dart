@@ -30,6 +30,10 @@ class _SpellCatalogScreenState extends ConsumerState<SpellCatalogScreen> {
   int?    _level;
   String? _school;
   String? _className;
+  /// Tri-state: null = nessun filtro, true = solo rituali, false = non gestito.
+  bool?   _ritualOnly;
+  /// Tri-state: null = nessun filtro, true = solo concentrazione, false = non gestito.
+  bool?   _concentrationOnly;
   Timer?  _debounce;
 
   bool               _loading = false;
@@ -68,18 +72,22 @@ class _SpellCatalogScreenState extends ConsumerState<SpellCatalogScreen> {
       // Fetch lista + count in parallelo.
       final results = await api.search(
         access,
-        q:         _query.text,
-        level:     _level,
-        school:    _school,
-        className: _className,
-        limit:     100,
+        q:             _query.text,
+        level:         _level,
+        school:        _school,
+        className:     _className,
+        ritual:        _ritualOnly,
+        concentration: _concentrationOnly,
+        limit:         100,
       );
       final total = await api.count(
         access,
-        q:         _query.text,
-        level:     _level,
-        school:    _school,
-        className: _className,
+        q:             _query.text,
+        level:         _level,
+        school:        _school,
+        className:     _className,
+        ritual:        _ritualOnly,
+        concentration: _concentrationOnly,
       );
       if (!mounted) return;
       setState(() {
@@ -153,6 +161,24 @@ class _SpellCatalogScreenState extends ConsumerState<SpellCatalogScreen> {
                           value: _className,
                           onChanged: (v) {
                             setState(() => _className = v);
+                            _fetch();
+                          },
+                        ),
+                        FilterChip(
+                          label: Text(l10n.spellFilterRitualOnly),
+                          avatar: const Text('R'),
+                          selected: _ritualOnly == true,
+                          onSelected: (sel) {
+                            setState(() => _ritualOnly = sel ? true : null);
+                            _fetch();
+                          },
+                        ),
+                        FilterChip(
+                          label: Text(l10n.spellFilterConcentrationOnly),
+                          avatar: const Text('C'),
+                          selected: _concentrationOnly == true,
+                          onSelected: (sel) {
+                            setState(() => _concentrationOnly = sel ? true : null);
                             _fetch();
                           },
                         ),

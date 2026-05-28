@@ -19,12 +19,16 @@ class SpellsApi {
       : Options(headers: {'Authorization': 'Bearer $accessToken'});
 
   /// GET /spells — search/list paginato con filtri opzionali.
+  /// La ricerca testuale [q] copre sia il nome canonico EN sia la
+  /// traduzione IT (vedi backend `SpellCatalogService.buildFilter`).
   Future<List<SpellSummary>> search(
     String? accessToken, {
     String? q,
     int?    level,
     String? school,
     String? className,
+    bool?   ritual,
+    bool?   concentration,
     int     offset = 0,
     int     limit  = 20,
   }) async {
@@ -35,6 +39,8 @@ class SpellsApi {
         'level':  ?level,
         if (school != null && school.isNotEmpty) 'school': school,
         if (className != null && className.isNotEmpty) 'className': className,
+        if (ritual != null)        'ritual':        ritual,
+        if (concentration != null) 'concentration': concentration,
         'offset': offset,
         'limit':  limit,
       },
@@ -55,6 +61,8 @@ class SpellsApi {
     int?    level,
     String? school,
     String? className,
+    bool?   ritual,
+    bool?   concentration,
   }) async {
     final res = await _dio.get(
       '/spells/count',
@@ -63,6 +71,8 @@ class SpellsApi {
         'level':  ?level,
         if (school != null && school.isNotEmpty) 'school': school,
         if (className != null && className.isNotEmpty) 'className': className,
+        if (ritual != null)        'ritual':        ritual,
+        if (concentration != null) 'concentration': concentration,
       },
       options: _auth(accessToken),
     );
