@@ -82,7 +82,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   /// Callback invocata dal widget Google Sign-In quando GIS consegna un ID
   /// token. Tenta il login: se l'utente non e' mai stato visto e il backend
-  /// risponde 400 PRIVACY_NOT_ACCEPTED, suggerisce di registrarsi.
+  /// risponde 400 PRIVACY_NOT_ACCEPTED o AGE_NOT_DECLARED, suggerisce di
+  /// registrarsi (dove troverà entrambe le checkbox).
   Future<void> _onGoogleCredential(String idToken) async {
     if (_submitting) return;
     setState(() => _submitting = true);
@@ -90,6 +91,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       await ref.read(authControllerProvider.notifier).signInWithGoogle(
             idToken: idToken,
             acceptPrivacy: false,
+            declareMinAge: false,
           );
       if (!mounted) return;
       final st = ref.read(authControllerProvider);
@@ -97,10 +99,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         context.go('/home');
       } else if (st.hasError) {
         final err = st.error;
-        if (err is ApiError && err.code == 'PRIVACY_NOT_ACCEPTED') {
+        if (err is ApiError &&
+            (err.code == 'PRIVACY_NOT_ACCEPTED' || err.code == 'AGE_NOT_DECLARED')) {
           // L'utente Google e' nuovo: la registrazione richiede la spunta
-          // privacy. Lo mandiamo sulla pagina /register dove troverà il flusso
-          // completo (checkbox + bottone Google).
+          // privacy e la dichiarazione di eta'. Lo mandiamo su /register dove
+          // troverà il flusso completo (checkbox + bottone Google).
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(AppL10n.of(context).loginGoogleNeedsRegister)),
           );

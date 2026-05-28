@@ -678,6 +678,8 @@
   "registerPrivacyLink":    "Privacy Policy",
   "registerTermsLink":      "Termini di Servizio",
   "registerAcceptRequired": "Devi accettare la Privacy Policy e i Termini di Servizio per registrarti",
+  "registerAgeDeclaration": "Dichiaro di avere almeno 14 anni",
+  "registerAgeRequired":    "Devi confermare di avere almeno 14 anni per registrarti",
 
   "profilePrivacySectionTitle": "Privacy e dati",
   "profilePrivacyHint":         "Scarica una copia completa dei tuoi dati personali in formato JSON, oppure consulta la nostra Privacy Policy.",

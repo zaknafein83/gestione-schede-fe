@@ -1870,6 +1870,13 @@ class AppL10nIt extends AppL10n {
       'Devi accettare la Privacy Policy e i Termini di Servizio per registrarti';
 
   @override
+  String get registerAgeDeclaration => 'Dichiaro di avere almeno 14 anni';
+
+  @override
+  String get registerAgeRequired =>
+      'Devi confermare di avere almeno 14 anni per registrarti';
+
+  @override
   String get profilePrivacySectionTitle => 'Privacy e dati';
 
   @override
