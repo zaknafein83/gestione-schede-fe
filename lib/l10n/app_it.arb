@@ -496,6 +496,8 @@
   "spellFilterSchoolAll":      "Scuola: tutte",
   "spellFilterClassHint":      "Classe",
   "spellFilterClassAll":       "Classe: tutte",
+  "spellFilterRitualOnly":     "Solo rituali",
+  "spellFilterConcentrationOnly": "Solo concentrazione",
   "spellPickerNoResults":      "Nessun risultato",
   "spellPickerDetails":        "Dettagli",
   "spellPickerAdd":            "Aggiungi alla scheda",

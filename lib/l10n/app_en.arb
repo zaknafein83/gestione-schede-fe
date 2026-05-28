@@ -496,6 +496,8 @@
   "spellFilterSchoolAll":      "School: all",
   "spellFilterClassHint":      "Class",
   "spellFilterClassAll":       "Class: all",
+  "spellFilterRitualOnly":     "Ritual only",
+  "spellFilterConcentrationOnly": "Concentration only",
   "spellPickerNoResults":      "No results",
   "spellPickerDetails":        "Details",
   "spellPickerAdd":            "Add to sheet",
