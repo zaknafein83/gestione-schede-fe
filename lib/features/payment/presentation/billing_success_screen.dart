@@ -34,7 +34,6 @@ class _BillingSuccessScreenState extends ConsumerState<BillingSuccessScreen> {
   Timer? _timeoutTimer;
   bool _isPremium = false;
   bool _timedOut  = false;
-  int  _polls     = 0;
 
   static const _pollInterval   = Duration(seconds: 2);
   static const _maxPollSeconds = 30;
@@ -62,7 +61,6 @@ class _BillingSuccessScreenState extends ConsumerState<BillingSuccessScreen> {
 
   Future<void> _checkPremium() async {
     if (!mounted || _isPremium) return;
-    _polls++;
     try {
       final token = await ref.read(authStorageProvider).loadAccess();
       if (token == null) return;
