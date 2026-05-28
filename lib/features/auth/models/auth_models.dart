@@ -4,6 +4,10 @@
 /// rifiuta la registrazione con 400 se è false o assente. Va settato a true
 /// SOLO se l'utente ha realmente spuntato il checkbox in UI con i link a
 /// /privacy e /terms.
+///
+/// [declareMinAge] è l'autocertificazione di età minima richiesta dall'art. 8
+/// GDPR + art. 2-quinquies D.Lgs 101/2018 (soglia 14 anni in Italia).
+/// Checkbox separata da [acceptPrivacy] per evitare bundled consent.
 class RegisterRequest {
   RegisterRequest({
     required this.email,
@@ -11,6 +15,7 @@ class RegisterRequest {
     required this.username,
     required this.displayName,
     required this.acceptPrivacy,
+    required this.declareMinAge,
   });
 
   final String email;
@@ -18,6 +23,7 @@ class RegisterRequest {
   final String username;
   final String displayName;
   final bool   acceptPrivacy;
+  final bool   declareMinAge;
 
   Map<String, dynamic> toJson() => {
         'email': email,
@@ -25,6 +31,7 @@ class RegisterRequest {
         'username': username,
         'displayName': displayName,
         'acceptPrivacy': acceptPrivacy,
+        'declareMinAge': declareMinAge,
       };
 }
 

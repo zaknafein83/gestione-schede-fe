@@ -3511,6 +3511,18 @@ abstract class AppL10n {
   /// **'Devi accettare la Privacy Policy e i Termini di Servizio per registrarti'**
   String get registerAcceptRequired;
 
+  /// No description provided for @registerAgeDeclaration.
+  ///
+  /// In it, this message translates to:
+  /// **'Dichiaro di avere almeno 14 anni'**
+  String get registerAgeDeclaration;
+
+  /// No description provided for @registerAgeRequired.
+  ///
+  /// In it, this message translates to:
+  /// **'Devi confermare di avere almeno 14 anni per registrarti'**
+  String get registerAgeRequired;
+
   /// No description provided for @profilePrivacySectionTitle.
   ///
   /// In it, this message translates to:

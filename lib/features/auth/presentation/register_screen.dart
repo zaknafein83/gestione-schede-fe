@@ -31,7 +31,9 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   bool _submitting    = false;
   bool _showPassword  = false;
   bool _acceptPrivacy = false;
+  bool _declareMinAge = false;
   bool _showAcceptError = false;  // mostra l'errore solo dopo un tentativo di submit
+  bool _showAgeError    = false;
 
   @override
   void dispose() {
@@ -45,11 +47,12 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
   Future<void> _submit() async {
     final formOk = _formKey.currentState!.validate();
-    // Privacy/Terms vanno spuntati — controllo separato dal Form (è uno stato)
-    if (!_acceptPrivacy) {
-      setState(() => _showAcceptError = true);
-    }
-    if (!formOk || !_acceptPrivacy) return;
+    // Privacy/Terms + dichiarazione eta' vanno spuntati separatamente:
+    // sono stati booleani indipendenti dal Form (validator). Mostriamo
+    // l'errore solo per quelli effettivamente mancanti, dopo il tentativo.
+    if (!_acceptPrivacy) setState(() => _showAcceptError = true);
+    if (!_declareMinAge) setState(() => _showAgeError    = true);
+    if (!formOk || !_acceptPrivacy || !_declareMinAge) return;
 
     setState(() => _submitting = true);
 
@@ -59,6 +62,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       username:      _username.text.trim(),
       displayName:   _displayName.text.trim(),
       acceptPrivacy: _acceptPrivacy,
+      declareMinAge: _declareMinAge,
     );
 
     try {
@@ -67,13 +71,18 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       context.go('/check-email', extra: req.email);
     } on ApiError catch (e) {
       if (!mounted) return;
-      // Caso particolare: la validazione backend del consenso GDPR risponde
-      // con detail "acceptPrivacy: ...". Lo rendiamo user-friendly mostrando
-      // il messaggio i18n e evidenziando la checkbox.
+      // Casi particolari: la bean-validation backend risponde con detail
+      // "acceptPrivacy: ..." o "declareMinAge: ...". Li rendiamo
+      // user-friendly mostrando il messaggio i18n e marcando la checkbox.
       if (e.detail.contains('acceptPrivacy')) {
         setState(() => _showAcceptError = true);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(AppL10n.of(context).registerAcceptRequired)),
+        );
+      } else if (e.detail.contains('declareMinAge')) {
+        setState(() => _showAgeError = true);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppL10n.of(context).registerAgeRequired)),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.detail)));
@@ -88,15 +97,21 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     }
   }
 
-  /// Callback dal bottone Google Sign-In. Richiede che la checkbox privacy
-  /// sia spuntata (la stessa che vale per la registrazione email) — se non lo
-  /// e', mostriamo l'errore e mettiamo il flag rosso.
+  /// Callback dal bottone Google Sign-In. Richiede che entrambe le checkbox
+  /// (privacy + dichiarazione eta') siano spuntate, come per la registrazione
+  /// email — altrimenti mostriamo i rispettivi errori e abortiamo.
   Future<void> _onGoogleCredential(String idToken) async {
     if (_submitting) return;
-    if (!_acceptPrivacy) {
-      setState(() => _showAcceptError = true);
+    if (!_acceptPrivacy || !_declareMinAge) {
+      setState(() {
+        if (!_acceptPrivacy) _showAcceptError = true;
+        if (!_declareMinAge) _showAgeError    = true;
+      });
+      final l10n = AppL10n.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppL10n.of(context).registerAcceptRequired)),
+        SnackBar(content: Text(
+          !_acceptPrivacy ? l10n.registerAcceptRequired : l10n.registerAgeRequired,
+        )),
       );
       return;
     }
@@ -105,6 +120,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       await ref.read(authControllerProvider.notifier).signInWithGoogle(
             idToken: idToken,
             acceptPrivacy: true,
+            declareMinAge: true,
           );
       if (!mounted) return;
       final st = ref.read(authControllerProvider);
@@ -240,6 +256,15 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       validator: (v) => _validateConfirmPwd(l10n, v),
                     ),
                     const SizedBox(height: 16),
+                    _AgeDeclarationRow(
+                      value: _declareMinAge,
+                      showError: _showAgeError && !_declareMinAge,
+                      onChanged: (v) => setState(() {
+                        _declareMinAge = v ?? false;
+                        if (_declareMinAge) _showAgeError = false;
+                      }),
+                    ),
+                    const SizedBox(height: 8),
                     _PrivacyConsentRow(
                       value: _acceptPrivacy,
                       showError: _showAcceptError && !_acceptPrivacy,
@@ -301,6 +326,64 @@ class _RegisterOrDivider extends StatelessWidget {
           child: Text(label, style: Theme.of(context).textTheme.labelSmall),
         ),
         Expanded(child: Divider(color: color)),
+      ],
+    );
+  }
+}
+
+/// Riga di autocertificazione eta' minima (art. 8 GDPR + art. 2-quinquies
+/// D.Lgs 101/2018, soglia 14 anni in Italia). Checkbox separata dal consenso
+/// privacy per non bundlare due dichiarazioni eterogenee.
+class _AgeDeclarationRow extends StatelessWidget {
+  const _AgeDeclarationRow({
+    required this.value,
+    required this.onChanged,
+    required this.showError,
+  });
+
+  final bool value;
+  final bool showError;
+  final ValueChanged<bool?> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n   = AppL10n.of(context);
+    final theme  = Theme.of(context);
+    final scheme = theme.colorScheme;
+
+    final baseStyle = (theme.textTheme.bodyMedium ?? const TextStyle()).copyWith(
+      color: scheme.onSurface,
+      fontSize: 14,
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        InkWell(
+          onTap: () => onChanged(!value),
+          borderRadius: BorderRadius.circular(8),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Checkbox(value: value, onChanged: onChanged),
+                const SizedBox(width: 4),
+                Expanded(
+                  child: Text(l10n.registerAgeDeclaration, style: baseStyle),
+                ),
+              ],
+            ),
+          ),
+        ),
+        if (showError)
+          Padding(
+            padding: const EdgeInsets.only(left: 12, top: 4),
+            child: Text(
+              l10n.registerAgeRequired,
+              style: TextStyle(color: scheme.error, fontSize: 12),
+            ),
+          ),
       ],
     );
   }

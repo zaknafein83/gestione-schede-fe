@@ -63,17 +63,20 @@ class AuthController extends AsyncNotifier<UserDto?> {
 
   /// Login/registrazione via Google: invia l'ID token (gia' ricevuto dal SDK
   /// GIS) al backend e popola lo stato come per un login standard.
-  /// `acceptPrivacy` va passato a true se l'utente ha spuntato la checkbox
-  /// GDPR — il backend lo richiede solo per il primo accesso.
+  /// `acceptPrivacy` e `declareMinAge` vanno passati a true se l'utente ha
+  /// spuntato le rispettive checkbox — il backend li richiede solo per il
+  /// primo accesso (nuova registrazione).
   Future<void> signInWithGoogle({
     required String idToken,
     required bool acceptPrivacy,
+    required bool declareMinAge,
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       final res = await _api.googleLogin(
         idToken: idToken,
         acceptPrivacy: acceptPrivacy,
+        declareMinAge: declareMinAge,
       );
       await _storage.saveTokens(access: res.accessToken, refresh: res.refreshToken);
       return res.user;
