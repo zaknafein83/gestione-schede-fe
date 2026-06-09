@@ -39,56 +39,6 @@
     <a id="backBtn" class="btn hidden" href="/">Torna all'app</a>
   </div>
 
-  <script>
-    (function () {
-      var params = new URLSearchParams(window.location.search);
-      var uid = params.get('uid');
-      var email = params.get('email');
-
-      function fail(title, message) {
-        document.getElementById('spinner').classList.add('hidden');
-        document.getElementById('title').textContent = title;
-        document.getElementById('msg').textContent = message;
-        document.getElementById('backBtn').classList.remove('hidden');
-      }
-
-      if (!uid) {
-        fail('Sessione non valida', 'Apri il checkout dall\'app cliccando "Acquista".');
-        return;
-      }
-
-      fetch('/api/billing/config', { headers: { 'Accept': 'application/json' } })
-        .then(function (r) { return r.json(); })
-        .then(function (cfg) {
-          if (!cfg || !cfg.enabled) {
-            fail('Pagamenti non disponibili', 'Il checkout non è ancora attivo. Riprova più tardi.');
-            return;
-          }
-          if (cfg.environment === 'sandbox') {
-            Paddle.Environment.set('sandbox');
-          }
-          Paddle.Initialize({ token: cfg.clientToken });
-          Paddle.Checkout.open({
-            items: [{ priceId: cfg.priceId, quantity: 1 }],
-            customer: email ? { email: email } : undefined,
-            customData: { user_id: uid },
-            settings: {
-              displayMode: 'overlay',
-              theme: 'light',
-              locale: 'it',
-              successUrl: window.location.origin + '/billing/success'
-            }
-          });
-          // L'overlay è aperto sopra questa pagina; offriamo comunque un'uscita.
-          document.getElementById('title').textContent = 'Completa il pagamento';
-          document.getElementById('msg').textContent =
-            'Segui le istruzioni nella finestra di checkout. Se l\'hai chiusa, ricarica la pagina.';
-          document.getElementById('backBtn').classList.remove('hidden');
-        })
-        .catch(function () {
-          fail('Errore di caricamento', 'Non è stato possibile avviare il checkout. Riprova più tardi.');
-        });
-    })();
-  </script>
+  <script src="checkout.js"></script>
 </body>
 </html>
