@@ -111,7 +111,7 @@ class UserDto {
   final DateTime createdAt;
   final String tier;                // "FREE" | "PREMIUM"
   final DateTime? premiumSince;
-  final String? premiumSource;      // "IAP_GOOGLE" | "IAP_APPLE" | "STRIPE" | "ADMIN_GRANT" | null
+  final String? premiumSource;      // "IAP_GOOGLE" | "IAP_APPLE" | "PADDLE" | "ADMIN_GRANT" | null
   final Set<String> roles;          // {} oppure {"ADMIN"}
 
   bool get isPremium => tier == 'PREMIUM';
