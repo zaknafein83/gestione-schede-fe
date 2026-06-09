@@ -171,6 +171,31 @@ class _DetailContentState extends ConsumerState<_DetailContent> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                if (lang == 'it' && hasIt)
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 12),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: scheme.surfaceContainerHighest,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.info_outline, size: 16, color: scheme.outline),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            l10n.spellAiTranslationNotice,
+                            style: t.bodySmall?.copyWith(
+                              color: scheme.outline,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 _row(_l(lang, 'Casting Time', 'Tempo di lancio'), view.castingTime),
                 _row(_l(lang, 'Range',        'Gittata'),         view.range),
                 _row(_l(lang, 'Components',   'Componenti'),
