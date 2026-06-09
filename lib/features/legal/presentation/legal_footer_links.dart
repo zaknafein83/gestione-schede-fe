@@ -42,9 +42,13 @@ class LegalFooterLinks extends StatelessWidget {
         alignment: WrapAlignment.center,
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
+          link('Prezzi', '/pricing'),
+          dot(),
           link(l10n.profileLegalPrivacyLink, '/privacy'),
           dot(),
           link(l10n.profileLegalTermsLink,   '/terms'),
+          dot(),
+          link('Rimborsi', '/refund'),
           dot(),
           link(l10n.profileLegalCookiesLink, '/cookies'),
           dot(),

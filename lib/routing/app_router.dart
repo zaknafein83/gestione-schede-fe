@@ -19,7 +19,9 @@ import '../features/home/presentation/home_screen.dart';
 import '../features/legal/presentation/account_deletion_info_screen.dart';
 import '../features/legal/presentation/contact_screen.dart';
 import '../features/legal/presentation/cookies_screen.dart';
+import '../features/legal/presentation/pricing_screen.dart';
 import '../features/legal/presentation/privacy_screen.dart';
+import '../features/legal/presentation/refund_screen.dart';
 import '../features/legal/presentation/terms_screen.dart';
 import '../features/misc/presentation/coming_soon_screen.dart';
 import '../features/payment/presentation/billing_cancel_screen.dart';
@@ -40,6 +42,8 @@ const _publicPaths = {
   '/privacy',
   '/terms',
   '/cookies',
+  '/pricing',
+  '/refund',
   '/contact',
   '/account-deletion-info',
   '/billing/success',
@@ -139,6 +143,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/privacy', builder: (_, _) => const PrivacyScreen()),
       GoRoute(path: '/terms',   builder: (_, _) => const TermsScreen()),
       GoRoute(path: '/cookies', builder: (_, _) => const CookiesScreen()),
+      GoRoute(path: '/pricing', builder: (_, _) => const PricingScreen()),
+      GoRoute(path: '/refund',  builder: (_, _) => const RefundScreen()),
       GoRoute(path: '/contact', builder: (_, _) => const ContactScreen()),
       GoRoute(
         path: '/account-deletion-info',
