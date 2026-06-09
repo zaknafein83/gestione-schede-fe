@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Base URL del backend. In dev/test ascolta su localhost:8090; in prod si
@@ -10,8 +11,20 @@ const String apiBaseUrl = String.fromEnvironment(
   defaultValue: 'http://localhost:8090',
 );
 
+/// Guard anti-footgun: se una build release esce col default di sviluppo
+/// (localhost/http) significa che manca il --dart-define=API_BASE_URL e l'app
+/// sarebbe irraggiungibile o in chiaro. Lo segnaliamo forte in console.
+bool get _isDevApiUrl =>
+    apiBaseUrl.contains('localhost') || apiBaseUrl.startsWith('http://');
+
 /// Singleton del client HTTP, condiviso tra tutte le feature.
 final dioProvider = Provider<Dio>((ref) {
+  if (kReleaseMode && _isDevApiUrl) {
+    debugPrint(
+      'ATTENZIONE: build release con API_BASE_URL="$apiBaseUrl" (default di '
+      'sviluppo). Ricostruisci con --dart-define=API_BASE_URL=/api.',
+    );
+  }
   final dio = Dio(BaseOptions(
     baseUrl: apiBaseUrl,
     connectTimeout: const Duration(seconds: 10),
