@@ -1110,9 +1110,13 @@ class _Footer extends StatelessWidget {
                 alignment: WrapAlignment.center,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
+                  link('Prezzi', '/pricing'),
+                  Text(' ✦ ', style: dotStyle),
                   link(l10n.landingFooterPrivacy, '/privacy'),
                   Text(' ✦ ', style: dotStyle),
                   link(l10n.landingFooterTerms, '/terms'),
+                  Text(' ✦ ', style: dotStyle),
+                  link('Rimborsi', '/refund'),
                   Text(' ✦ ', style: dotStyle),
                   link('Cookie', '/cookies'),
                   Text(' ✦ ', style: dotStyle),
