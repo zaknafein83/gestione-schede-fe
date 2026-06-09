@@ -3,8 +3,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
 
-/// Atterraggio quando l'utente chiude Stripe Checkout senza pagare.
-/// Stripe redirige qui via cancel_url. Nessun pagamento e' stato fatto,
+/// Atterraggio quando l'utente annulla il checkout senza pagare.
+/// Con l'overlay Paddle la chiusura non redirige qui (resta su checkout.html);
+/// la pagina resta come fallback raggiungibile. Nessun pagamento fatto:
 /// rassicurazione + bottone per tornare alla home.
 class BillingCancelScreen extends StatelessWidget {
   const BillingCancelScreen({super.key});

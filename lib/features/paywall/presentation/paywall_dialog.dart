@@ -10,15 +10,13 @@ import '../../payment/data/payment_api.dart';
 /// Mostra il dialog di paywall.
 ///
 /// Comportamento del bottone "Acquista":
-///   1. Chiama `POST /me/stripe/checkout-session`.
-///   2. Se Stripe e' configurato, ritorna {sessionId, url} → apriamo la
-///      pagina hosted di Stripe (sullo stesso tab in web — Stripe vuole
-///      redirect, non popup, per gestire bene 3DS / Apple Pay).
-///   3. Se Stripe NON e' configurato (503 STRIPE_NOT_CONFIGURED), restiamo
-///      sul dialog e cambiamo il sottotitolo a "presto disponibile" — il
-///      flusso e' graceful: codice già live ma feature OFF finche' l'utente
-///      proprietario non popola le env vars.
-///   4. Errori generici Stripe → snackbar.
+///   1. Chiama `POST /me/billing/checkout`.
+///   2. Se il pagamento e' configurato, ritorna {url} → apriamo la pagina di
+///      checkout Paddle (checkout.html) sullo stesso tab in web.
+///   3. Se NON e' configurato (503 PADDLE_NOT_CONFIGURED), restiamo sul dialog
+///      e cambiamo il sottotitolo a "presto disponibile" — flusso graceful:
+///      codice live ma feature OFF finche' non si popolano le env vars.
+///   4. Errori generici → snackbar.
 ///
 /// Per renderlo riusabile dai vari call site senza dover passare ref
 /// ovunque, lo wrappiamo in un ConsumerStatefulWidget interno.
@@ -48,7 +46,7 @@ class _PaywallDialog extends ConsumerStatefulWidget {
 
 class _PaywallDialogState extends ConsumerState<_PaywallDialog> {
   bool _submitting = false;
-  bool _stripeUnavailable = false;
+  bool _billingUnavailable = false;
 
   Future<void> _onBuy() async {
     if (_submitting) return;
@@ -62,18 +60,18 @@ class _PaywallDialogState extends ConsumerState<_PaywallDialog> {
         if (mounted) Navigator.of(context).pop();
         return;
       }
-      final session = await ref.read(paymentApiProvider).createCheckoutSession(access);
-      // Redirect alla pagina hosted Stripe. url_launcher con
-      // LaunchMode.externalApplication su web equivale a window.location.
-      final uri = Uri.parse(session.url);
+      final checkout = await ref.read(paymentApiProvider).createCheckout(access);
+      // Redirect alla pagina di checkout Paddle (checkout.html). webOnlyWindowName
+      // '_self' su web equivale a window.location.
+      final uri = Uri.parse(checkout.url);
       await launchUrl(uri, webOnlyWindowName: '_self');
       // Non chiudiamo il dialog: in web la pagina viene rimpiazzata,
       // su mobile l'app resta e il dialog tornerà visibile quando l'utente
       // chiude il browser esterno.
     } on ApiError catch (e) {
       if (!mounted) return;
-      if (e.status == 503 && e.code == 'STRIPE_NOT_CONFIGURED') {
-        setState(() => _stripeUnavailable = true);
+      if (e.status == 503 && e.code == 'PADDLE_NOT_CONFIGURED') {
+        setState(() => _billingUnavailable = true);
       } else if (e.status == 400 && e.code == 'ALREADY_PREMIUM') {
         // Edge case: l'utente e' gia' Premium ma per qualche motivo vede
         // ancora il paywall (cache stale). Chiudiamo + suggerimento refresh.
@@ -109,7 +107,7 @@ class _PaywallDialogState extends ConsumerState<_PaywallDialog> {
           Text(l10n.paywallBody),
           const SizedBox(height: 12),
           Text(
-            _stripeUnavailable
+            _billingUnavailable
                 ? l10n.paywallPriceHintComingSoon
                 : l10n.paywallPriceHint,
             style: Theme.of(context).textTheme.bodySmall,
@@ -121,7 +119,7 @@ class _PaywallDialogState extends ConsumerState<_PaywallDialog> {
           onPressed: _submitting ? null : () => Navigator.of(context).pop(),
           child: Text(l10n.paywallClose),
         ),
-        if (!_stripeUnavailable)
+        if (!_billingUnavailable)
           FilledButton.icon(
             onPressed: _submitting ? null : _onBuy,
             icon: _submitting

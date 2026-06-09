@@ -150,8 +150,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/account-deletion-info',
         builder: (_, _) => const AccountDeletionInfoScreen(),
       ),
-      // Atterraggio post-checkout Stripe. Pubbliche perche' Stripe puo'
-      // redirigere prima che il refresh del token JWT vada a buon fine.
+      // Atterraggio post-checkout Paddle (successUrl). Pubbliche perche' il
+      // redirect puo' avvenire prima che il refresh del token JWT sia pronto.
       GoRoute(
         path: '/billing/success',
         builder: (_, state) =>
