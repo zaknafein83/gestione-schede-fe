@@ -65,11 +65,13 @@ class AuthController extends AsyncNotifier<UserDto?> {
   /// GIS) al backend e popola lo stato come per un login standard.
   /// `acceptPrivacy` e `declareMinAge` vanno passati a true se l'utente ha
   /// spuntato le rispettive checkbox — il backend li richiede solo per il
-  /// primo accesso (nuova registrazione).
+  /// primo accesso (nuova registrazione). `username` e' opzionale: se passato
+  /// al primo accesso viene usato come username, altrimenti derivato dall'email.
   Future<void> signInWithGoogle({
     required String idToken,
     required bool acceptPrivacy,
     required bool declareMinAge,
+    String? username,
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
@@ -77,6 +79,7 @@ class AuthController extends AsyncNotifier<UserDto?> {
         idToken: idToken,
         acceptPrivacy: acceptPrivacy,
         declareMinAge: declareMinAge,
+        username: username,
       );
       await _storage.saveTokens(access: res.accessToken, refresh: res.refreshToken);
       return res.user;
