@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -18,7 +18,7 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="PG 5e — gestionale di schede personaggio per giochi di ruolo fantasy 5e.">
+  <meta name="description" content="PG 5e — web app per creare e gestire schede personaggio di giochi di ruolo da tavolo (5e SRD 5.1). Gratis 1 scheda; Premium lifetime 4,99 € per schede illimitate e dashboard personalizzabile.">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -35,13 +35,74 @@
   <!-- Fallback per browser che ignorano l'attributo sizes -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>PG 5e</title>
+  <title>PG 5e — Schede personaggio per giochi di ruolo 5e</title>
   <link rel="manifest" href="manifest.json">
 
   <!-- Google Identity Services SDK (login con Google). -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <style>
+    /* Contenuto statico leggibile dai crawler senza JavaScript. Per gli utenti
+       reali l'app Flutter si avvia e copre questo contenuto. */
+    #seo-landing {
+      max-width: 820px; margin: 0 auto; padding: 32px 24px 64px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #2a2118; line-height: 1.6;
+    }
+    #seo-landing h1 { color: #8a6d2f; font-size: 28px; margin-bottom: 4px; }
+    #seo-landing h2 { color: #6f5824; font-size: 19px; margin-top: 28px; }
+    #seo-landing a { color: #8a6d2f; }
+    #seo-landing .tagline { font-size: 17px; color: #5a4d39; margin-top: 0; }
+    #seo-landing .price { font-weight: 700; }
+    #seo-landing nav a { margin-right: 16px; }
+  </style>
 </head>
 <body>
+  <!-- Fallback statico per crawler / accessibilità (Paddle, motori di ricerca).
+       L'app Flutter, una volta caricata, renderizza sopra questo contenuto. -->
+  <div id="seo-landing">
+    <h1>PG 5e</h1>
+    <p class="tagline">Crea e gestisci le tue schede personaggio per i giochi di ruolo da tavolo (regole 5e, SRD 5.1).</p>
+
+    <p>
+      PG 5e è un'applicazione web, live e accessibile in HTTPS, per costruire e
+      tenere in ordine le schede dei tuoi personaggi: statistiche, abilità,
+      tiri salvezza, combattimento, incantesimi, equipaggiamento e note. Include
+      un tiradadi integrato, la tracciatura di punti vita / slot incantesimi /
+      condizioni, l'esportazione in PDF e la condivisione di una scheda in sola
+      lettura tramite link pubblico.
+    </p>
+
+    <h2>Piani e prezzi</h2>
+    <p>
+      Il servizio è gratuito: ogni utente registrato può creare 1 scheda
+      personaggio con tutti gli strumenti di gioco. È disponibile un upgrade
+      <span class="price">Premium Lifetime a 4,99 €</span> (pagamento unico, una
+      tantum, nessun abbonamento) che sblocca schede illimitate e la dashboard
+      personalizzabile con editor drag &amp; drop del layout della scheda.
+      I pagamenti sul web sono gestiti da Paddle come rivenditore ufficiale
+      (Merchant of Record). Dettagli nella <a href="/pricing.html">pagina prezzi</a>.
+    </p>
+
+    <h2>Informazioni e contatti</h2>
+    <p>
+      Servizio fornito da Francesco Sisca (Corigliano-Rossano, CS, Italia) —
+      contatto: <a href="mailto:franksisca@gmail.com">franksisca@gmail.com</a>.
+      I contenuti di gioco derivano dal D&amp;D 5.1 System Reference Document
+      (SRD), pubblicato sotto licenza Creative Commons Attribution 4.0. Il
+      servizio non è affiliato a Wizards of the Coast.
+    </p>
+
+    <nav>
+      <a href="/pricing.html">Prezzi</a>
+      <a href="/terms.html">Termini di Servizio</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/refund.html">Rimborsi</a>
+    </nav>
+
+    <p style="margin-top:28px;color:#8a7a5e;">Caricamento dell'applicazione…</p>
+  </div>
+
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader
