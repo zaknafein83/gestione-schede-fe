@@ -294,6 +294,7 @@
   "paywallTitle":           "Free plan limit reached",
   "paywallBody":            "You've reached the maximum number of sheets on the free plan. Premium removes the limit and the ads on the mobile app forever.",
   "paywallPriceHint":       "Secure payment. Lifetime: pay once, keep it forever.",
+  "spellAiTranslationNotice": "Automatic (AI) translation, unofficial: the authoritative version is the English D&D 5.1 SRD text.",
   "paywallPriceHintComingSoon": "Payments coming soon — the button will be enabled shortly.",
   "paywallBuy":             "Buy €4.99",
   "paywallClose":           "Cancel",

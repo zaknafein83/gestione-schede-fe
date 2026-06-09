@@ -1573,6 +1573,12 @@ abstract class AppL10n {
   /// **'Pagamento sicuro. Lifetime: paghi una volta, è tuo per sempre.'**
   String get paywallPriceHint;
 
+  /// No description provided for @spellAiTranslationNotice.
+  ///
+  /// In it, this message translates to:
+  /// **'Traduzione automatica (AI), non ufficiale: la versione di riferimento resta quella inglese del D&D 5.1 SRD.'**
+  String get spellAiTranslationNotice;
+
   /// No description provided for @paywallPriceHintComingSoon.
   ///
   /// In it, this message translates to:

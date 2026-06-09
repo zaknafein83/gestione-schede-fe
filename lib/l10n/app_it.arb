@@ -294,6 +294,7 @@
   "paywallTitle":           "Piano gratuito al limite",
   "paywallBody":            "Hai raggiunto il numero massimo di schede del piano gratuito. Premium toglie il limite e le pubblicità sull'app mobile per sempre.",
   "paywallPriceHint":       "Pagamento sicuro. Lifetime: paghi una volta, è tuo per sempre.",
+  "spellAiTranslationNotice": "Traduzione automatica (AI), non ufficiale: la versione di riferimento resta quella inglese del D&D 5.1 SRD.",
   "paywallPriceHintComingSoon": "Pagamenti presto disponibili — il bottone diventerà attivo a breve.",
   "paywallBuy":             "Acquista 4,99€",
   "paywallClose":           "Annulla",

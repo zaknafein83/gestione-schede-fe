@@ -825,6 +825,10 @@ class AppL10nIt extends AppL10n {
       'Pagamento sicuro. Lifetime: paghi una volta, è tuo per sempre.';
 
   @override
+  String get spellAiTranslationNotice =>
+      'Traduzione automatica (AI), non ufficiale: la versione di riferimento resta quella inglese del D&D 5.1 SRD.';
+
+  @override
   String get paywallPriceHintComingSoon =>
       'Pagamenti presto disponibili — il bottone diventerà attivo a breve.';
 
