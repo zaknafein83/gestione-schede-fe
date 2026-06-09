@@ -824,7 +824,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get paywallPriceHint =>
-      'Secure Stripe payment. Lifetime: pay once, keep it forever.';
+      'Secure payment. Lifetime: pay once, keep it forever.';
 
   @override
   String get paywallPriceHintComingSoon =>

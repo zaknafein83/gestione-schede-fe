@@ -293,7 +293,7 @@
 
   "paywallTitle":           "Free plan limit reached",
   "paywallBody":            "You've reached the maximum number of sheets on the free plan. Premium removes the limit and the ads on the mobile app forever.",
-  "paywallPriceHint":       "Secure Stripe payment. Lifetime: pay once, keep it forever.",
+  "paywallPriceHint":       "Secure payment. Lifetime: pay once, keep it forever.",
   "paywallPriceHintComingSoon": "Payments coming soon — the button will be enabled shortly.",
   "paywallBuy":             "Buy €4.99",
   "paywallClose":           "Cancel",

@@ -293,7 +293,7 @@
 
   "paywallTitle":           "Piano gratuito al limite",
   "paywallBody":            "Hai raggiunto il numero massimo di schede del piano gratuito. Premium toglie il limite e le pubblicità sull'app mobile per sempre.",
-  "paywallPriceHint":       "Pagamento sicuro Stripe. Lifetime: paghi una volta, è tuo per sempre.",
+  "paywallPriceHint":       "Pagamento sicuro. Lifetime: paghi una volta, è tuo per sempre.",
   "paywallPriceHintComingSoon": "Pagamenti presto disponibili — il bottone diventerà attivo a breve.",
   "paywallBuy":             "Acquista 4,99€",
   "paywallClose":           "Annulla",

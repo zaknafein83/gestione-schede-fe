@@ -1570,7 +1570,7 @@ abstract class AppL10n {
   /// No description provided for @paywallPriceHint.
   ///
   /// In it, this message translates to:
-  /// **'Pagamento sicuro Stripe. Lifetime: paghi una volta, è tuo per sempre.'**
+  /// **'Pagamento sicuro. Lifetime: paghi una volta, è tuo per sempre.'**
   String get paywallPriceHint;
 
   /// No description provided for @paywallPriceHintComingSoon.

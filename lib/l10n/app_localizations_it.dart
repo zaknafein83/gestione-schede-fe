@@ -822,7 +822,7 @@ class AppL10nIt extends AppL10n {
 
   @override
   String get paywallPriceHint =>
-      'Pagamento sicuro Stripe. Lifetime: paghi una volta, è tuo per sempre.';
+      'Pagamento sicuro. Lifetime: paghi una volta, è tuo per sempre.';
 
   @override
   String get paywallPriceHintComingSoon =>
