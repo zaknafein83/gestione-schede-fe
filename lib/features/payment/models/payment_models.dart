@@ -1,12 +1,11 @@
-/// Risposta a POST /me/stripe/checkout-session.
-class CheckoutSession {
-  CheckoutSession({required this.sessionId, required this.url});
+/// Risposta a POST /me/billing/checkout: URL della pagina di checkout Paddle
+/// (checkout.html con uid/email server-side) su cui redirigere l'utente.
+class CheckoutResponse {
+  CheckoutResponse({required this.url});
 
-  final String sessionId;
   final String url;
 
-  factory CheckoutSession.fromJson(Map<String, dynamic> json) => CheckoutSession(
-        sessionId: json['sessionId'] as String,
-        url:       json['url']       as String,
+  factory CheckoutResponse.fromJson(Map<String, dynamic> json) => CheckoutResponse(
+        url: json['url'] as String,
       );
 }

@@ -9,7 +9,8 @@ import '../../auth/data/auth_api.dart';
 import '../../auth/data/auth_controller.dart';
 import '../../auth/data/auth_storage.dart';
 
-/// Pagina di atterraggio dopo che Stripe redirige l'utente post-pagamento.
+/// Pagina di atterraggio dopo che Paddle redirige l'utente post-pagamento
+/// (successUrl del checkout).
 ///
 /// Il webhook arriva server-to-server (asincrono): potrebbe essere processato
 /// PRIMA o DOPO che il browser arriva qui. Strategia: poll `GET /me` ogni 2s
@@ -17,12 +18,12 @@ import '../../auth/data/auth_storage.dart';
 /// mostra CTA "Vai alle schede".
 ///
 /// Se 30s passano senza esito, suggerisci all'utente di ricontrollare piu'
-/// tardi (il webhook arrivera' comunque, l'addebito Stripe e' affidabile).
+/// tardi (il webhook arrivera' comunque, l'addebito Paddle e' affidabile).
 class BillingSuccessScreen extends ConsumerStatefulWidget {
   const BillingSuccessScreen({super.key, this.sessionId});
 
-  /// session_id Stripe (query param). Non lo usiamo lato client per nulla
-  /// di security-critical — la verifica vera e' lato webhook.
+  /// Eventuale id transazione passato come query param. Non lo usiamo lato
+  /// client per nulla di security-critical — la verifica vera e' lato webhook.
   final String? sessionId;
 
   @override
