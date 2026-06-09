@@ -7,6 +7,7 @@ import '../../../core/google_config.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../legal/presentation/legal_footer_links.dart';
 import '../data/auth_controller.dart';
+import 'google_complete_registration_dialog.dart';
 import 'google_sign_in_button.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -82,8 +83,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   /// Callback invocata dal widget Google Sign-In quando GIS consegna un ID
   /// token. Tenta il login: se l'utente non e' mai stato visto e il backend
-  /// risponde 400 PRIVACY_NOT_ACCEPTED o AGE_NOT_DECLARED, suggerisce di
-  /// registrarsi (dove troverà entrambe le checkbox).
+  /// risponde 400 PRIVACY_NOT_ACCEPTED o AGE_NOT_DECLARED, apre un dialog
+  /// leggero che chiede solo username + le due spunte (privacy + eta'), senza
+  /// rimandare al form di registrazione completo (email/password inutili per
+  /// chi entra con Google).
   Future<void> _onGoogleCredential(String idToken) async {
     if (_submitting) return;
     setState(() => _submitting = true);
@@ -97,17 +100,22 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       final st = ref.read(authControllerProvider);
       if (st.asData?.value != null) {
         context.go('/home');
-      } else if (st.hasError) {
+        return;
+      }
+      if (st.hasError) {
         final err = st.error;
         if (err is ApiError &&
             (err.code == 'PRIVACY_NOT_ACCEPTED' || err.code == 'AGE_NOT_DECLARED')) {
-          // L'utente Google e' nuovo: la registrazione richiede la spunta
-          // privacy e la dichiarazione di eta'. Lo mandiamo su /register dove
-          // troverà il flusso completo (checkbox + bottone Google).
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppL10n.of(context).loginGoogleNeedsRegister)),
+          // Utente Google nuovo: completiamo la registrazione inline con il
+          // minimo indispensabile (username + spunte), riusando lo stesso
+          // idToken. A successo il dialog ritorna true e andiamo su /home.
+          final ok = await showGoogleCompleteRegistrationDialog(
+            context,
+            idToken: idToken,
           );
-          context.go('/register');
+          if (ok == true && mounted) {
+            context.go('/home');
+          }
         } else {
           final msg = err is ApiError ? err.detail : AppL10n.of(context).loginNetworkError;
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));

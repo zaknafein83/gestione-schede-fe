@@ -39,15 +39,19 @@ class AuthApi {
   /// POST /auth/google — login o registrazione OIDC. `acceptPrivacy` e
   /// `declareMinAge` sono richiesti a true solo al primo accesso
   /// (utente nuovo); per i login successivi il backend li ignora.
+  /// `username` e' opzionale: se valorizzato al primo accesso viene usato
+  /// come username dell'account, altrimenti il backend lo deriva dall'email.
   Future<LoginResponse> googleLogin({
     required String idToken,
     required bool acceptPrivacy,
     required bool declareMinAge,
+    String? username,
   }) async {
     final res = await _dio.post('/auth/google', data: {
       'idToken': idToken,
       'acceptPrivacy': acceptPrivacy,
       'declareMinAge': declareMinAge,
+      if (username != null && username.trim().isNotEmpty) 'username': username.trim(),
     });
     if (res.statusCode == 200) {
       return LoginResponse.fromJson(res.data as Map<String, dynamic>);

@@ -415,6 +415,24 @@ abstract class AppL10n {
   /// **'Per accedere con Google la prima volta devi registrarti accettando i Termini.'**
   String get loginGoogleNeedsRegister;
 
+  /// No description provided for @googleCompleteTitle.
+  ///
+  /// In it, this message translates to:
+  /// **'Completa la registrazione'**
+  String get googleCompleteTitle;
+
+  /// No description provided for @googleCompleteIntro.
+  ///
+  /// In it, this message translates to:
+  /// **'Scegli uno username e accetta i termini per continuare con Google.'**
+  String get googleCompleteIntro;
+
+  /// No description provided for @googleCompleteUsernameTaken.
+  ///
+  /// In it, this message translates to:
+  /// **'Questo username è già in uso, scegline un altro.'**
+  String get googleCompleteUsernameTaken;
+
   /// No description provided for @authCheckEmailTitle.
   ///
   /// In it, this message translates to:

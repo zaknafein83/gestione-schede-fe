@@ -178,6 +178,17 @@ class AppL10nEn extends AppL10n {
       'To sign in with Google the first time you need to register accepting the Terms.';
 
   @override
+  String get googleCompleteTitle => 'Complete your registration';
+
+  @override
+  String get googleCompleteIntro =>
+      'Pick a username and accept the terms to continue with Google.';
+
+  @override
+  String get googleCompleteUsernameTaken =>
+      'This username is already taken, please choose another.';
+
+  @override
   String get authCheckEmailTitle => 'Check your email';
 
   @override
