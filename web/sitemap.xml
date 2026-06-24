@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://pg.zaknafein.ovh/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pg.zaknafein.ovh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pg.zaknafein.ovh/en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pg.zaknafein.ovh/"/>
+  </url>
+  <url>
+    <loc>https://pg.zaknafein.ovh/en.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pg.zaknafein.ovh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pg.zaknafein.ovh/en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pg.zaknafein.ovh/"/>
+  </url>
+  <url><loc>https://pg.zaknafein.ovh/pricing.html</loc></url>
+  <url><loc>https://pg.zaknafein.ovh/terms.html</loc></url>
+  <url><loc>https://pg.zaknafein.ovh/privacy.html</loc></url>
+  <url><loc>https://pg.zaknafein.ovh/refund.html</loc></url>
+</urlset>
